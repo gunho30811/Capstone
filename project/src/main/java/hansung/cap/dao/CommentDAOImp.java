@@ -26,4 +26,9 @@ public class CommentDAOImp implements CommentDAO {
 	public List<CommentVO> CommentAll(int i){
 		return sqlSession.selectList(namespace+".CommentAll",i);
 	}
+	
+	@Override
+	public void delete(int s) {
+		sqlSession.delete(namespace+".delete",s);
+	}
 }

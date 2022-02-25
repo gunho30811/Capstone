@@ -8,9 +8,10 @@
 </head>
 <script type="text/javascript">
 	//글쓰기
+	
 	function del(){
 		var writer=document.getElementById("writer").value;
-		var deleter="${QnAVO.seq}";
+		var deleter="${QnAVO.seq}";  //QnA 번호
 		console.log(writer);
 		console.log(deleter);
 		if(writer=="${id}"){
@@ -36,7 +37,23 @@
 		location.href="/QnAList"+"?option=comment&text="+text+"&QnANum="+QnANum;
 	}
 	
-	    
+	function delComment(commentNum,commentId){
+		var userId="${id}";
+		var commentNum=commentNum;
+		var commentId=commentId;
+		var QnANum="${QnAVO.seq}";
+		
+		if(userId==commentId){
+			alert("삭제 되었습니다")
+			location.href="/QnAList"+"?option=delComment&index="+commentNum+"&QnANum="+QnANum;
+		}
+		else{
+			alert("권한이 없습니다");
+					
+		}
+		
+		
+	}
 
 </script>
 <body>
@@ -93,6 +110,7 @@
 		    				 
 		    					<th>${dataVO.userId }</th>
 		    					<td><input style="width: 500px" type="text" id="title" name="title" value="${dataVO.text}" /></td>
+		    					<td><input type="button" value="삭제" onclick="delComment('${dataVO.commentNum}', '${dataVO.userId}')"></td>
 		    				</tr>
 	    				 </c:forEach>
 	    			</table>

@@ -303,6 +303,7 @@ public class HomeController {
 			System.out.println(deleter);
 			qDao.delete(deleter);
 			list = qDao.QueryAll();
+			rDao.delete(deleter);
 			model.addAttribute("list",list);
 			model.addAttribute("firstIndex",firstIndex);
 			model.addAttribute("lastIndex", lastIndex);
@@ -318,7 +319,6 @@ public class HomeController {
 			System.out.println("리플 등록자 : "+rvo.userId);
 			System.out.println("text : "+rvo.text);
 			rDao.InsertComment(rvo);
-			System.out.println("debugging");
 			rlist=rDao.CommentAll(rvo.QnANum);
 			
 			QnAVO qRead=new QnAVO();
@@ -327,6 +327,24 @@ public class HomeController {
 			model.addAttribute("id",user_id);
 			model.addAttribute("QnAVO",qRead);
 			return "QnARead";
+		}
+		
+		else if(option.equals("delComment")) {
+			int delComment=Integer.parseInt(httpServletRequest.getParameter("index"));
+			System.out.println(delComment);
+			rDao.delete(delComment);
+			
+			List<CommentVO> rlist = new ArrayList<CommentVO>();
+			int keyword=Integer.parseInt(httpServletRequest.getParameter("QnANum"));
+			System.out.println(keyword);
+			QnAVO qRead=new QnAVO();
+			qRead=qDao.read(keyword);
+			rlist=rDao.CommentAll(keyword);
+			model.addAttribute("CommentVO",rlist);
+			model.addAttribute("id",user_id);
+			model.addAttribute("QnAVO",qRead);
+			return "QnARead";
+			
 		}
 		
 				

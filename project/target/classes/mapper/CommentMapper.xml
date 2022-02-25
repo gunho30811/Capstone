@@ -13,4 +13,8 @@
 	<select id="CommentAll"  resultType="hansung.cap.project.CommentVO">
 		select * from comment where QnANum like #{i}
 	</select>
+	
+	<delete id="delete">
+  		delete from comment where commentNum like #{s}
+  	</delete>
 </mapper>
