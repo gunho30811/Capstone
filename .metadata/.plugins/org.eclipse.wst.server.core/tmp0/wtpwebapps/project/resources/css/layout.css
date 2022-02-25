@@ -1,0 +1,225 @@
+/* 왼쪽 메뉴 로고까지만 */
+.nav-left{
+    background-color: #364153;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100%;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+.nav-head{
+    width: 250px;
+    height: 162px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-02{
+    width: 106px;
+    height: 35px;
+}
+
+/* 컨텐츠 */
+.contents{
+    position: absolute;
+    left: 250px;
+    top: 0px;
+    width: calc(100% - 250px);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* 맨 윗상단 메뉴 */
+.header{
+    height: 80px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+}
+.header-left-group{
+    width: 60%;
+}
+.hl{
+    font-size: 18px;
+    color: #747b8d;
+    line-height: 80px;
+    display: block;
+    width: 200px;
+    height: 80px;
+    float: left;
+    text-align: center;
+}
+.hl:link{
+    color: #747b8d;
+}
+.hl:hover{
+    background-color: #4164d0;
+    color: #ffffff;
+}
+.hl:active{
+    background-color: #4164d0;
+    color: #ffffff;
+}
+.hl:focus{
+    background-color: #4164d0;
+    color: #ffffff;
+}
+.logout{
+    margin-right: 11px;
+}
+.logout img{
+    position: absolute;
+    right: 11px;
+    top: 24px;
+}
+/* 컨텐츠 내용 */
+.contents-body{
+    clear: left;
+    background-color: #e8e8f2;
+    height: calc(100% - 80px);
+    padding: 30px;
+    box-sizing: border-box;
+}
+.contents-body-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contents-body-title h2{
+    color: #262b32;
+    font-size: 20px;
+    line-height: 79px;
+}
+.popup-btn{
+    border: none;
+    width: 100px;
+    height: 35px;
+    background-color: #12a7f9;
+    border-radius: 17.5px;
+    font-size: 14px;
+    color: #ffffff;
+    margin: auto 0;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.body-board{
+    background-color: #ffffff;
+    border-radius: 10px 10px;
+    margin-bottom: 20px;
+}
+.body-nav{
+    height: 53px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.bn{
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    /* padding-bottom: 19px; */
+    color: #747b8d;
+    border-bottom: solid #e1e1ec 3px;
+}
+.bn:link{
+    color: #747b8d;
+    border-bottom: solid #e1e1ec 3px;
+}
+.bn:hover{
+    border-bottom: solid #12a7f9 3px;
+    color: #262b32;
+}
+.bn:active{
+    border-bottom: solid #12a7f9 3px;
+    color: #262b32;
+}
+.bn:focus{
+    border-bottom: solid #12a7f9 3px;
+    color: #262b32;
+}
+
+/************ 팝업창 ************/
+.popup{
+    font-family: 'NanumSquareR';
+    width: 1280px;
+    height: 1024px;
+    box-sizing: border-box;
+    padding: 0 21px;
+    z-index: 100;
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    border: solid #bfbfd0 1px;
+}
+.pop-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 79px;
+}
+.pop-head h2{
+    color: #262b32;
+}
+.select-cate{
+   border: solid #bfbfd0 1px;
+   border-radius: 5px;
+   width: 60px;
+   height: 35px;
+   /* margin-right: 6px; */
+}
+.select-cate option{
+    font-size: 14px;
+    color: #262b32;
+}
+.select-btn{
+    font-family: 'NanumSquareB';
+    background-color: #12a7f9;
+    color: #ffffff;
+    border-radius: 17.5px;
+    width: 70px;
+    height: 35px;
+
+}
+hr{
+    margin-bottom: 27px;
+    color: #e1e1ec;
+}
+h3{
+    font-size: 18px;
+    font-family: 'NanumSquareB';
+    color: #262b32;
+    line-height: 22px;
+    margin-bottom: 18px;
+}
+h4{
+    font-size: 16px;
+    font-family: 'NanumSquareB';
+    color: #262b32;
+    line-height: 22px;
+    margin-bottom: 20px;
+}
+h5{
+    font-family: 'NanumSqureR';
+    font-size: 14px;
+    color: #262b32;
+    line-height: 22px;
+}
+h5 strong{
+    font-family: 'NanumSquareB';
+    font-size: 14px;
+    color: #262b32;
+}
+h6 pre{
+    font-family: 'NanumSqureR';
+    font-size: 14px;
+    color: #262b32;
+    line-height: 22px;
+}

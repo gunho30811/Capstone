@@ -1,0 +1,289 @@
+.header{
+    padding: 35px 0 0 40px;
+    box-sizing: border-box;
+}
+.header > p{
+    font-size: 20px;
+    font-family: 'NanumSquareB';
+}
+.body-board{
+    padding: 30px;
+    box-sizing: border-box;
+}
+.filter{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+.filter:first-child{
+    margin-bottom: 20px;
+}
+.filter > p{
+    font-family: 'NanumSquareR';
+    font-size: 15px;
+    line-height: 40px;
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+.filter input{
+    width: 770px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 15px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.filter select{
+    width: 250px;
+    height: 40px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 15px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.board_head{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.board_head p{
+    font-family: 'NanumSquareB';
+    font-size: 16px;
+    line-height: 40px;
+}
+.board_head select{
+    font-family: 'NanumSquareR';
+    font-size: 15px;
+    line-height: 40px;
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+}
+.board_head_right{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.inp_btn{
+    background-color: #999999;
+    color: #fefefe;
+}
+input.inp_btn{
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+.submit_btn{
+    border: 1px solid #cccccc;
+    background-color: #eeeeee;
+    color: #000000;
+}
+.tab_div{
+    overflow: auto;
+    max-height: 700px;
+    box-sizing: border-box;
+}
+.list_tab{
+    width: 100%;
+    min-width: 1500px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.list_tab th{
+    background-color: #eeeeee;
+    height: 40px;
+    border: 1px solid #cccccc;
+    font-family: 'NanumSquareB';
+}
+.list_tab td{
+    height: 40px;
+    border: 1px solid #cccccc;
+}
+.tab_btm{
+    width: 100%;
+    height: 24px;
+    background-color: #cccccc;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+}
+.paging{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.paging a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    font-size: 17px;
+    line-height: 30px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+.paging a:hover{
+    background-color: #cccccc;
+}
+
+/************************************** 0002.html ********/
+.contents-body{
+    overflow: auto;
+}
+.input_board{
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.input_part{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    min-height: 30px;
+    box-sizing: border-box;
+}
+.input_part p:nth-child(1){
+    font-family: 'NanumSquareR';
+    font-size: 15px;
+    width: 130px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    margin-right: 20px;
+}
+.input_plus{
+    width: calc(100% - 150px);
+    display: flex;
+    flex-flow: column nowrap;
+}
+.inp_right_div{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 20px;
+}
+.input_part_right{
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+.inp_default input{
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+}
+.inp_menu input{
+    padding: 0 10px;
+    width: 30%;
+    height: 40px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+.plus_btn{
+    width: 30px;
+}
+.inp_tag button{
+    width: auto;
+    min-width: 80px;
+    padding: 0 10px;
+    margin: 0 10px 10px 0;
+}
+.input_part_right textarea{
+    width: 100%;
+    height: 120px;
+    font-family: 'NanumSquareR';
+    font-size: 15px;
+    line-height: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.photo_zone{
+    min-height: 150px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.radio_zone{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.radio_zone span{
+    display: block;
+    margin: 0 20px 20px 0;
+}
+.radio_zone input[type="radio"]{
+    margin-right: 10px;
+}
+.input_part i{
+    color: skyblue;
+}
+.contents_btm{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+
+/*** 팝업 ***/
+.pop {
+	background-color:rgba(0,0,0,.6);
+	position:fixed;
+	left:0; right:0; top:0; bottom:0;
+	z-index:100;
+    display: none;
+}
+.pop > div{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+.pop_content{
+    position: absolute;
+    top: 50%;
+	left:50%;
+	margin-left: -350px;
+    margin-top: -340px;
+    width: 1000px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+.pop_content .pop_filter p{
+    margin-right: 40px;
+}
+.pop_content .pop_filter .inp_long{
+    margin-right: 15px;
+
+}
+.map_zone{
+    border: 1px solid #999999;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+.select_address{
+    margin-top: 30px;
+}
+.select_address span{
+    display: block;
+    margin-bottom: 20px;
+}
+.select_address input{
+    margin-right: 10px;
+}

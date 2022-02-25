@@ -1,0 +1,59 @@
+package hansung.cap.project;
+
+public class QnAVO {
+	public int seq;
+	public String title;
+	public String content;
+	public String userId;
+	public String time;
+	
+	public QnAVO() {
+		this.seq=0;
+		this.title="";
+		this.content="";
+		this.userId="";
+		this.time="";
+	}
+	
+	public QnAVO(int Seq,String title,String content,String userId,String time) {
+		this.seq=Seq;
+		this.title=title;
+		this.content=content;
+		this.userId=userId;
+		this.time=time;
+	}
+	
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int Seq) {
+		this.seq = Seq;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
+	
+
+}
