@@ -77,14 +77,20 @@
 			}
 			
 		}
+		
 		function gotoEnroll(){
 			location.href="/QnAList"+"?option=gotoEnroll";
 		}
+		
 		function read(Num){
 			var keyword=Num;
 			console.log(keyword);
 			
 			location.href="/QnAList"+"?option=read&keyword="+keyword;
+		}
+		
+		function gotoMenu(){
+			location.href = "/menu";
 		}
 </script>
 <body>
@@ -150,6 +156,7 @@
 	                    <a onclick="paging(5)" id="5">5 </a>
 	                    <a class=“last” onclick="after()"> > </a>
          			</div>
+         			<button class="btn filter_search_btn" onclick="gotoMenu()">메뉴</button>
                 </div>
                 
         </div>

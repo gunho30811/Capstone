@@ -114,6 +114,14 @@ public class HomeController {
 		return "menu";
 	}*/
 	
+	@RequestMapping(value = "/menu", method = RequestMethod.GET)
+	public String menu(HttpServletRequest httpServletRequest, Model model) {
+		HttpSession session=httpServletRequest.getSession();
+		String user_id=(String)session.getAttribute("userId"); ;
+		model.addAttribute("id",user_id);
+		return "menu";
+	}
+	
 	//-----------------------------------------차량 리스트 띄우기--------------------------------------------------//
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(HttpServletRequest httpServletRequest, Model model) {

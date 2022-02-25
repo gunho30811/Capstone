@@ -85,6 +85,10 @@
 			
 			location.href = "/list"+"?option=carKind&kind="+carKind;
 		}
+		
+		function gotoMenu(){
+			location.href = "/menu";
+		}
 </script>
 <body>
 
@@ -110,6 +114,7 @@
                     <input type="text" class="inp_long" id="search">
                 </div>
                 <button class="btn filter_search_btn" onclick="search()">검색</button>
+                
             </div>
               <div class="tab_div">
                     <table class="list_tab">
@@ -150,6 +155,7 @@
 	                    <a onclick="paging(5)" id="5">5 </a>
 	                    <a class=“last” onclick="after()"> > </a>
          			</div>
+         			<button class="btn filter_search_btn" onclick="gotoMenu()">메뉴</button>
                 </div>
                 
         </div>
