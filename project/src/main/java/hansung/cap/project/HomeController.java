@@ -91,6 +91,14 @@ public class HomeController {
 			}
 			
 		}
+		
+		else if(option.equals("logOut")) {
+			System.out.println("log Out!!!");
+			session.invalidate();
+			System.out.println("session delete");
+			
+			return "firstpage";
+		}
 			
 		
 		System.out.println("first page return");
