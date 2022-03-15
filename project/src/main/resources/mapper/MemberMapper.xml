@@ -8,7 +8,7 @@
 <mapper namespace="hansung.cap.mapper.MemberMapper">
 
 	<select id="login" resultType="hansung.cap.project.MemberVO">
-		select * from login where userId=#{userId} and userPw=#{userPw}
+		select * from login where userId=#{userId} and userPw=#{userPw} and userName=#{userName} and userEmail=#{userEmail} and userQuestion=#{userQuestion}
 	</select>
 	
 	<insert id="insertMember">
