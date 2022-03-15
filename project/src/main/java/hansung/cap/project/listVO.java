@@ -1,70 +1,63 @@
 package hansung.cap.project;
 
 public class listVO {
-	public String carNum; //차 번호
-	public String carKind; //차 종
-	public String carColor; //차 색
-	public String carMaster; //차 주인
-	public String inTime; // 입실 시간
-	public String outTime;// 나가는 시간
+	public int seq;
+	public String model;
+	public String carColor;
+	public String time;
+	
 	
 	
 	public listVO() {
-		this.carNum ="";
-		this.carKind ="";
+		this.seq =0;
+		this.model ="";
 		this.carColor ="";
-		this.carMaster ="";
-		this.inTime ="";
-		this.outTime="";
+		this.time ="";
+		
 		
 	}
 	
-	public listVO(String carNum, String carKind, String carColor, String carMaster, String inTime , String outTime) {
-		this.carNum =carNum;
-		this.carKind =carKind;
+	public listVO(int seq, String model, String carColor, String time){
+		this.seq =seq;
+		this.model =model;
 		this.carColor =carColor;
-		this.carMaster =carMaster;
-		this.inTime =inTime;
-		this.outTime=outTime;
+		this.time =time;
 		
 	}
-	
-	
-	
-	public String getCarNum() {
-		return carNum;
+
+	public int getSeq() {
+		return seq;
 	}
-	public void setCarNum(String carNum) {
-		this.carNum = carNum;
+
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
-	public String getCarKind() {
-		return carKind;
+
+	public String getModel() {
+		return model;
 	}
-	public void setCarKind(String carKind) {
-		this.carKind = carKind;
+
+	public void setModel(String model) {
+		this.model = model;
 	}
+
 	public String getCarColor() {
 		return carColor;
 	}
+
 	public void setCarColor(String carColor) {
 		this.carColor = carColor;
 	}
-	public String getCarMaster() {
-		return carMaster;
+
+	public String getTime() {
+		return time;
 	}
-	public void setCarMaster(String carMaster) {
-		this.carMaster = carMaster;
+
+	public void setTime(String time) {
+		this.time = time;
 	}
-	public String getInTime() {
-		return inTime;
-	}
-	public void setInTime(String inTime) {
-		this.inTime = inTime;
-	}
-	public String getOutTime() {
-		return outTime;
-	}
-	public void setOutTime(String outTime) {
-		this.outTime = outTime;
-	}
+	
+	
+	
+	
 }

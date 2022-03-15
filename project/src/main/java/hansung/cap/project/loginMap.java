@@ -13,7 +13,7 @@ public class loginMap {
 		return instance;
 	} 
 	public loginMap() {
-		list.add(new MemberVO("qudqud97","qwe123"));
-		list.add(new MemberVO("rtw2343","1234"));
+		//list.add(new MemberVO("qudqud97","qwe123"));
+		//list.add(new MemberVO("rtw2343","1234"));
 	}
 }
