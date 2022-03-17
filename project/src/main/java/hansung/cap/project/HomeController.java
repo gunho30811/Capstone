@@ -51,10 +51,86 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	
+	//---------------------------------메뉴화면-------------------------------------//
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(HttpServletRequest httpServletRequest, Model model) {
+		return "index";
+	}
+	
+	//---------------------------------로그인-------------------------------------//
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(HttpServletRequest httpServletRequest, Model model) {
+		MemberVO mVo=new MemberVO();
+		
+		String option=httpServletRequest.getParameter("option");
+		System.out.println(httpServletRequest.getParameter("userId")+","+httpServletRequest.getParameter("userPw"));
+		System.out.println(option);
+		System.out.println();
+		
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id;
+		
+		if(option==null) {
+			System.out.println("option null : loginpage loading");
+		}
+		
+		else if(option.equals("login")) {
+			mVo.userId=httpServletRequest.getParameter("userId");
+			mVo.userPw=httpServletRequest.getParameter("userPw");
+			MemberVO login = new MemberVO();
+			login=mDao.login(mVo);
+			String s = "no";
+			if(login == null) {
+				System.out.println("fail");
+				model.addAttribute("failFlag",s);
+			}
+			else {
+				session.setAttribute("userId", mVo.userId);
+				user_id=(String)session.getAttribute("userId");
+				System.out.println(user_id);
+				model.addAttribute("id",user_id);
+				return "create";
+				
+			}
+			
+		}
+		
+		return "login";
+	}
+	
+	
+	//---------------------------------회원가입-------------------------------------//
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public String create(HttpServletRequest httpServletRequest, Model model) {
+		System.out.println(httpServletRequest.getParameter("userId")+","+httpServletRequest.getParameter("userPw")
+		+","+httpServletRequest.getParameter("userName")+","+httpServletRequest.getParameter("userEmail")+","+
+				httpServletRequest.getParameter("userQuestion"));
+		
+		String option=httpServletRequest.getParameter("option");
+		
+		MemberVO mVo=new MemberVO();
+		
+		if(option==null) {
+			
+		}
+		else if(option.equals("signup")) {
+			mVo.userId=httpServletRequest.getParameter("userId");
+			mVo.userPw=httpServletRequest.getParameter("userPw");
+			mVo.userName=httpServletRequest.getParameter("userName");
+			mVo.userEmail=httpServletRequest.getParameter("userEmail");
+			mVo.userQuestion=httpServletRequest.getParameter("userQuestion");
+			mDao.InsertId(mVo);
+			return "login";
+		}
+		
+		return "create";
+	}
+	
 	
 	//---------------------------------firstpage 띄우기-------------------------------------//
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(HttpServletRequest httpServletRequest, Model model, HttpServletResponse response) {
+	@RequestMapping(value = "/firstpage", method = RequestMethod.GET)
+	public String firstpage(HttpServletRequest httpServletRequest, Model model, HttpServletResponse response) {
 		 
 		MemberVO mVo=new MemberVO();
 		
@@ -373,10 +449,3 @@ public class HomeController {
 	
 	
 }
-
-
-
-
-
-
-

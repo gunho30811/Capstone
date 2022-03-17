@@ -8,8 +8,8 @@
 <mapper namespace="hansung.cap.mapper.listMapper">
 
     <insert id="insertList">
-        insert into list(carNum,carKind,carColor,carMaster,inTime,outTime) values
-                          (#{carNum},#{carKind},#{carColor},#{carMaster},#{inTime},#{outTime})
+        insert into list(model,carColor,Time) values
+                          (#{model},#{carColor},#{Time})
     </insert>
     
       <select id="queryAll" resultType="hansung.cap.project.listVO">
@@ -17,7 +17,7 @@
     </select>
     
 	<select id="searchName" resultType="hansung.cap.project.listVO">
-		select * from list where carNum like #{msg} or carKind like #{msg} or carColor like #{msg} or carMaster like #{msg}
+		select * from list where model like #{msg} or carColor like #{msg} or time like #{msg}
 	</select>
 </mapper>
 

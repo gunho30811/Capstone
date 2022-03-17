@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    font-family:'Electrolize';
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+    .bar_menu{
+ 
+    list-style: none;
+    padding-left: 0;
+    padding-top:20px;
+    }
+
+        
+        .bar_menu li:hover{
+            background-color: #d49466;
+            border-radius: 20px;
+            width: 212px;
+        }
+
+
+    .bar_menu li{
+        padding: 50px 19px;
+        font-size: 25px;
+        
+    }
+
+.prontbar{
+       
+    background-color: #1e4779; 
+        width: 250px;   
+        display: flex;
+      
+    }

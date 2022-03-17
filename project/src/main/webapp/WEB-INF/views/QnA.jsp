@@ -7,7 +7,7 @@
 <title>QnA 등록</title>
 </head>
 <script type="text/javascript">
-	//글쓰기
+	//글쓰기kjhjhkjk
 	function enroll(){
 		var title=document.getElementById("title").value;
 		var content=document.getElementById("content").value;
