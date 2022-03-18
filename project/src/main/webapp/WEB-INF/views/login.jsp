@@ -17,7 +17,7 @@
     <div class="bar_logo">
         <a href="index.html">HansungProject</a>
     </div>
-    <form action="">
+    <!--  <form> 여기 수정-->
         <div class="int-area">
             <input type="text" name="id" id="userId" value=""
             autocomplete="off" required>
@@ -33,7 +33,7 @@
        <div class="btn-area">
            <button onclick = "login()">LOGIN</button>
        </div>
-    </form>
+    <!-- </form> -->
 
     <div class="caption">
         <a href="/create">Create Account</a>
@@ -58,6 +58,11 @@
 		console.log(a);
 		if ( a=="no") {
 			alert("로그인거부 : 아이디와 비밀번호를 확인하세요");
+		}
+		var s = "${loginAgain}";
+		console.log(s);
+		if (s == "login"){
+			alert("다시 로그인 해주세요");
 		}
     </script>
 </body>

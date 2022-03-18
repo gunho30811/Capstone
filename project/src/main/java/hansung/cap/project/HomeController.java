@@ -54,6 +54,7 @@ public class HomeController {
 	//---------------------------------메뉴화면-------------------------------------//
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest httpServletRequest, Model model) {
+		System.out.println("first page return");
 		return "index";
 	}
 	
@@ -90,7 +91,7 @@ public class HomeController {
 				user_id=(String)session.getAttribute("userId");
 				System.out.println(user_id);
 				model.addAttribute("id",user_id);
-				return "create";
+				return "index";
 				
 			}
 			
@@ -121,7 +122,11 @@ public class HomeController {
 			mVo.userEmail=httpServletRequest.getParameter("userEmail");
 			mVo.userQuestion=httpServletRequest.getParameter("userQuestion");
 			mDao.InsertId(mVo);
+			String s = "login";
+			model.addAttribute("loginAgain",s);
 			return "login";
+			
+			
 		}
 		
 		return "create";
