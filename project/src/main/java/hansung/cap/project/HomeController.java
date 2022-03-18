@@ -55,12 +55,26 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest httpServletRequest, Model model) {
 		System.out.println("first page return");
+		
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		System.out.println("----------------------------------"+user_id);
 		return "index";
 	}
 	
 	//---------------------------------로그인-------------------------------------//
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(HttpServletRequest httpServletRequest, Model model) {
+		
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		System.out.println("----------------------------------"+user_id);
+		if(user_id!=null) {
+			return "index";
+		}
+		
 		MemberVO mVo=new MemberVO();
 		
 		String option=httpServletRequest.getParameter("option");
@@ -68,9 +82,7 @@ public class HomeController {
 		System.out.println(option);
 		System.out.println();
 		
-		HttpSession session=httpServletRequest.getSession();
 		
-		String user_id;
 		
 		if(option==null) {
 			System.out.println("option null : loginpage loading");
@@ -104,6 +116,15 @@ public class HomeController {
 	//---------------------------------회원가입-------------------------------------//
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create(HttpServletRequest httpServletRequest, Model model) {
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		System.out.println("----------------------------------"+user_id);
+		if(user_id!=null) {
+			return "index";
+		}
+		
+		
 		System.out.println(httpServletRequest.getParameter("userId")+","+httpServletRequest.getParameter("userPw")
 		+","+httpServletRequest.getParameter("userName")+","+httpServletRequest.getParameter("userEmail")+","+
 				httpServletRequest.getParameter("userQuestion"));
@@ -216,7 +237,7 @@ public class HomeController {
 	public String list(HttpServletRequest httpServletRequest, Model model) {
 		HttpSession session=httpServletRequest.getSession();
 		String user_id=(String)session.getAttribute("userId"); //아이디 세션 불러오기
-		
+
 		
 		System.out.println("----------------------------------"+user_id);
 		if(user_id==null) {

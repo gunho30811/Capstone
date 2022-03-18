@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
     <div class="bar_logo">
         <a href="index.html">HansungProject</a>
     </div>
-    <!--  <form> ¿©±â ¼öÁ¤-->
+    <!--  <form> ì—¬ê¸° ìˆ˜ì •-->
         <div class="int-area">
             <input type="text" name="id" id="userId" value=""
             autocomplete="off" required>
@@ -57,12 +57,12 @@
 		var a = "${failFlag}";
 		console.log(a);
 		if ( a=="no") {
-			alert("·Î±×ÀÎ°ÅºÎ : ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä");
+			alert("ë¡œê·¸ì¸ê±°ë¶€ : ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”");
 		}
 		var s = "${loginAgain}";
 		console.log(s);
 		if (s == "login"){
-			alert("´Ù½Ã ·Î±×ÀÎ ÇØÁÖ¼¼¿ä");
+			alert("ë‹¤ì‹œ ë¡œê·¸ì¸ í•´ì£¼ì„¸ìš”");
 		}
     </script>
 </body>

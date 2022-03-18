@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +47,7 @@
     
      </nav>    
         <div class="intro_text">
-            <h1>¿ì¸®´Â ½Â¸®ÇÒ °ÍÀÌ´Ù. ¾ðÁ¦³ª ±×·¨µíÀÌ</h1>
+            <h1>ìš°ë¦¬ëŠ” ìŠ¹ë¦¬í•  ê²ƒì´ë‹¤. ì–¸ì œë‚˜ ê·¸ëž¬ë“¯ì´</h1>
         </div>
 
     <div class="screen_main">
@@ -59,10 +59,10 @@
                 <img src ="/resources/img/CCTV.jpg" alt="My Image">
             </div>
             <div class="content1">
-                ³»¿ë ³»¿ë ³»¿ë ?<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
+                ë‚´ìš© ë‚´ìš© ë‚´ìš© ?<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
             </div>
 
         </div>
@@ -76,10 +76,10 @@
                 <img src ="/resources/img/Cm1.jpg" alt="My Image">
             </div>
             <div class="content2">
-                ³»¿ë ³»¿ë ³»¿ë ?<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
+                ë‚´ìš© ë‚´ìš© ë‚´ìš© ?<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
             </div>
 
         </div>
@@ -91,10 +91,10 @@
                 <img src ="/resources/img/Cm1.jpg" alt="My Image">
             </div>
             <div class="content3">
-                ³»¿ë ³»¿ë ³»¿ë ?<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
-                 ºí¶ó ºí¶ó ºí¶ó<br>
+                ë‚´ìš© ë‚´ìš© ë‚´ìš© ?<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
+                 ë¸”ë¼ ë¸”ë¼ ë¸”ë¼<br>
             </div>
     
         </div>
