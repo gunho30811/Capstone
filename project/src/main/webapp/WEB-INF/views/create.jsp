@@ -65,25 +65,31 @@
           }
         </script>
 		<script>
-			function signup(){
-				var userId = document.getElementById("userId").value;
-				var userPw = document.getElementById("userPw").value;
-				var userName = document.getElementById("userName").value;
-				var userEmail = document.getElementById("userEmail").value;
-				var userQuestion = document.getElementById("userQuestion").value;
-				
-				console.log(userId);
-				console.log(userPw);
-				console.log(userName);
-				console.log(userEmail);
-				console.log(userQuestion);
-				
-				if(userId !="" || userPw !="" || userName !="" || userEmail !="" || userQuestion !="" ){
-					location.href="/create"+"?option=signup&userId="+userId+"&userPw="+userPw
-					+"&userName="+userName+"&userEmail="+userEmail+"&userQuestion="+userQuestion;
-				}
-				
+		function signup(){
+			var userId = document.getElementById("userId").value;
+			var userPw = document.getElementById("userPw").value;
+			var userName = document.getElementById("userName").value;
+			var userEmail = document.getElementById("userEmail").value;
+			var userQuestion = document.getElementById("userQuestion").value;
+			
+			console.log(userId);
+			console.log(userPw);
+			console.log(userName);
+			console.log(userEmail);
+			console.log(userQuestion);
+			
+			if(userId !="" || userPw !="" || userName !="" || userEmail !="" || userQuestion !="" ){
+				location.href="/create"+"?option=signup&userId="+userId+"&userPw="+userPw
+				+"&userName="+userName+"&userEmail="+userEmail+"&userQuestion="+userQuestion;
 			}
+			
+		}
+		var r = "${redundancy}";
+		console.log(r);
+		if (r == "redundancy"){
+			alert("ID 중복입니다. 다시 입력해주세요.");
+		}
+
 		</script>
 
 

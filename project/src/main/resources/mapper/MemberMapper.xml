@@ -14,4 +14,9 @@
 	<insert id="insertMember">
 		insert into login(userId,userPw,userName,userEmail,userQuestion) values (#{userId},#{userPw},#{userName},#{userEmail},#{userQuestion})
 	</insert>
+	
+	<select id="idCheck" resultType="int">
+		select count(*) from login where userId=#{userId}
+	</select>
+	
 </mapper>

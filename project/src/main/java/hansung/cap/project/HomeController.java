@@ -170,10 +170,23 @@ public class HomeController {
 			mVo.userName=httpServletRequest.getParameter("userName");
 			mVo.userEmail=httpServletRequest.getParameter("userEmail");
 			mVo.userQuestion=httpServletRequest.getParameter("userQuestion");
-			mDao.InsertId(mVo);
-			String s = "login";
-			model.addAttribute("loginAgain",s);
-			return "login";
+			int result = mDao.idCheck(mVo);
+			
+			
+			if(result == 0) {					//중복이 아니라면 쿼리에서 0 반환
+				mDao.InsertId(mVo);
+				String s = "login";
+				model.addAttribute("loginAgain",s);
+				System.out.println("create account success");
+				return "login";
+			}
+			else if(result == 1) {				//중복이라면 쿼리에서 1 반환
+				
+				String r = "redundancy";
+				model.addAttribute("redundancy", r);
+				System.out.println("create account fail : rename id");
+				return "create";
+			}
 			
 			
 		}

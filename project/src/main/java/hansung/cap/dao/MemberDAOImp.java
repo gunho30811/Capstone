@@ -22,4 +22,10 @@ public class MemberDAOImp implements MemberDAO {
     public void InsertId(MemberVO vo){
     	sqlSession.insert(namespace+".insertMember", vo);
     }
+    @Override
+    public int idCheck(MemberVO vo) {
+    	int result = sqlSession.selectOne(namespace+".idCheck", vo);
+		return result;
+    }
+    
 }
