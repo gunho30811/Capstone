@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import hansung.cap.dao.CarKindDAO;
 import hansung.cap.dao.CommentDAO;
+import hansung.cap.dao.FreeBoardDAO;
 import hansung.cap.dao.MemberDAO;
 import hansung.cap.dao.MemberDAOImp;
 import hansung.cap.dao.QnADAO;
@@ -47,6 +48,8 @@ public class HomeController {
 	private CarKindDAO cDao; //차 데이터 확인 DAO
 	@Inject
 	private CommentDAO rDao; //리플 관련 DAO
+	@Inject
+	private FreeBoardDAO fDao;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -60,6 +63,30 @@ public class HomeController {
 		
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
+		String login;
+		String option = httpServletRequest.getParameter("option");
+		
+		if(option==null) {
+			
+		}
+		else if(option.equals("logOut")){
+			System.out.println("log Out!!!");
+			session.invalidate();
+			System.out.println("session delete");
+			
+			return "index";
+		}
+		
+		if(user_id==null) {
+			System.out.println("로그인이 되지 않았습니다");
+			login = "Login";
+			model.addAttribute("login", login);
+		}
+		else {
+			login = "LogOut";
+			model.addAttribute("login",user_id);
+			model.addAttribute("logOut",login);
+		}
 		return "index";
 	}
 	
@@ -72,6 +99,7 @@ public class HomeController {
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
 		if(user_id!=null) {
+			model.addAttribute("login",user_id);
 			return "index";
 		}
 		
@@ -152,6 +180,116 @@ public class HomeController {
 		
 		return "create";
 	}
+	
+
+
+	//---------------------------------리스트 띄우기-------------------------------------//
+		@RequestMapping(value = "/carList", method = RequestMethod.GET)
+		public String carList(HttpServletRequest httpServletRequest, Model model) {
+			System.out.println("carList return");
+			
+			HttpSession session=httpServletRequest.getSession();
+			
+			String user_id=(String)session.getAttribute("userId");;
+			System.out.println("----------------------------------"+user_id);
+			
+			if(user_id==null) {
+				return "login";
+			}
+			
+					
+			List<listVO> list = new ArrayList<listVO>();
+			
+			list = lDao.QueryAll();
+			
+			listVO vo=new listVO();
+			
+			model.addAttribute("list",list);
+			return "carList";
+		}
+
+
+	//---------------------------------QnA 페이지-------------------------------------//
+		@RequestMapping(value = "/QnA", method = RequestMethod.GET)
+		public String QnA(HttpServletRequest httpServletRequest, Model model) {
+			System.out.println("QnAList return");
+				
+			HttpSession session=httpServletRequest.getSession();
+				
+			String user_id=(String)session.getAttribute("userId");;
+			System.out.println("----------------------------------"+user_id);
+			
+			List<QnAVO> list = new ArrayList<QnAVO>();
+			
+			String option = httpServletRequest.getParameter("option");
+			if(option==null) {
+				
+			}
+			else if(option.equals("search")) {
+				String keyWord = httpServletRequest.getParameter("keyWord");
+				list = qDao.search("%"+keyWord+"%");
+				model.addAttribute("list", list);
+				return "QnA";
+			}
+			
+			list = qDao.QueryAll();
+			
+					
+			model.addAttribute("list",list);
+			return "QnA";
+		}
+		
+	//---------------------------------자유게시판화면-------------------------------------//
+		@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
+		public String freeBoard(HttpServletRequest httpServletRequest, Model model) {
+			System.out.println("first page return");
+			
+			HttpSession session=httpServletRequest.getSession();
+			
+			String user_id=(String)session.getAttribute("userId");;
+			System.out.println("----------------------------------"+user_id);
+			
+			List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
+			list = fDao.QueryAll();
+			String option = httpServletRequest.getParameter("option");
+			if(option==null) {
+				
+			}
+			
+			else if(option.equals("gotoEnroll")) {  //글 작성 페이지로 이동
+				model.addAttribute("id",user_id);
+				System.out.println("이거되니");
+				return "FreeEnroll";
+			}
+			
+			else if(option.equals("enroll")) { //글 등록
+				FreeBoardVO vo = new FreeBoardVO();
+				vo.title = httpServletRequest.getParameter("title");
+				vo.content = httpServletRequest.getParameter("content");
+				vo.userId = httpServletRequest.getParameter("userId");
+				vo.time = httpServletRequest.getParameter("timeString");
+				
+				fDao.insert(vo);
+				list = fDao.QueryAll();
+				model.addAttribute("list",list);
+				return "freeBoard";
+			}
+			
+			else if(option.equals("search")) {
+				String keyWord=httpServletRequest.getParameter("keyWord");
+				list = fDao.Search("%"+keyWord+"%");
+			}
+			model.addAttribute("list",list);
+			return "freeBoard";
+		}
+	
+		
+	
+	
+	
+	
+	
+	
 	
 	
 	//---------------------------------firstpage 띄우기-------------------------------------//
@@ -349,9 +487,9 @@ public class HomeController {
 		
 		
 		System.out.println("----------------------------------"+user_id);
-		if(user_id==null) {
-			return "firstpage";
-		}
+		//if(user_id==null) {
+			//return "firstpage";
+		//}
 		
 		QnAVO qVo=new QnAVO();
 		//DataMap dataMap = DataMap.getInstance();
@@ -470,7 +608,7 @@ public class HomeController {
 		model.addAttribute("firstIndex",firstIndex);
 		model.addAttribute("lastIndex", lastIndex);
 		System.out.println("QnA list");
-		return "QnAList";
+		return "exQnAList";
 	}
 	
 	

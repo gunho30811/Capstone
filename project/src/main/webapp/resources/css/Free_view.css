@@ -1,0 +1,173 @@
+body{
+    margin: 0;
+    font-family:'Electrolize';
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.all{
+    margin:0 auto;
+    background:white;
+    height: 700px;
+}
+
+.title{
+    width:125px;   
+    position: relative;
+    left:250px;
+    top:-35px;
+    background: white;
+}
+.title h1{
+    position: relative;
+    left:40px;
+    top:20px;
+    font-size: 40px;
+    text-align: left;
+}
+
+
+
+    .bar_menu{
+ 
+    list-style: none;
+    padding-left: 0;
+    padding-top:50px;
+    }
+
+        
+        .bar_menu li:hover{
+            background-color: #d49466;
+            border-radius: 20px;
+            width: 212px;
+        }
+
+
+    .bar_menu li{
+        padding: 50px 19px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+
+
+.prontbar{
+        background-color: #1e4779; 
+        width: 250px;   
+        display:flex;
+        margin-bottom: -710px; 
+        margin-top: -103px;    
+}
+
+
+.board_list_wrap{
+    position: relative;
+    
+    left:295px;   
+    width:1200px;
+    max-height: 700px;
+   
+}
+
+.search-input{
+    position: relative;
+    left:430px;
+    top:40px;
+    height: 32px;
+    text-align: left;
+   width:950px;
+   border: 1px solid black;
+}
+
+
+
+.write_title{font-size:25px;
+    font-weight: 400;
+position: relative;
+top:-5px;
+left:30px;
+}
+
+.bar1{
+    width:170px;
+    position: relative;
+  left:1220px;
+  top:50px;
+  border: 1px solid black;
+}
+
+.bar2{
+    width:150px;
+    height: 45px;
+    position: relative;
+  left:430px;
+  font-size: 10px;
+  top:50px;
+ 
+}
+.bar3{
+    width:170px;
+    position: relative;
+    left:430px;
+    font-size: 10px;
+    height: 30px;
+    top:30px;
+    
+}
+
+.content_table{
+    position: relative;
+    left:430px;
+    top:40px;
+    width:950px;
+    height: 300px;
+    border: 1px solid black;
+
+}
+
+.data{
+    position: relative;
+    left:430px;
+    top:40px;
+    width:955px;
+    border: 1px solid black;
+}
+
+   
+hr{ 
+    position: relative;
+    top:40px;
+    left:140px;
+    border: 1px solid black; 
+	width:950px;
+  	height:30px;
+  
+}
+
+#form-commentInfo{ 
+position: relative;
+left:430px;
+top:50px;
+width:900px;
+}
+ #comment-count{ margin-bottom: 10px; width:500px;}
+  #comment-input{ width: 89%; height: 3.3em; }
+
+   #submit{ background-color: rgb(0, 128,255);
+width: 5.5em; height: 3.3em;; font-size: 15px; font-weight: bold; color: aliceblue; }
+
+    #voteUp, #voteDown{ width: 3.5em; height: 1.9em; background-color: aqua; }
+
+     #comments{ margin-top: 10px; } 
+
+     .eachComment{ width :50%; margin: 10px; padding: 0.5em; border-bottom: 1px solid #c1bcba; }
+
+      .eachComment .name{ font-size: 1.5em; font-weight: bold; margin-bottom: 0.3em; display: flex; justify-content: space-between; } 
+      .eachComment .inputValue{ font-size: 1.2em; font-style: italic; } 
+      .eachComment .time{ font-size: 0.7em; color: #c1bcba; font-style: oblique; margin-top: 0.5em; margin-bottom: 0.5em; }
+       .eachComment .voteDiv{ display: flex; justify-content: flex-end; }
+        .eachComment .deleteComment{ background-color: red; color: aliceblue; }
+

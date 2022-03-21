@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="hansung.cap.mapper.FreeBoardMapper">
+    <select id="queryAll" resultType="hansung.cap.project.FreeBoardVO">
+  		select * from freeboard
+  	</select>
+  	
+  	<insert id = "insertFreeBoard">
+  		insert into freeboard(title,content,userId,time) values (#{title},#{content},#{userId},#{time})
+  	</insert>
+  	
+  	<select id="searchAll" resultType="hansung.cap.project.QnAVO">
+  		select * from freeboard where title like #{s} or userid like #{s} 
+  	</select>
+  </mapper>
+  

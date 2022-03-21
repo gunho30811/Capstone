@@ -126,12 +126,12 @@ caption{
 .board_list{
     width: 100%;
     border-top: 2px solid navy;
-    background: rgb(241, 241, 241);
+    background: #fff;
    
     
 }
 .board_list tr{
-    border-bottom: 2px solid #ccc;
+    border-bottom: 1px solid black;
 }
 .board_list th,
 .board_list td{
@@ -162,10 +162,10 @@ caption{
     
 }
 .board_list_wrap .paging a.num{
-    border: 1px solid navy;
+    border: 1px solid black;
     border-radius: 100px;
     color:black;
-    background: rgb(241, 241, 241);
+    background: #fff;
     }
 
 
@@ -179,3 +179,19 @@ caption{
     border: 1px solid #ccc;
 }
 
+button.d-btn{
+    position: relative;
+    left:550px;
+    top:20px;
+    background: black;
+    color:#fff;
+    width:80px;
+    height: 40px;
+    border:0px;
+}
+
+button.d-btn:hover{
+    background-color: #d49466;
+    
+    width: 80px;
+}

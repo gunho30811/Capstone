@@ -17,6 +17,12 @@
      ></script>
      
 </head>
+<script>
+	function logOut(){
+		
+		location.href="/"+"?option=logOut";
+	}
+</script>
 <body>
 <div class="intro_bg">
         <nav class="prontbar">
@@ -26,14 +32,17 @@
             </div>
 
         <ul class="bar_menu">
-            <li><a href="CCTV.html">CCTV_analysis</a></li>
+            <li><a href="/carList">CCTV_analysis</a></li>
             <li><a href="">Car_model </a></li>
             <li><a href="">Streaming</a></li>
-            <li><a href="QnA.html">QnA</a></li>
-            <li><a href="">Free_Board</a></li>
+            <li><a href="/QnA">QnA</a></li>
+            <li><a href="/freeBoard">Free_Board</a></li>
         </ul>
 
-        <div class="Login_menu"> <a href="/login">Login</a></div>
+        <div class="Login_menu"> 
+        	<a href="/login">${login}</a>&nbsp; &nbsp; &nbsp;
+        	<a href="" onclick="logOut()">${logOut}</a>
+        </div>
 
 
         <ul class="bar_icons">
