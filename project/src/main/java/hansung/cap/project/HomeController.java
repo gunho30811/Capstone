@@ -66,6 +66,18 @@ public class HomeController {
 		String login;
 		String option = httpServletRequest.getParameter("option");
 		
+		if(user_id==null) {
+			System.out.println("로그인이 되지 않았습니다");
+			login = "Login";
+			model.addAttribute("login", "login");
+		}
+		else {
+			login = "LogOut";
+			model.addAttribute("userId",user_id);
+			model.addAttribute("logOut","logOut");
+			
+		}
+		
 		if(option==null) {
 			
 		}
@@ -73,29 +85,29 @@ public class HomeController {
 			System.out.println("log Out!!!");
 			session.invalidate();
 			System.out.println("session delete");
-			
+			login="login";
+			String userId = "sdfsd";
+			String logOut = "sadfsfasf";
+			System.out.println(login);
+			System.out.println(userId);
+			System.out.println(logOut);
+			model.addAttribute("login","login");
+			model.addAttribute("userId",userId);
+			model.addAttribute("logOut",logOut);
 			return "index";
 		}
 		
-		if(user_id==null) {
-			System.out.println("로그인이 되지 않았습니다");
-			login = "Login";
-			model.addAttribute("login", login);
-		}
-		else {
-			login = "LogOut";
-			model.addAttribute("login",user_id);
-			model.addAttribute("logOut",login);
-		}
+		
 		return "index";
 	}
 	
 	//---------------------------------로그인-------------------------------------//
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(HttpServletRequest httpServletRequest, Model model) {
+	@RequestMapping(value = "/login", method = {RequestMethod.POST,RequestMethod.GET})
+	public String login(HttpServletRequest httpServletRequest, Model model, String id, String pw) {
 		
 		HttpSession session=httpServletRequest.getSession();
 		
+		System.out.println(id);
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
 		if(user_id!=null) {
@@ -105,38 +117,41 @@ public class HomeController {
 		
 		MemberVO mVo=new MemberVO();
 		
-		String option=httpServletRequest.getParameter("option");
-		System.out.println(httpServletRequest.getParameter("userId")+","+httpServletRequest.getParameter("userPw"));
-		System.out.println(option);
+		//String option=httpServletRequest.getParameter("option");
+		//System.out.println(httpServletRequest.getParameter("userId")+","+httpServletRequest.getParameter("userPw"));
+		//System.out.println(option);
 		System.out.println();
 		
 		
 		
-		if(option==null) {
+		if(id==null) {
 			System.out.println("option null : loginpage loading");
 		}
 		
-		else if(option.equals("login")) {
-			mVo.userId=httpServletRequest.getParameter("userId");
-			mVo.userPw=httpServletRequest.getParameter("userPw");
+		else  {
+			mVo.userId=id;
+			mVo.userPw=pw;
 			MemberVO login = new MemberVO();
 			login=mDao.login(mVo);
-			String s = "no";
+			String signal = "no";
 			if(login == null) {
 				System.out.println("fail");
-				model.addAttribute("failFlag",s);
+				model.addAttribute("failFlag",signal);
 			}
 			else {
 				session.setAttribute("userId", mVo.userId);
 				user_id=(String)session.getAttribute("userId");
 				System.out.println(user_id);
 				model.addAttribute("id",user_id);
+				model.addAttribute("login","");
+				model.addAttribute("userId",user_id);
+				model.addAttribute("logOut","logOut");
 				return "index";
 				
 			}
 			
 		}
-		
+		System.out.println(httpServletRequest.getParameter("id"));
 		return "login";
 	}
 	
@@ -288,7 +303,7 @@ public class HomeController {
 				return "freeBoard";
 			}
 			
-			else if(option.equals("search")) {
+			else if(option.equals("search")) { //검색
 				String keyWord=httpServletRequest.getParameter("keyWord");
 				list = fDao.Search("%"+keyWord+"%");
 			}

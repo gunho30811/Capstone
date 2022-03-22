@@ -17,7 +17,7 @@
     <div class="bar_logo">
         <a href="index.html">HansungProject</a>
     </div>
-    <!--  <form> 여기 수정-->
+    <form action="/login" method="POST"> 
         <div class="int-area">
             <input type="text" name="id" id="userId" value=""
             autocomplete="off" required>
@@ -31,9 +31,9 @@
         </div>
         
        <div class="btn-area">
-           <button onclick = "login()">LOGIN</button>
+           <button type="submit" >LOGIN</button>
        </div>
-    <!-- </form> -->
+    </form> 
 
     <div class="caption">
         <a href="/create">Create Account</a>

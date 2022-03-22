@@ -18,6 +18,13 @@
      
 </head>
 <script>
+	
+	console.log(${login});
+	console.log(${userId});
+	console.log(${logOut});
+	
+	
+		
 	function logOut(){
 		
 		location.href="/"+"?option=logOut";
@@ -41,7 +48,8 @@
 
         <div class="Login_menu"> 
         	<a href="/login">${login}</a>&nbsp; &nbsp; &nbsp;
-        	<a href="" onclick="logOut()">${logOut}</a>
+        	<a href="" >${userId}</a>&nbsp; &nbsp; &nbsp;
+        	<a href="" onclick="logOut()">${logOut }</a>
         </div>
 
 

@@ -14,6 +14,13 @@
 
 
 </head>
+<script>
+	function search(){
+		var keyWord=document.getElementById("searchText").value;
+		
+		location.href="/QnA"+"?option=search&keyWord="+keyWord;
+	}
+</script>
 <body>
     
 
@@ -31,7 +38,7 @@
         <li><a href="">Car_model </a></li>
         <li><a href="">Streaming</a></li>
         <li><a href="/QnA">QnA</a></li>
-        <li><a href="freeBoard">Free_Board</a></li>
+        <li><a href="/freeBoard">Free_Board</a></li>
 
     </ul>    
  
@@ -43,24 +50,27 @@
         <option>작성자</option>
         <option>제목+작성자</option>
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text">
+    <input type="text" class="search-input" placeholder="Please Enter Text" id="searchText">
 
-     <button type="submit" class="search-btn">검색</button>
+     <button type="submit" class="search-btn" onclick="search()">검색</button>
     </div>
+
 
     <div class ="board_list_wrap">
         <table class="board_list">
         <caption>게시판 목록</caption>
             <thead>
                 <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>시간</th>                
-                </tr>
-         </thead>
-            <tbody>
-                <c:forEach items="${list}" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
+                   <th>No</th> 
+                   <th>차량 번호</th>
+                   <th>차량 종류</th>
+                   <th>차량 색상</th>
+                   
+				</tr>
+            </thead>
+                <tbody  id="my-tbody">
+                            
+                   <c:forEach items="${list}" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
                       <tr>
                       <td><c:out value="${dataVO.seq}"/></td> 
                       <td><c:out value="${dataVO.title}"/></td>
@@ -69,6 +79,7 @@
          
                        </tr>
                     </c:forEach>
+                 </tbody>
             </tbody>
         </table>
         <div class="paging">
