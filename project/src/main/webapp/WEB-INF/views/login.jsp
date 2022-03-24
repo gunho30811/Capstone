@@ -15,7 +15,7 @@
     <section class="login-form">
     <h1></h1>
     <div class="bar_logo">
-        <a href="index.html">HansungProject</a>
+        <a href="/">HansungProject</a>
     </div>
     <form action="/login" method="POST"> 
         <div class="int-area">

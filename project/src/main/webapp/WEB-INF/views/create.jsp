@@ -16,7 +16,7 @@
         <div class="bar_logo">
             <a href="">Create Account</a>
         </div>
-        <!-- <form> 여기 수정-->
+        <form action="/create" method="POST">
             <div class="forgot-area">
                 <input type="text" name="userId" id="userId" value=""
                 autocomplete="off" required>
@@ -52,10 +52,10 @@
 
             
            <div class="btn-area">
-               <button onclick="signup()">Sign in</button>
+               <button type="submit">Sign in</button>
             
            </div>
-        <!--  </form>-->
+       </form>
     </section>
 
         <script> 

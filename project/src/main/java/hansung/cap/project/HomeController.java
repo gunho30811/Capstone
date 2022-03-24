@@ -157,8 +157,8 @@ public class HomeController {
 	
 	
 	//---------------------------------회원가입-------------------------------------//
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public String create(HttpServletRequest httpServletRequest, Model model) {
+	@RequestMapping(value = "/create", method = {RequestMethod.POST,RequestMethod.GET})
+	public String create(HttpServletRequest httpServletRequest, Model model, String userId, String userPw, String userName, String userEmail, String userQuestion){
 		HttpSession session=httpServletRequest.getSession();
 		
 		String user_id=(String)session.getAttribute("userId");;
@@ -167,24 +167,18 @@ public class HomeController {
 			return "index";
 		}
 		
-		
-		System.out.println(httpServletRequest.getParameter("userId")+","+httpServletRequest.getParameter("userPw")
-		+","+httpServletRequest.getParameter("userName")+","+httpServletRequest.getParameter("userEmail")+","+
-				httpServletRequest.getParameter("userQuestion"));
-		
-		String option=httpServletRequest.getParameter("option");
-		
+			
 		MemberVO mVo=new MemberVO();
 		
-		if(option==null) {
+		if(userId==null) {
 			
 		}
-		else if(option.equals("signup")) {
-			mVo.userId=httpServletRequest.getParameter("userId");
-			mVo.userPw=httpServletRequest.getParameter("userPw");
-			mVo.userName=httpServletRequest.getParameter("userName");
-			mVo.userEmail=httpServletRequest.getParameter("userEmail");
-			mVo.userQuestion=httpServletRequest.getParameter("userQuestion");
+		else{
+			mVo.userId=userId;
+			mVo.userPw=userPw;
+			mVo.userName=userName;
+			mVo.userEmail=userEmail;
+			mVo.userQuestion=userQuestion;
 			int result = mDao.idCheck(mVo);
 			
 			
