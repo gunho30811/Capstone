@@ -1,30 +1,35 @@
 package hansung.cap.project;
 
-public class CommentVO {
+public class qCommentVO {
 	int commentNum;
 	String userId;
 	String text;
 	int QnANum;
+	String time;
 	
 	
-	public CommentVO() {
+	public qCommentVO() {
 		this.commentNum=0;
 		this.userId="";
 		this.text="";
 		this.QnANum=0;
+		this.time="";
 	}
-	public CommentVO(String userId,String text,int QnANum) {
+	
+	public qCommentVO(String userId,String text,int QnANum,String time) {
 		
 		this.userId=userId;
 		this.text=text;
 		this.QnANum=QnANum;
+		this.time=time;
 	}
 	
-	public CommentVO(int commentNum,String userId,String text,int QnANum) {
+	public qCommentVO(int commentNum,String userId,String text,int QnANum ,String time) {
 		this.commentNum=commentNum;
 		this.userId=userId;
 		this.text=text;
 		this.QnANum=QnANum;
+		this.time=time;
 	}
 	
 	public int getCommentNum() {
@@ -50,5 +55,11 @@ public class CommentVO {
 	}
 	public void setQnANum(int qnANum) {
 		QnANum = qnANum;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 }
