@@ -395,6 +395,25 @@ public class HomeController {
 			model.addAttribute("list",fVO);
 			return "freeView";
 		}
+		
+		else if(option.equals("commentDel")) {
+			System.out.println("댓 삭");
+			int num = Integer.parseInt(httpServletRequest.getParameter("commentNum"));
+			frDao.DelComment(num);
+			
+			FreeBoardVO fVO = new FreeBoardVO();
+			fVO = fDao.Read(Integer.parseInt(httpServletRequest.getParameter("freeNum")));
+			
+			rlist = frDao.querryAll();
+			int size = rlist.size();
+			
+			System.out.println(size);
+			model.addAttribute("size",size);
+			model.addAttribute("rlist",rlist);
+			model.addAttribute("list",fVO);
+			return "freeView";
+			
+		}
 		model.addAttribute("list",list);
 		return "Free";
 	}	

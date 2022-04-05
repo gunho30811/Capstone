@@ -12,4 +12,8 @@
   	<select id="queryAll" resultType="hansung.cap.project.fCommentVO">
   		select * from freecomment
   	</select>
+  	
+  	<select id="deleteComment">
+  		delete from freecomment where commentNum like #{a}
+  	</select>
   </mapper>

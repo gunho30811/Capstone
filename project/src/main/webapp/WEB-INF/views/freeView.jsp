@@ -30,6 +30,15 @@
 		
 		location.href = "/free"+"?option=comment&comment="+comment+"&seq="+freeBoardSeq+"&time="+time;
 	}
+	
+	function commentDelete(commentNum){
+		var num = commentNum;
+		console.log(num);
+		var freeNum = ${list.seq}
+		console.log(freeNum);
+	
+		location.href="/free"+"?option=commentDel&commentNum="+num+"&freeNum="+freeNum;
+	}
 </script>
 <body>
       
@@ -87,7 +96,7 @@
 	    </div>
 	    <div class="pull-right">
 	        <div id="revise">수정</div>
-	        <div id="delete">삭제</div>
+	        <div id="delete" onclick="commentDelete(${dataVO.commentNum})">삭제</div>
 	        </div>
 	</div>
 </c:forEach>
