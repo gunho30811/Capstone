@@ -10,5 +10,8 @@
   	<select id="queryCAR" resultType="hansung.cap.project.CarKindVO">
   		select * from carKind where carKind like #{msg}
   	</select>
-  
+  	
+    <select id="querryAll" resultType="hansung.cap.project.CarKindVO">
+  		select * from carKind 
+  	</select>
   </mapper>

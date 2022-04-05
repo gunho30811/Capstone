@@ -22,11 +22,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import hansung.cap.dao.CarKindDAO;
-import hansung.cap.dao.CommentDAO;
+import hansung.cap.dao.qCommentDAO;
 import hansung.cap.dao.FreeBoardDAO;
 import hansung.cap.dao.MemberDAO;
 import hansung.cap.dao.MemberDAOImp;
 import hansung.cap.dao.QnADAO;
+import hansung.cap.dao.fCommentDAO;
 import hansung.cap.dao.listDAO;
 import hansung.cap.dao.listDAOimp;
 
@@ -47,9 +48,11 @@ public class HomeController {
 	@Inject
 	private CarKindDAO cDao; //차 데이터 확인 DAO
 	@Inject
-	private CommentDAO rDao; //리플 관련 DAO
+	private qCommentDAO qrDao; //QnA 리플 관련 DAO
 	@Inject
-	private FreeBoardDAO fDao;
+	private fCommentDAO frDao; //Freeboard 리플 관련 DAO
+	@Inject
+	private FreeBoardDAO fDao;//자유 게시판 관련 DAO
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -308,10 +311,101 @@ public class HomeController {
 		
 	
 	
+	//--------------------04.02 carmodel 완-------------------------//
+		
+	@RequestMapping(value = "/CarModel", method = RequestMethod.GET)
+	public String carModel(HttpServletRequest httpServletRequest, Model model) {
+		HttpSession session=httpServletRequest.getSession();
+		String user_id=(String)session.getAttribute("userId"); ;
+		model.addAttribute("id",user_id);
+		
+		if(user_id==null) {
+			return "login";
+		}
+		
+		List<CarKindVO> list = new ArrayList<CarKindVO>();
+		list = cDao.QuerryAll();
+		String option = httpServletRequest.getParameter("option");
+		if(option==null) {
+			
+		}
+		else if(option.equals("search")) {
+			String searchText = httpServletRequest.getParameter("name");
+			list = cDao.Querrycar(searchText);
+		}
+		model.addAttribute("list",list);
+		return "CarModel";
+	}	
 	
 	
 	
+	@RequestMapping(value = "/free", method = RequestMethod.GET)
+	public String free(HttpServletRequest httpServletRequest, Model model) {
+		HttpSession session=httpServletRequest.getSession();
+		String user_id=(String)session.getAttribute("userId"); ;
+		model.addAttribute("id",user_id);
+		
+		if(user_id==null) {
+			return "login";
+		}
+		List<fCommentVO> rlist = new ArrayList<fCommentVO>(); //리플 관련 리스트
+		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
+		list = fDao.QueryAll();
+		String option = httpServletRequest.getParameter("option");
+		if(option==null) {
+			
+		}
+		
+		else if(option.equals("search")) {
+			String s = httpServletRequest.getParameter("text");
+			list = fDao.Search(s);
+			model.addAttribute("list",list);
+		}
+		else if(option.equals("view")) {
+			int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
+			FreeBoardVO fVO = new FreeBoardVO();
+			fVO = fDao.Read(seq);
+			
+			rlist = frDao.querryAll();
+			int size = rlist.size();
+			
+			System.out.println(size);
+			model.addAttribute("size",size);
+			model.addAttribute("rlist",rlist);
+			model.addAttribute("list",fVO);
+			return "freeView";
+		}
+		else if(option.equals("comment")) {
+			fCommentVO fCVO = new fCommentVO();
+			fCVO.userId=user_id;
+			fCVO.text = httpServletRequest.getParameter("comment");
+			fCVO.freeNum = Integer.parseInt(httpServletRequest.getParameter("seq"));
+			fCVO.time = httpServletRequest.getParameter("time");
+			
+		
+			frDao.InsertComment(fCVO);
+			FreeBoardVO fVO = new FreeBoardVO();
+			fVO = fDao.Read(fCVO.freeNum);
+			rlist = frDao.querryAll();
+			int size = rlist.size();
+			
+			System.out.println(size);
+			model.addAttribute("size",size);
+			model.addAttribute("rlist",rlist);
+			model.addAttribute("list",fVO);
+			return "freeView";
+		}
+		model.addAttribute("list",list);
+		return "Free";
+	}	
+}
+		
+		
+		
+		
 	
+	
+	/*
 	
 	
 	//---------------------------------firstpage 띄우기-------------------------------------//
@@ -384,7 +478,7 @@ public class HomeController {
 		return "menu";
 	}*/
 	
-	@RequestMapping(value = "/menu", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/menu", method = RequestMethod.GET)
 	public String menu(HttpServletRequest httpServletRequest, Model model) {
 		HttpSession session=httpServletRequest.getSession();
 		String user_id=(String)session.getAttribute("userId"); ;
@@ -432,7 +526,7 @@ public class HomeController {
 			model.addAttribute("list",searchList);
 			return "list";
 		}*/
-		
+		/*
 		else if (option.equals("search")) {
 			String msg=  httpServletRequest.getParameter("name");
 			System.out.println(msg);
@@ -457,7 +551,7 @@ public class HomeController {
 			/*if(clist.isEmpty()) {
 				kind="";
 			}*/
-			
+		/*	
 			model.addAttribute("id",kind);
 			model.addAttribute("list",clist);
 			return "carKind";
@@ -474,10 +568,10 @@ public class HomeController {
 		return "list";
 	}
 
-	
+	*/
 //--------------------------------회원가입-----------------------------//
 	
-	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/SignUp", method = RequestMethod.GET)
 	public String signUp(HttpServletRequest httpServletRequest, Model model) {
 		String option=httpServletRequest.getParameter("option");
 		
@@ -495,10 +589,10 @@ public class HomeController {
 			return "firstpage";
 		}
 		return "Signup";
-	}
+	}*/
 	
 //-------------------------------QnA List---------------------------------------------//
-	@RequestMapping(value = "/QnAList", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/QnAList", method = RequestMethod.GET)
 	public String QnAList(HttpServletRequest httpServletRequest, Model model,HttpServletResponse response) throws ServletException,IOException{
 		List<QnAVO> list = new ArrayList<QnAVO>();
 		
@@ -564,7 +658,7 @@ public class HomeController {
 		}
 		
 		else if(option.equals("read")) {      //QnA 열람
-			List<CommentVO> rlist = new ArrayList<CommentVO>();
+			List<qCommentVO> rlist = new ArrayList<qCommentVO>();
 			int keyword=Integer.parseInt(httpServletRequest.getParameter("keyword"));
 			System.out.println(keyword);
 			QnAVO qRead=new QnAVO();
@@ -589,8 +683,8 @@ public class HomeController {
 		}
 		
 		else if(option.equals("comment")) {   //댓글 등록
-			List<CommentVO> rlist = new ArrayList<CommentVO>();
-			CommentVO rvo= new CommentVO();
+			List<qCommentVO> rlist = new ArrayList<qCommentVO>();
+			qCommentVO rvo= new qCommentVO();
 			rvo.userId=user_id;
 			rvo.text=httpServletRequest.getParameter("text");
 			rvo.QnANum=Integer.parseInt(httpServletRequest.getParameter("QnANum"));
@@ -612,7 +706,7 @@ public class HomeController {
 			System.out.println(delComment);
 			rDao.delete(delComment);
 			
-			List<CommentVO> rlist = new ArrayList<CommentVO>();
+			List<qCommentVO> rlist = new ArrayList<qCommentVO>();
 			int keyword=Integer.parseInt(httpServletRequest.getParameter("QnANum"));
 			System.out.println(keyword);
 			QnAVO qRead=new QnAVO();
@@ -634,4 +728,4 @@ public class HomeController {
 	}
 	
 	
-}
+}*/

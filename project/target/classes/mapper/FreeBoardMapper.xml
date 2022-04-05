@@ -13,8 +13,12 @@
   		insert into freeboard(title,content,userId,time) values (#{title},#{content},#{userId},#{time})
   	</insert>
   	
-  	<select id="searchAll" resultType="hansung.cap.project.QnAVO">
+  	<select id="searchAll" resultType="hansung.cap.project.FreeBoardVO">
   		select * from freeboard where title like #{s} or userid like #{s} 
+  	</select>
+  	
+  	<select id="read" resultType="hansung.cap.project.FreeBoardVO">
+  		select * from freeboard where seq like #{a} 
   	</select>
   </mapper>
   

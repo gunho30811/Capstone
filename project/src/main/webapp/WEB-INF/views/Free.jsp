@@ -7,63 +7,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="건호" content="width=device-width, initial-scale=1.0">
     <title>Free_Board</title>
-    <link rel="stylesheet" href="/resources/css/Free.css">
+    <link rel="stylesheet" href="resources/css/Free.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
-
+<script
+     src="https://kit.fontawesome.com/af4e1eff79.js"
+     crossorigin="anonymous"></script>
 
 </head>
+
 <script>
-	function goToEnroll(){
-		location.href="/freeBoard"+"?option=gotoEnroll";
+	function view(seq){
+		var seq = seq;
 		
+		location.href = "/free"+"?option=view&seq="+seq;
 	}
 	
 	function search(){
-		var keyWord=document.getElementById("searchText").value;
-		
-		console.log(keyWord);
-		location.href="/freeBoard"+"?option=search&keyWord="+keyWord;
+		var text  = document.getElementById("search").value;
+		location.href = "/free"+"?option=search&text="+text;
 	}
-	
 </script>
 <body>
+      
+
     
-
 <div class="all">
+    <header class="back_color"></header><!----3.23--->
+    <footer class="back_color2"></footer><!---3.23-->
+        <ul class="bar_menu">
+            <li class="bar_logo">
+                <i class="fa-solid fa-car-crash"></i>
+                <a href="index.html"><b>HansungProject</b></a>
+            </li>
+            <li><a href="CCTV.html">CCTV_analysis</a></li>
+            <li><a href="Car_model.html">Car_model </a></li>
+            <li><a href="index.html">Streaming</a></li>
+            <li><a href="QnA.html">QnA</a></li>
+            <li><a href="Free.html">Free_Board</a></li>
+    
+        </ul>    
+     
+<br>
 
+ <div class="all_tb">
+    <div class="Login_menu"> <a href="login.html">Login</a></div> 
     <div class="title">
-        <h1>title</h1>
-    </div>
-
-    <div class="prontbar">
-  
-	
-    <ul class="bar_menu">
-         <li><a href="/carList">CCTV_analysis</a></li>
-        <li><a href="">Car_model </a></li>
-        <li><a href="">Streaming</a></li>
-        <li><a href="/QnA">QnA</a></li>
-        <li><a href="/freeBoard">Free_Board</a></li>
-    </ul>    
- 
-   
+        <h1>Free_Board</h1>
     </div>
     <div class="search-wrap">
-    <select onchange="selectBoxChange(this.value)">
-        <option value="title">제목</option>
-        <option value="userId">작성자</option>
+    <select>
+        <option>제목</option>
+        <option>작성자</option>
         <option>제목+작성자</option>
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text" id="searchText">
+    <input type="text" class="search-input" placeholder="Please Enter Text" id="search" value="">
 
-     <button type="submit" class="search-btn" onclick="search()">검색</button>
+     <button type="submit" class="search-btn" onclick = "search()">검색</button>
     </div>
 
     <div class ="board_list_wrap">
         <table class="board_list">
-        <caption>게시판 목록</caption>
+        
             <thead>
                 <tr>
                 <th>번호</th>
@@ -72,16 +78,16 @@
                 <th>시간</th>                
                 </tr>
          </thead>
-            <tbody>
-                <c:forEach items="${list}" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
+         	<tbody>
+            	<c:forEach items="${list}" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
                       <tr>
                       <td><c:out value="${dataVO.seq}"/></td> 
-                      <td><c:out value="${dataVO.title}"/></td>
+                      <td onclick="view(${dataVO.seq})"><c:out value="${dataVO.title}"/></td>
                       <td><c:out value="${dataVO.userId}"/></td>
                       <td><c:out value="${dataVO.time}"/></td>
          
                        </tr>
-                    </c:forEach>
+                 </c:forEach>
             </tbody>
         </table>
         <div class="paging">
@@ -94,12 +100,14 @@
             <a href="#" class="bt">마지막</a>
         </div>
 
-        <button class="d-btn"onclick="goToEnroll()">등록</button >
+        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
 
     </div>
     
-</div>
+ </div>    <!-------all_tb---3.23------->
 
+ 
+</div>
 </body>
 
 <script>

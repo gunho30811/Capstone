@@ -1,96 +1,103 @@
 body{
     margin: 0;
     font-family:'Electrolize';
+    height: 100%;
+    width: 100%; 
 }
 
 a{
+
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
-.all{
+.all{ 
+
    
-    background:white;
-    height: 700px;
+   
 }
 
-.title{
-    width:125px;   
+.back_color{ /*****곡선 주기 위한 박스*******/
+    position: absolute;
+    width: 1018px;
+    height: 200px;
+    background-color: #7193C1;
+}
+
+.back_color2{ /***곡선 주기 위한 박스***/
+    position: absolute;
+    top:-0.42px;
+    width: 1018px;
+    height: 104%;
+    background-color: #7193C1;
+}
+
+/***********타이틀부터 테이블까지 묶음***********/
+
+.all_tb{
+   background-attachment: local;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background: #C0D0E6;
+    width:76.7%;
+    height:104%;
+    position:absolute;
+    right:1px;
+    top:-1px;
+    padding-left:82.5px; 
+    padding-right:41px;
+   
+    
+}
+
+.Login_menu{
+    position: absolute;
+    left:1080px;
+    top:30px;
+    text-align: center;
+    height:45px;
+    width:90px;
+    background-color:#7193C1;
+    border:0.1px solid #7193C1;
+    border-radius: 10px;
+}
+.Login_menu a{
     position: relative;
-    left:250px;
-    top:-35px;
-    background: white;
+    top:10px;
+    color:#fff;
 }
 .title h1{
     position: relative;
-    left:40px;
-    top:20px;
+    left:100px;
+    width:200px;
+    top:0px;
     font-size: 40px;
     text-align: left;
 }
-
-
-
-    .bar_menu{
- 
-    list-style: none;
-    padding-left: 0;
-    padding-top:50px;
-    }
-
-        
-        .bar_menu li:hover{
-            background-color: #d49466;
-            border-radius: 20px;
-            width: 212px;
-        }
-
-
-    .bar_menu li{
-        padding: 50px 19px;
-        font-size: 25px;
-        text-align: center;
-    }
-
-
-
-.prontbar{
-        background-color: #1e4779; 
-        width: 250px;   
-        display:flex;
-        margin-bottom: -410px; 
-        margin-top: -103px;         
-    }
-
-select{ 
-    
-    border: 1px solid #ccc;
-    border-bottom: 1px solid #CCC;
-    border-radius: 8px;    
-}
-
-
-input::-webkit-input-placeholder {
-  
-    color: #AAA;        }
-   
 .search-wrap{
     
     position: relative;    
-    left:295px;
-    top:-180px;
+    left:90px;
+    top:-10px;
     width:500px;
     height: 32px;
    
 }
 
-select{
+select{ 
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #CCC;
+    border-radius: 8px;
     position: relative;
     top:-0.5px;
     width:90px;
     height: 32px;
 }
 
+input::-webkit-input-placeholder {
+  
+    color: #AAA;        }
+   
 .search-input{
     position: relative;
     border: none;
@@ -109,29 +116,26 @@ select{
     border-radius: 10px;
 }
 
-table{border-collapse:collapse;}
+.board_list_wrap{   
+    width:1000px;
+    margin-left: 35px;
+    height: 65%;
+    padding-left: 55px;
+    padding-top: 40px;
+}
 
-caption{
-    display: none;
-}
-.board_list_wrap{
-    position: relative;
-    top:-170px;
-    left:295px;   
-    width:1200px;
-    max-height: 700px;
-   
-}
+table{border-collapse:collapse;}
 
 .board_list{
     width: 100%;
-    border-top: 2px solid navy;
-    background: #fff;
+    border-top: 2px solid #B7D5E2;
+    border-bottom: 2px solid #B7D5E2;
+    background: #B7D5E2;
+    height: 65%;
    
-    
 }
 .board_list tr{
-    border-bottom: 1px solid black;
+    border-bottom: 0.1px solid #7193C1;
 }
 .board_list th,
 .board_list td{
@@ -144,10 +148,11 @@ caption{
   
 }
 .board_list tbody tr td:nth-child(2) a{
-    color:black;
+   
 }
 .board_list tbody tr td:nth-child(2):hover{
     text-decoration: underline;}
+    
 .board_list_wrap .paging{
    margin-top: 10px; 
    font-size:0;
@@ -181,8 +186,8 @@ caption{
 
 button.d-btn{
     position: relative;
-    left:550px;
-    top:20px;
+    left:450px;
+    top:10px;
     background: black;
     color:#fff;
     width:80px;
@@ -195,3 +200,54 @@ button.d-btn:hover{
     
     width: 80px;
 }
+
+/****************테이블 end************************************/
+
+
+
+ /*********Prontbar*******************/
+
+.bar_menu{
+    position: absolute;
+    list-style: none;
+    padding:5px;
+    background:#7193C1;
+    width: 180px;
+    height: 100%;
+    }
+
+.bar_menu li.bar_logo{
+   
+}
+.bar_menu li.bar_logo:hover{
+    background-color: #7193C1;
+    width:140.8px;
+   
+}
+
+   
+        .bar_menu li:hover{
+            background-color: #d49466;
+            border-radius: 20px;
+           
+            width:140.8px;
+        }
+     
+    .bar_menu li{
+        padding: 50px 19px;
+        font-size: 19px;
+ 
+     
+        
+    }
+
+    .bar_menu .bar_logo a{
+        font-size:15.5px;
+      
+    }
+    .bar_logo i{
+        color:rgb(120, 120, 238);
+        font-size: 17px;
+    }
+/*************pront end*****************************/
+

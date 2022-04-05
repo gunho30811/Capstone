@@ -19,4 +19,8 @@ public class CarKindDAOImp implements CarKindDAO{
 	public List<CarKindVO> Querrycar(String msg){
 		return sqlSession.selectList(namespace+".queryCAR",msg);
 	}
+	@Override
+	public List<CarKindVO> QuerryAll(){
+		return sqlSession.selectList(namespace+".querryAll");
+	}
 }

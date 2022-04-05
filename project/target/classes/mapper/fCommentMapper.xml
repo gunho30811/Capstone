@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="hansung.cap.mapper.fCommentMapper">
+  	<insert id="insertfComment">
+  		insert into freecomment(userId,text,FreeNum,time) values (#{userId},#{text},#{freeNum},#{time})
+  	</insert>
+  	
+  	<select id="queryAll" resultType="hansung.cap.project.fCommentVO">
+  		select * from freecomment
+  	</select>
+  </mapper>

@@ -179,3 +179,19 @@ caption{
     border: 1px solid #ccc;
 }
 
+button.d-btn{
+    position: relative;
+    left:550px;
+    top:20px;
+    background: black;
+    color:#fff;
+    width:80px;
+    height: 40px;
+    border:0px;
+}
+
+button.d-btn:hover{
+    background-color: #d49466;
+    
+    width: 80px;
+}

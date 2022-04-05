@@ -6,28 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="건호" content="width=device-width, initial-scale=1.0">
-    <title>Free_Board</title>
-    <link rel="stylesheet" href="/resources/css/Free.css">
+    <title>QnA</title>
+    <link rel="stylesheet" href="/resources/css/QnA.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
 
 
 </head>
-<script>
-	function goToEnroll(){
-		location.href="/freeBoard"+"?option=gotoEnroll";
-		
-	}
-	
-	function search(){
-		var keyWord=document.getElementById("searchText").value;
-		
-		console.log(keyWord);
-		location.href="/freeBoard"+"?option=search&keyWord="+keyWord;
-	}
-	
-</script>
 <body>
     
 
@@ -39,26 +25,27 @@
 
     <div class="prontbar">
   
-	
+
     <ul class="bar_menu">
-         <li><a href="/carList">CCTV_analysis</a></li>
+        <li><a href="/carList">CCTV_analysis</a></li>
         <li><a href="">Car_model </a></li>
         <li><a href="">Streaming</a></li>
         <li><a href="/QnA">QnA</a></li>
-        <li><a href="/freeBoard">Free_Board</a></li>
+        <li><a href="freeBoard">Free_Board</a></li>
+
     </ul>    
  
    
     </div>
     <div class="search-wrap">
-    <select onchange="selectBoxChange(this.value)">
-        <option value="title">제목</option>
-        <option value="userId">작성자</option>
+    <select>
+        <option>제목</option>
+        <option>작성자</option>
         <option>제목+작성자</option>
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text" id="searchText">
+    <input type="text" class="search-input" placeholder="Please Enter Text">
 
-     <button type="submit" class="search-btn" onclick="search()">검색</button>
+     <button type="submit" class="search-btn">검색</button>
     </div>
 
     <div class ="board_list_wrap">
@@ -94,7 +81,6 @@
             <a href="#" class="bt">마지막</a>
         </div>
 
-        <button class="d-btn"onclick="goToEnroll()">등록</button >
 
     </div>
     
