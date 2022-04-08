@@ -19,4 +19,8 @@
 		select count(*) from login where userId=#{userId}
 	</select>
 	
+	<select id="forgot" resultType="String">
+		select userPw from login where userId=#{userId} and userQuestion=#{userQuestion}
+	</select>
+	
 </mapper>

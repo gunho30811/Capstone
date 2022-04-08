@@ -27,5 +27,13 @@ public class MemberDAOImp implements MemberDAO {
     	int result = sqlSession.selectOne(namespace+".idCheck", vo);
 		return result;
     }
+    @Override
+    public String forgot(MemberVO vo) {
+    	System.out.println("아이디 "+vo.userId);
+    	System.out.println("질문 "+vo.userQuestion);
+    	String userPw = sqlSession.selectOne(namespace+".forgot",vo);
+    	System.out.println(userPw);
+    	return userPw;
+    }
     
 }

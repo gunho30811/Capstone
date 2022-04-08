@@ -28,6 +28,11 @@ public class fCommentDAOImp implements fCommentDAO{
 	}
 	
 	@Override
+	public List<fCommentVO> querry(int a){
+		return sqlSession.selectList(namespace+".querry",a);
+	}
+	
+	@Override
 	public void DelComment(int a) {
 		sqlSession.delete(namespace+".deleteComment",a);
 	}

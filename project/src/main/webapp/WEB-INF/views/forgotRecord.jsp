@@ -10,6 +10,12 @@
     <title>Forgot</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+
+<script> 
+       function gotoLogin(){
+        	location.href="/login";		
+       }	
+</script>
 <body>
     
     <section class="forgot-form">
@@ -17,30 +23,22 @@
         <div class="bar_logo">
             <a href="login.html">Your PassWord</a>
         </div>
-        <form action="">
+        
             <div class="forgot-area">
                 <input type="text" name="forgot_id" id="forgot_id"
-                autocomplete="off" required>
+                autocomplete="off"  value="${userPw}" required >
                
             </div>
            
                         
            <div class="btn-area">
-               <button type="submit" onclick="location.href='index.html'">Sign in</button>
+               <button  onclick="gotoLogin()">Sign in</button>
             
            </div>
-        </form>
+        
     </section>
 
-        <script> 
-            function change() {
-              const ans= document.getElementById('forgot_answer');
-              ans.innerText = '당신이 가장 좋아하는 차량은?'
-          }
-            
-           
-           
-               </script>
+
 
 
 </body>

@@ -7,4 +7,5 @@ public interface MemberDAO {
 	public MemberVO login(MemberVO vo);
 	public void InsertId(MemberVO vo);
 	public int idCheck(MemberVO vo);
+	public String forgot(MemberVO vo);
 }

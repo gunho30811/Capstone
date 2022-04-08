@@ -28,6 +28,10 @@
 		var text  = document.getElementById("search").value;
 		location.href = "/free"+"?option=search&text="+text;
 	}
+	
+	function gotoEnroll(){
+		location.href = "/free"+"?option=gotoEnroll";
+	}
 </script>
 <body>
       
@@ -100,7 +104,7 @@
             <a href="#" class="bt">마지막</a>
         </div>
 
-        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
+        <button class="d-btn"onclick="gotoEnroll()">등록</button >
 
     </div>
     

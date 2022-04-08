@@ -206,6 +206,49 @@ public class HomeController {
 		return "create";
 	}
 	
+	//---------------------------------비밀번호 까먹은거-------------------------------------//
+	@RequestMapping(value = "/forgot", method = {RequestMethod.POST,RequestMethod.GET})
+	public String forgot(HttpServletRequest httpServletRequest, Model model, String forgot_id, String forgot_email, String forgot_answer){
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		System.out.println("----------------------------------"+user_id);
+		if(user_id!=null) {  //로그인 되어있을시
+			return "index";
+		}
+		
+		MemberVO mVo = new MemberVO();
+		System.out.println("Post : "+forgot_id);
+		System.out.println("Post : "+forgot_email);
+		System.out.println("Post : "+forgot_answer);
+		if(forgot_id==null) {
+			
+		}
+		else {
+			mVo.userId=forgot_id;
+			mVo.userEmail=forgot_email;
+			mVo.userQuestion=forgot_answer;
+			
+			String userPw=mDao.forgot(mVo);
+			//System.out.println(userPw);
+			
+			if(userPw == null) {
+				System.out.println("fail");
+				String signal="no";
+				model.addAttribute("failFlag",signal);
+				
+			}
+			else {
+				model.addAttribute("userPw", userPw);
+				return "forgotRecord";
+			}
+			
+		}
+		
+		
+		return "forgot";
+		
+	}
 
 
 	//---------------------------------리스트 띄우기-------------------------------------//
@@ -356,26 +399,27 @@ public class HomeController {
 			
 		}
 		
-		else if(option.equals("search")) {
+		else if(option.equals("search")) {  //freeboard 검색
 			String s = httpServletRequest.getParameter("text");
-			list = fDao.Search(s);
+			list = fDao.Search("%"+s+"%");
 			model.addAttribute("list",list);
 		}
-		else if(option.equals("view")) {
+		else if(option.equals("view")) {   //freeboard 보기
 			int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
 			FreeBoardVO fVO = new FreeBoardVO();
 			fVO = fDao.Read(seq);
-			
-			rlist = frDao.querryAll();
+			System.out.println(seq);
+			rlist = frDao.querry(seq);
 			int size = rlist.size();
 			
 			System.out.println(size);
+			model.addAttribute("id",user_id);
 			model.addAttribute("size",size);
 			model.addAttribute("rlist",rlist);
 			model.addAttribute("list",fVO);
 			return "freeView";
 		}
-		else if(option.equals("comment")) {
+		else if(option.equals("comment")) {  //댓글 쓰기
 			fCommentVO fCVO = new fCommentVO();
 			fCVO.userId=user_id;
 			fCVO.text = httpServletRequest.getParameter("comment");
@@ -386,17 +430,18 @@ public class HomeController {
 			frDao.InsertComment(fCVO);
 			FreeBoardVO fVO = new FreeBoardVO();
 			fVO = fDao.Read(fCVO.freeNum);
-			rlist = frDao.querryAll();
+			rlist = frDao.querry(fCVO.freeNum);
 			int size = rlist.size();
 			
 			System.out.println(size);
+			model.addAttribute("id",user_id);
 			model.addAttribute("size",size);
 			model.addAttribute("rlist",rlist);
 			model.addAttribute("list",fVO);
 			return "freeView";
 		}
 		
-		else if(option.equals("commentDel")) {
+		else if(option.equals("commentDel")) {  //freeboard 댓글 삭제
 			System.out.println("댓 삭");
 			int num = Integer.parseInt(httpServletRequest.getParameter("commentNum"));
 			frDao.DelComment(num);
@@ -404,16 +449,54 @@ public class HomeController {
 			FreeBoardVO fVO = new FreeBoardVO();
 			fVO = fDao.Read(Integer.parseInt(httpServletRequest.getParameter("freeNum")));
 			
-			rlist = frDao.querryAll();
+			rlist = frDao.querry(Integer.parseInt(httpServletRequest.getParameter("freeNum")));
 			int size = rlist.size();
 			
 			System.out.println(size);
+			model.addAttribute("id",user_id);
 			model.addAttribute("size",size);
 			model.addAttribute("rlist",rlist);
 			model.addAttribute("list",fVO);
 			return "freeView";
 			
 		}
+		
+		else if(option.equals("delFree")) {  //freeboard 글 삭제
+			int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
+			fDao.deleteFree(seq);
+			list = fDao.QueryAll();
+			
+		}
+		
+		else if(option.equals("gotoEnroll")) {  //글 등록 페이지 이동
+			model.addAttribute("id",user_id);
+			return "FreeWrite";
+		}
+		
+		else if(option.equals("enroll")) {  //글을 등록
+			FreeBoardVO fVO = new FreeBoardVO();
+			fVO.title=httpServletRequest.getParameter("title");
+			fVO.content=httpServletRequest.getParameter("content");
+			fVO.userId=httpServletRequest.getParameter("writer");
+			fVO.time=httpServletRequest.getParameter("time");
+			
+			fDao.insert(fVO);
+			list = fDao.QueryAll();
+		}
+		
+		else if(option.equals("modify")) {
+			
+		}
+		
+		else if(option.equals("modify")) {
+			int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
+			FreeBoardVO fVO = new FreeBoardVO();
+			fVO=fDao.Read(a);
+			
+			model.addAttribute("list",fVO);
+			return "FreeModify";
+		}
+		
 		model.addAttribute("list",list);
 		return "Free";
 	}	

@@ -36,4 +36,9 @@ public class FreeBoardDAOImp implements FreeBoardDAO {
 	public FreeBoardVO Read(int a){
 		return sqlSession.selectOne(namespace+".read",a);
 	}
+	
+	@Override
+	public void deleteFree(int a) {
+		sqlSession.delete(namespace+".delete",a);
+	}
 }

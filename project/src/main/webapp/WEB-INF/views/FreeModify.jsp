@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="건호" content="width=device-width, initial-scale=1.0">
-    <title>Free_Write</title>
+    <title>Free_Board</title>
     <link rel="stylesheet" href="resources/css/Free_Write.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,6 @@
      crossorigin="anonymous"></script>
 
 </head>
-
 <script type="text/javascript">
 	function Enroll(){
 		var title=document.getElementById("title").value;
@@ -34,8 +33,8 @@
 			return false;
 		}
 		
-		alert("등록이 완료되었습니다!");
-		location.href="/free"+"?option=enroll&title="+title+"&content="+content+"&writer="+writer+"&time="+timeString;
+		alert("수정이 완료되었습니다!");
+		location.href="/free"+"?option=modify&title="+title+"&content="+content+"&writer="+writer+"&time="+timeString;
 	}
 </script>
 <body>
@@ -70,13 +69,13 @@
         <div class="bar1">&nbsp<h5 class="write_title1">*표는 필수 입력사항입니다.</h5></div>
 
     <div class="bar2"><h1 class="write_title2">작성 제목*</h1></div>
-    <input type="search-input" class="search-input" id="title" value="">
+    <input type="search-input" class="search-input" id="title" value="${list.title}">
 
     <div class="bar3"> <h1 class="write_title2">작성 내용*</h1></div>
     <table class="content_table">
         <tr>
 	        <td>
-	        	<textarea class="content" id="content"></textarea>
+	        	<textarea class="content" id="content" >${list.content}</textarea>
 	        </td>	
         </tr>
        </table>

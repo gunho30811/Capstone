@@ -20,5 +20,9 @@
   	<select id="read" resultType="hansung.cap.project.FreeBoardVO">
   		select * from freeboard where seq like #{a} 
   	</select>
+  	
+  	<select id = "delete">
+  		delete from freeboard where seq like #{a}
+  	</select>
   </mapper>
   

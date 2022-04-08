@@ -39,6 +39,25 @@
 	
 		location.href="/free"+"?option=commentDel&commentNum="+num+"&freeNum="+freeNum;
 	}
+	
+	function delFree(seq){
+		var seq = seq;
+		console.log(seq);
+				
+		if("${list.userId}"!="${id}"){
+			console.log("여기까지 옴?")
+			alert("권한이 없습니다");
+		}
+		else
+			alert("삭제되었습니다!")
+			location.href="/free"+"?option=delFree&seq="+seq;
+		
+	}
+	
+	function modify(){
+		var seq = "${list.seq}"
+		location.href="/free"+"?option=modify&seq="+seq;
+	}
 </script>
 <body>
       
@@ -74,8 +93,8 @@
 	</div>
 <div class="wab">
     <div class="WriterAndbtn">
-    <div id="revise">수정</div>
-    <div id="delete">삭제</div>
+    <div id="revise" onclick = "modify()">수정</div>
+    <div id="delete" onclick = "delFree('${list.seq}')">삭제</div>
     </div></div>
 <div class="Writer">${list.userId}</div>
 
