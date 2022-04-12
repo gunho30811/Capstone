@@ -23,8 +23,8 @@ public class qCommentDAOImp implements qCommentDAO {
 	}
 	
 	@Override
-	public List<qCommentVO> CommentAll(int i){
-		return sqlSession.selectList(namespace+".CommentAll",i);
+	public List<qCommentVO> CommentAll(){
+		return sqlSession.selectList(namespace+".CommentAll");
 	}
 	
 	@Override

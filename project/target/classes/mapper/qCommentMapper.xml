@@ -7,14 +7,14 @@
  
 <mapper namespace="hansung.cap.mapper.qCommentMapper">
 	<insert id="insertComment">
-		insert into qcomment(userId,text,QnANum,time) values(#{userId},#{text},#{QnANum},#{time})
+		insert into qnacomment(userId,text,QnANum,time) values(#{userId},#{text},#{QnANum},#{time})
 	</insert>
 	
 	<select id="CommentAll"  resultType="hansung.cap.project.qCommentVO">
-		select * from qcomment where QnANum like #{i}
+		select * from qnacomment 
 	</select>
 	
 	<delete id="delete">
-  		delete from qcomment where commentNum like #{s}
+  		delete from qnacomment where commentNum like #{s}
   	</delete>
 </mapper>

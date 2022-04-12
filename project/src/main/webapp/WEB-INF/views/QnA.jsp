@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +16,15 @@
      crossorigin="anonymous"></script>
 
 </head>
+
+<script>
+	function QnAView(seq){
+		var seq = seq;
+		console.log(seq);
+		
+		location.href = "/QnA"+"?option=read&seq="+seq;
+	}
+</script>
 <body>
       
 
@@ -66,82 +75,15 @@
                 </tr>
          </thead>
             <tbody>
-                <tr>
-                <td>5</td>
-                <td><a href="QnA_view.html">웹프로그래밍 하기 싫어</a></td>
-                <td>관리자</td>
-                <td>2022-3-17</td>    
-                </tr>
-    
-                <tr>
-                <td>4</td>
-                <td><a href="#">살 빼야 한다</a></td>
-                <td>관리자</td>
-                <td>2022-3-16</td>
-                </tr>
-
-                <tr>
-                <td>3</td>
-                <td><a href="#">영우야 공부하자</a></td>
-                <td>관리자</td>
-                <td>2022-3-15</td>
-                </tr>
-
-                <tr>
-                <td>2</td>
-                <td><a href="#">아반떼</a></td>
-                <td>관리자</td>
-                <td>2022-3-14</td>
-                </tr>
-                
-                <tr>
-                <td>1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-1</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-2</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-3</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
-                <tr>
-                <td>-4</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-                <tr>
-                <td>-5</td>
-                <td><a href="#">BMW</a></td>
-                <td>관리자</td>
-                <td>2022-3-13</td>
-                </tr>
-
+				<c:forEach items="${list}" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
+                      <tr>
+                      <td><c:out value="${dataVO.seq}"/></td> 
+                      <td onclick="QnAView(${dataVO.seq})"><c:out value="${dataVO.title}"/></td>
+                      <td><c:out value="${dataVO.userId}"/></td>
+                      <td><c:out value="${dataVO.time}"/></td>
+         
+                       </tr>
+                 </c:forEach>
             </tbody>
         </table>
         <div class="paging">

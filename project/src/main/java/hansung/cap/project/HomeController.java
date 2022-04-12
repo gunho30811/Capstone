@@ -287,6 +287,8 @@ public class HomeController {
 			String user_id=(String)session.getAttribute("userId");;
 			System.out.println("----------------------------------"+user_id);
 			
+			model.addAttribute("id",user_id);
+			
 			List<QnAVO> list = new ArrayList<QnAVO>();
 			
 			String option = httpServletRequest.getParameter("option");
@@ -298,6 +300,26 @@ public class HomeController {
 				list = qDao.search("%"+keyWord+"%");
 				model.addAttribute("list", list);
 				return "QnA";
+			}
+			
+			else if(option.equals("read")) {
+				int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
+				QnAVO qVO = new QnAVO();
+				qVO = qDao.read(a);
+									
+				if((user_id).equals("manage1234")) {
+					model.addAttribute("manage",user_id);
+				}
+				
+				List<qCommentVO> qlist = new ArrayList<qCommentVO>();
+				qlist = qrDao.CommentAll();
+				
+				if((qlist)!=null) {
+					model.addAttribute("rlist",qlist);
+				}
+				
+				model.addAttribute("list",qVO);
+				return "QnAView";
 			}
 			
 			list = qDao.QueryAll();
