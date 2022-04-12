@@ -505,7 +505,7 @@ public class HomeController {
 			fVO.userId = httpServletRequest.getParameter("writer");
 			fVO.time = httpServletRequest.getParameter("time");
 			
-			fDao.modify(fVO);
+			fDao.modify(fVO); //수정 쿼리
 			
 			rlist = frDao.querry(fVO.seq);
 			int size = rlist.size();

@@ -36,8 +36,16 @@
 		console.log(num);
 		var freeNum = ${list.seq}
 		console.log(freeNum);
-	
-		location.href="/free"+"?option=commentDel&commentNum="+num+"&freeNum="+freeNum;
+		
+		if("${list.userId}"!="${id}"){
+			console.log("여기까지 옴?")
+			alert("권한이 없습니다");
+		}
+		else{
+			alert("삭제되었습니다!")
+			location.href="/free"+"?option=commentDel&commentNum="+num+"&freeNum="+freeNum;
+		}
+		
 	}
 	
 	function delFree(seq){
@@ -120,7 +128,7 @@
 	        <c:out value="${dataVO.text}"/> 
 	    </div>
 	    <div class="pull-right">
-	        <div id="revise">수정</div>
+	        
 	        <div id="delete" onclick="commentDelete(${dataVO.commentNum})">삭제</div>
 	        </div>
 	</div>
