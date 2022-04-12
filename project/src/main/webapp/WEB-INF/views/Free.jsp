@@ -43,13 +43,13 @@
         <ul class="bar_menu">
             <li class="bar_logo">
                 <i class="fa-solid fa-car-crash"></i>
-                <a href="index.html"><b>HansungProject</b></a>
+                <a href="/"><b>HansungProject</b></a>
             </li>
-            <li><a href="CCTV.html">CCTV_analysis</a></li>
-            <li><a href="Car_model.html">Car_model </a></li>
-            <li><a href="index.html">Streaming</a></li>
-            <li><a href="QnA.html">QnA</a></li>
-            <li><a href="Free.html">Free_Board</a></li>
+            <li><a href="/carList">CCTV_analysis</a></li>
+            <li><a href="/CarModel">Car_model </a></li>
+            <li><a href="">Streaming</a></li>
+            <li><a href="/QnA">QnA</a></li>
+            <li><a href="/free">Free_Board</a></li>
     
         </ul>    
      

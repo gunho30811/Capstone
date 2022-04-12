@@ -69,7 +69,7 @@
 
     <div class="screen_main">
             
-            <div class="CCTV_analysis"> <a href="CCTV.html">CCTV_analysis</a> </div>
+            <div class="CCTV_analysis"> <a href="/carList">CCTV_analysis</a> </div>
         
         <div class="cctv_bg">
             <div class="cctv.jpg">
@@ -86,7 +86,7 @@
     
         
     
-            <div class="Car_Model"> <a href="Car_model.html">Car_model</a></div>
+            <div class="Car_Model"> <a href="/CarModel">Car_model</a></div>
     
         <div class="Car_bg">
             <div class="Car.jpg">
@@ -101,7 +101,7 @@
 
         </div>
 
-        <div class="Streaming"> <a href="Car_model.html">Streaming</a></div>
+        <div class="Streaming"> <a href="">Streaming</a></div>
 
         <div class="Streaming_bg">
             <div class="Streaming.jpg">

@@ -34,7 +34,7 @@
         <ul class="bar_menu">
             <li class="bar_logo">
                 <i class="fa-solid fa-car-crash"></i>
-                <a href="index.html"><b>HansungProject</b></a>
+                <a href="/"><b>HansungProject</b></a>
             </li>
            <li><a href="/carList">CCTV_analysis</a></li>
             <li><a href="/CarModel">Car_model </a></li>
@@ -47,7 +47,7 @@
 <br>
 
  <div class="all_tb">
-    <div class="Login_menu"> <a href="login.html">Login</a></div> 
+    <div class="Login_menu"> <a href="/login">Login</a></div> 
     <div class="title">
         <h1>Car_model</h1>
     </div>
@@ -99,7 +99,7 @@
             <a href="#" class="bt">마지막</a>
         </div>
 
-        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
+        <button class="d-btn"onclick="location.href='/FreeWrite'">등록</button >
 
     </div>
     
