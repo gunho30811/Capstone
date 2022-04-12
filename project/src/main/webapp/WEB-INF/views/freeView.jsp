@@ -48,15 +48,21 @@
 			console.log("여기까지 옴?")
 			alert("권한이 없습니다");
 		}
-		else
+		else{
 			alert("삭제되었습니다!")
 			location.href="/free"+"?option=delFree&seq="+seq;
-		
+		}
 	}
 	
 	function modify(){
 		var seq = "${list.seq}"
-		location.href="/free"+"?option=modify&seq="+seq;
+		
+		if("${list.userId}"!="${id}"){
+			alert("권한이 없습니다");
+		}
+		else{
+			location.href="/free"+"?option=modify&seq="+seq;
+		}
 	}
 </script>
 <body>

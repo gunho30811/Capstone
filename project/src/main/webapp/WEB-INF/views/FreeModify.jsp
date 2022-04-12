@@ -18,6 +18,7 @@
 </head>
 <script type="text/javascript">
 	function Enroll(){
+		var seq = "${seq}";
 		var title=document.getElementById("title").value;
 		var content=document.getElementById("content").value;
 		var writer = "${id}";
@@ -34,7 +35,7 @@
 		}
 		
 		alert("수정이 완료되었습니다!");
-		location.href="/free"+"?option=modify&title="+title+"&content="+content+"&writer="+writer+"&time="+timeString;
+		location.href="/free"+"?option=modifySuccess&title="+title+"&content="+content+"&writer="+writer+"&time="+timeString+"&seq="+seq;
 	}
 </script>
 <body>

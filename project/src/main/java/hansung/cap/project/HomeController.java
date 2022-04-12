@@ -484,17 +484,38 @@ public class HomeController {
 			list = fDao.QueryAll();
 		}
 		
-		else if(option.equals("modify")) {
-			
-		}
 		
-		else if(option.equals("modify")) {
+		
+		else if(option.equals("modify")) {//수정 페이지로 이동
 			int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
 			FreeBoardVO fVO = new FreeBoardVO();
 			fVO=fDao.Read(a);
 			
 			model.addAttribute("list",fVO);
+			model.addAttribute("seq",a);
 			return "FreeModify";
+		}
+		
+		else if(option.equals("modifySuccess")) { //수정 완료
+			FreeBoardVO fVO = new FreeBoardVO();
+			
+			fVO.seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
+			fVO.title = httpServletRequest.getParameter("title");
+			fVO.content = httpServletRequest.getParameter("content");
+			fVO.userId = httpServletRequest.getParameter("writer");
+			fVO.time = httpServletRequest.getParameter("time");
+			
+			fDao.modify(fVO);
+			
+			rlist = frDao.querry(fVO.seq);
+			int size = rlist.size();
+			
+			System.out.println(size);
+			model.addAttribute("id",user_id);
+			model.addAttribute("size",size);
+			model.addAttribute("rlist",rlist);
+			model.addAttribute("list",fVO);
+			return "freeView";
 		}
 		
 		model.addAttribute("list",list);

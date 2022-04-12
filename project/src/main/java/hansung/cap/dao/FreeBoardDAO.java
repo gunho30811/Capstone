@@ -10,4 +10,5 @@ public interface FreeBoardDAO {
 	public List<FreeBoardVO> Search(String s);
 	public FreeBoardVO Read(int a);
 	public void deleteFree(int a);
+	public void modify(FreeBoardVO vo);
 }

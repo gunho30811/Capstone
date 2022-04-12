@@ -24,5 +24,9 @@
   	<select id = "delete">
   		delete from freeboard where seq like #{a}
   	</select>
+  	
+  	<update id = "modify">
+  		update freeboard set title=#{title}, content=#{content}, userId=#{userId}, time = #{time} where seq like #{seq} 
+  	</update>
   </mapper>
   
