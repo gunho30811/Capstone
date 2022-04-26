@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="건호" content="width=device-width, initial-scale=1.0">
-    <title>Free_Board</title>
+    <title>QnA</title>
     <link rel="stylesheet" href="resources/css/Free_view.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,23 @@
      crossorigin="anonymous"></script>
 
 </head>
+
+<script>
+	function enroll(){
+		var seq = "${list.seq}";
+		var text=document.getElementById("comment-input").value;
+		var time= new Date();
+		var timeString = time.toString();
+		
+		console.log(seq);
+		console.log(text);
+		console.log(timeString);
+		
+		alert("등록이 완료되었습니다");
+		location.href = "/QnA"+"?option=enroll&seq="+seq+"&text="+text+"&&time="+timeString;
+	
+	}
+</script>
 <body>
       
         <ul class="bar_menu">
@@ -57,7 +74,7 @@
 <c:forEach items="${manage}" var="dataVO">
 	<div id="form-commentInfo"> 
 	<input id="comment-input" placeholder="댓글을 입력해 주세요."> 
-	<button id="submit">등록</button> </div>
+	<button onclick="enroll()">등록</button> </div>
 	<div id=comments> </div>
 </c:forEach>
 
@@ -67,10 +84,10 @@
 	<div class="coment_writer">
 	    <div class="inline">
 	    관리자</div>
-	    <div class="inline">${rlist.time}</div>
+	     <div class="inline">${dataVO.time}</div>
 	        
 	    <div class="conment_box">
-			${rlist.text}
+			${dataVO.text}
 		</div>
 	    <div class="pull-right">
 	       

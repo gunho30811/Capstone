@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="CommentAll"  resultType="hansung.cap.project.qCommentVO">
-		select * from qnacomment 
+		select * from qnacomment where QnANum like #{a}
 	</select>
 	
 	<delete id="delete">

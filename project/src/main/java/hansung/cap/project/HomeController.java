@@ -303,6 +303,7 @@ public class HomeController {
 			}
 			
 			else if(option.equals("read")) {
+				
 				int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
 				QnAVO qVO = new QnAVO();
 				qVO = qDao.read(a);
@@ -311,8 +312,9 @@ public class HomeController {
 					model.addAttribute("manage",user_id);
 				}
 				
+				
 				List<qCommentVO> qlist = new ArrayList<qCommentVO>();
-				qlist = qrDao.CommentAll();
+				qlist = qrDao.CommentAll(a);
 				
 				if((qlist)!=null) {
 					model.addAttribute("rlist",qlist);
@@ -321,6 +323,35 @@ public class HomeController {
 				model.addAttribute("list",qVO);
 				return "QnAView";
 			}
+			
+			else if(option.equals("enroll")) {
+				qCommentVO vo = new qCommentVO();
+				vo.QnANum = Integer.parseInt(httpServletRequest.getParameter("seq"));
+				vo.text = httpServletRequest.getParameter("text");
+				vo.userId = user_id;
+				vo.time = httpServletRequest.getParameter("time");
+				qrDao.InsertComment(vo);
+				
+				int a = vo.QnANum;
+				QnAVO qVO = new QnAVO();
+				qVO = qDao.read(a);
+				
+				if((user_id).equals("manage1234")) {
+					model.addAttribute("manage",user_id);
+				}
+				
+				List<qCommentVO> qlist = new ArrayList<qCommentVO>();
+				qlist = qrDao.CommentAll(a);
+				
+				model.addAttribute("rlist",qlist);
+				model.addAttribute("list",qVO);
+				
+				
+				
+				
+				return "QnAView";
+			}
+			
 			
 			list = qDao.QueryAll();
 			
