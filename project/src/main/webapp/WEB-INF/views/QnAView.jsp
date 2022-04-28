@@ -32,6 +32,21 @@
 		location.href = "/QnA"+"?option=enroll&seq="+seq+"&text="+text+"&&time="+timeString;
 	
 	}
+	
+	function del(num){
+		if("${id}"!="manage1234"){
+			alert("권한이 없습니다.");
+		}
+		else{
+			var num = num;  //답글 번호
+			console.log(num);
+			var seq = "${list.seq}"; //큐엔에이 번호
+			var key="delete";
+			
+			alert("삭제 되었습니다");
+			location.href = "/QnA"+"?option=read&del="+key+"&seq="+seq+"&num="+num;
+		}
+	}
 </script>
 <body>
       
@@ -91,7 +106,7 @@
 		</div>
 	    <div class="pull-right">
 	       
-	        <div id="delete">삭제</div>
+	        <div id="delete" onclick="del('${dataVO.commentNum}')">삭제</div>
 	    </div>
 	</div>
 

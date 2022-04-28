@@ -303,7 +303,7 @@ public class HomeController {
 			}
 			
 			else if(option.equals("read")) {
-				
+				System.out.println("QnA read");
 				int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
 				QnAVO qVO = new QnAVO();
 				qVO = qDao.read(a);
@@ -312,11 +312,21 @@ public class HomeController {
 					model.addAttribute("manage",user_id);
 				}
 				
+				String key = httpServletRequest.getParameter("del"); //답글 삭제
+				
+				if(key==null) {
+					
+				}
+				else if(key.equals("delete")) {
+					int num = Integer.parseInt(httpServletRequest.getParameter("num"));
+					
+					qrDao.delete(num);
+				}
 				
 				List<qCommentVO> qlist = new ArrayList<qCommentVO>();
-				qlist = qrDao.CommentAll(a);
+				qlist = qrDao.CommentAll(a);  //QnA 답글 select
 				
-				if((qlist)!=null) {
+				if((qlist)!=null) {  //답글이 하나라도 있으면 적용
 					model.addAttribute("rlist",qlist);
 				}
 				
