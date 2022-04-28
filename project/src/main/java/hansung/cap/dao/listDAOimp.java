@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class listDAOimp implements listDAO {
-	@Inject // ÀÇÁ¸°ü°è¸¦ ÀÚµ¿À¸·Î ¿¬°á(JAVA¿¡¼­ Á¦°ø) ==@autowired (Spring¿¡¼­ Á¦°ø)
+	@Inject // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¸¦ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(JAVAï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ==@autowired (Springï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     private SqlSession sqlSession;
    
    
     private static final String namespace = "hansung.cap.mapper.listMapper";
-                                            //memberMapper.xmlÀÇ namespace°ª
+                                            //memberMapper.xmlï¿½ï¿½ namespaceï¿½ï¿½
    /*
     @Override
     public void insertList(listVO vo) {
@@ -27,11 +27,21 @@ public class listDAOimp implements listDAO {
     			
     	return sqlSession.selectList(namespace+".queryAll");
     }
+    
+    public List<listVO> paging(int paging) {
+		
+    	return sqlSession.selectList(namespace+".paging", paging);
+    }
+
     @Override
     public List<listVO> searchName(String msg) {
     	
 		return sqlSession.selectList(namespace+".searchName",msg);
     }
-
+    @Override
+    public int countBoard(listVO vo) {
+    	int result = sqlSession.selectOne(namespace+".countBoard", vo);
+		return result;
+    }
 
 }

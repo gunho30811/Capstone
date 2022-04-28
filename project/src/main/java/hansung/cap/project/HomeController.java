@@ -252,29 +252,90 @@ public class HomeController {
 
 
 	//---------------------------------리스트 띄우기-------------------------------------//
-		@RequestMapping(value = "/carList", method = RequestMethod.GET)
-		public String carList(HttpServletRequest httpServletRequest, Model model) {
-			System.out.println("carList return");
+	@RequestMapping(value = "/carList", method = RequestMethod.GET)
+	public String carList(HttpServletRequest httpServletRequest, Model model) {
+		System.out.println("carList return");
+		
+		HttpSession session=httpServletRequest.getSession();
+		listVO lVo=new listVO();
+		int listSize = lDao.countBoard(lVo);	//리스트 글 개수
+		int pageSize;							//필요한 페이지 수 및 마지막 페이지 번호
+		
+		if(listSize%10==0) {
+			pageSize = listSize/10;
+		} else {
+			pageSize = listSize/10 + 1;
+		}
+		
+		String user_id=(String)session.getAttribute("userId");;
+		System.out.println("----------------------------------"+user_id);
+		
+		
+		if(user_id==null) {
+			return "login";
+		}
+		else {
+			model.addAttribute("listSize", listSize);
+			model.addAttribute("pageSize", pageSize);
+			System.out.println("listSize : " + listSize);
+			System.out.println("pageSize : " + pageSize);
+		}
+		
+		String option = httpServletRequest.getParameter("option");
+		String page = httpServletRequest.getParameter("page");
+		
+		
+		if(page==null && option==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
+			page = "1";
+		}
+		
+		System.out.println("page : " + page);
+		System.out.println("option : " + option);
+		
+		if(page!=null && option==null) {					//웹 페이지에서 넘겨준 값이 있으면 해당 페이지 값으로
 			
-			HttpSession session=httpServletRequest.getSession();
-			
-			String user_id=(String)session.getAttribute("userId");;
-			System.out.println("----------------------------------"+user_id);
-			
-			if(user_id==null) {
-				return "login";
+		}
+		else if(option.equals("first")) {
+			System.out.println("////////////////////////first");
+			page = "1";
+		}
+		else if(option.equals("last")) {
+			System.out.println("////////////////////////last");
+			page = String.valueOf(pageSize);
+		}
+		else if(option.equals("next")) {
+			System.out.println("////////////////////////next");
+			System.out.println("page : " + page);
+			Integer ipage = Integer.parseInt(page);
+			if(ipage>=pageSize) {
+				String spage = Integer.toString(pageSize);
+				page=spage;
 			}
 			
-					
-			List<listVO> list = new ArrayList<listVO>();
-			
-			list = lDao.QueryAll();
-			
-			listVO vo=new listVO();
-			
-			model.addAttribute("list",list);
-			return "carList";
 		}
+		else if(option.equals("back")) {
+			System.out.println("////////////////////////back");
+			System.out.println("page : " + page);
+			Integer ipage = Integer.parseInt(page);
+			if(ipage<=1) {
+				page="1";
+			}
+		}
+		else {
+			
+		}
+		model.addAttribute("page", page);
+		
+		
+		Integer p = Integer.parseInt(page);
+		List<listVO> list = new ArrayList<listVO>();
+		int paging = listSize-(10*(p-1));		//sql에 넘겨줄 변수 계산
+		list = lDao.paging(paging);
+		model.addAttribute("list",list);
+		return "carList";
+		
+		
+	}
 
 
 	//---------------------------------QnA 페이지-------------------------------------//

@@ -16,8 +16,18 @@
     	select * from list
     </select>
     
+    <select id="paging" resultType="hansung.cap.project.listVO">
+    	<![CDATA[select * from list where seq <=#{paging} order by seq desc limit 10;]]>
+    </select>
+    
 	<select id="searchName" resultType="hansung.cap.project.listVO">
 		select * from list where model like #{msg} or carColor like #{msg} or time like #{msg}
 	</select>
+	
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM list
+	</select>
+	
 </mapper>
 
