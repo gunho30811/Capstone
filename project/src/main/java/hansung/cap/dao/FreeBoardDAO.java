@@ -11,4 +11,6 @@ public interface FreeBoardDAO {
 	public FreeBoardVO Read(int a);
 	public void deleteFree(int a);
 	public void modify(FreeBoardVO vo);
+	public List<FreeBoardVO> paging(int paging);
+	public int countBoard(FreeBoardVO vo);
 }

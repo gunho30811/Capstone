@@ -11,4 +11,6 @@ public interface QnADAO {
 	public QnAVO read(int s);
 	public void delete(int s);
 	public void modify(QnAVO vo);
+	public List<QnAVO> paging(int paging);
+	public int countBoard(QnAVO vo);
 }

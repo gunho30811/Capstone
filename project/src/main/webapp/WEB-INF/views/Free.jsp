@@ -95,13 +95,28 @@
             </tbody>
         </table>
         <div class="paging">
-            <a href="#" class="bt">처음</a>
-            <a href="#" class="num"> &lt; </a>
-            <a href="#" class="num ">1</a>
-            <a href="#" class="num ">2</a>
-            <a href="#" class="num ">3</a>
-            <a href="#" class="num"> &gt; </a>
-            <a href="#" class="bt">마지막</a>
+            <c:if test = "${pageSize==1 }">
+        		<a href="/free?page=1" class="num ">1</a>
+        	</c:if>
+        	<c:if test = "${pageSize==2 }">
+        		<a href="/free?page=1" class="num ">1</a>
+            	<a href="/free?page=2" class="num ">2</a>
+        	</c:if>
+        	<c:if test = "${pageSize==3 }">
+        		<a href="/free?page=1" class="num ">1</a>
+            	<a href="/free?page=2" class="num ">2</a>
+            	<a href="/free?page=3" class="num ">3</a>
+        	</c:if>
+        	<c:if test = "${pageSize>3 }">
+            <a href="/free?option=first" class="bt">처음</a>
+            <a href="/free?option=back&&page=${page-1 }" class="num"> &lt; </a>
+            <c:set var="pageSize" value="${pageSize}"/>
+            <c:forEach var="page" begin="1" end="${pageSize}" step="1">
+            <a href="/free?page=${page}" class="num">${page}</a>
+            </c:forEach>
+            <a href="/free?option=next&&page=${page+1 }" class="num"> &gt; </a>
+            <a href="/free?option=last" class="bt">마지막</a>
+            </c:if>
         </div>
 
         <button class="d-btn"onclick="gotoEnroll()">등록</button >

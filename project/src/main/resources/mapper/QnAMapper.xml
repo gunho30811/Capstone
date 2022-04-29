@@ -28,4 +28,13 @@
   	<update id = "modify">
   		update qna set title=#{title}, content=#{content}, userId=#{userId}, time = #{time} where seq like #{seq} 
   	</update>
+  	
+  	<select id="paging" resultType="hansung.cap.project.QnAVO">
+  		<![CDATA[select * from qna where SEQ <=#{paging} order by SEQ desc limit 10;]]>
+  	</select>
+  	
+  	<select id="countBoard" resultType="int">
+  		SELECT COUNT(*) FROM qna
+  	</select>
+  	
   </mapper>
