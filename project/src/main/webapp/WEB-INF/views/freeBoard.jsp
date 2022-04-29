@@ -56,7 +56,7 @@
         <option value="userId">작성자</option>
         <option>제목+작성자</option>
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text" id="searchText">
+    <input type="text" class="search-input" placeholder="Please Enter Text" id="searchText" autocomplete="off" />
 
      <button type="submit" class="search-btn" onclick="search()">검색</button>
     </div>

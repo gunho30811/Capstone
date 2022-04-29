@@ -346,6 +346,9 @@ public class HomeController {
 			HttpSession session=httpServletRequest.getSession();
 				
 			String user_id=(String)session.getAttribute("userId");;
+			if(user_id==null) {
+				return "login";
+			}
 			System.out.println("----------------------------------"+user_id);
 			
 			model.addAttribute("id",user_id);
@@ -356,7 +359,7 @@ public class HomeController {
 			if(option==null) {
 				
 			}
-			else if(option.equals("search")) {
+			else if(option.equals("search")) {  //검색
 				String keyWord = httpServletRequest.getParameter("keyWord");
 				list = qDao.search("%"+keyWord+"%");
 				model.addAttribute("list", list);
@@ -423,7 +426,21 @@ public class HomeController {
 				return "QnAView";
 			}
 			
+			else if(option.equals("goToenroll")) { //QnA 작성 칸으로 이동
+				model.addAttribute("id",user_id);
+				return "QnAWrite";
+			}
 			
+			else if(option.equals("enrollQnA")) {  //QnA 글 등록
+				QnAVO qVo = new QnAVO();
+				qVo.title = httpServletRequest.getParameter("title");
+				qVo.content = httpServletRequest.getParameter("content");
+				qVo.userId = httpServletRequest.getParameter("writer");
+				qVo.time = httpServletRequest.getParameter("time");
+				
+				qDao.enrollQnA(qVo);
+				System.out.println("insert");
+			}
 			list = qDao.QueryAll();
 			
 					

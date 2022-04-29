@@ -24,6 +24,11 @@
 		
 		location.href = "/QnA"+"?option=read&seq="+seq;
 	}
+	
+	function enroll(){
+		console.log("hoho");
+		location.href = "/QnA"+"?option=goToenroll";
+	}
 </script>
 <body>
       
@@ -96,7 +101,7 @@
             <a href="#" class="bt">마지막</a>
         </div>
 
-        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
+        <button class="d-btn"onclick="enroll()">등록</button >
 
     </div>
     
