@@ -18,8 +18,10 @@
 </head>
 
 <script>
+
+	var seq = "${list.seq}";
 	function enroll(){
-		var seq = "${list.seq}";
+		
 		var text=document.getElementById("comment-input").value;
 		var time= new Date();
 		var timeString = time.toString();
@@ -33,19 +35,37 @@
 	
 	}
 	
-	function del(num){
+	function del(num){  //QnA 답글 삭제
 		if("${id}"!="manage1234"){
 			alert("권한이 없습니다.");
 		}
 		else{
 			var num = num;  //답글 번호
 			console.log(num);
-			var seq = "${list.seq}"; //큐엔에이 번호
+			
 			var key="delete";
 			
-			alert("삭제 되었습니다");
+			alert("답글이 삭제 되었습니다");
 			location.href = "/QnA"+"?option=read&del="+key+"&seq="+seq+"&num="+num;
 		}
+	}
+	
+	function delQnA(){ //QnA 글 자체 삭제
+		if("${id}"!="${list.userId}"){
+			alert("권한이 없습니다");
+		}
+		
+		console.log(seq);
+		alert("게시글이 삭제되었습니다");
+		location.href = "/QnA"+"?option=delQnA&seq="+seq;
+	}
+	
+	function modify(){ //QnA 글 수정
+		if("${id}"!="${list.userId}"){
+			alert("권한이 없습니다");
+		}
+	
+		location.href = "/QnA"+"?option=modify&seq="+seq;
 	}
 </script>
 <body>
@@ -81,9 +101,10 @@
 	</div>
 <div class="wab">
     <div class="WriterAndbtn">
-    <div id="revise">수정</div>
-    <div id="delete">삭제</div>
-    </div></div>
+    <div id="revise" onclick = "modify()" >수정</div>
+    <div id="delete" onclick = "delQnA()">삭제</div>
+    </div>
+</div>
 <div class="Writer">${list.userId}</div>
 
 <c:forEach items="${manage}" var="dataVO">

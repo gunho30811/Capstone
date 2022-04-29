@@ -10,4 +10,5 @@ public interface QnADAO {
 	public List<QnAVO> search(String s);
 	public QnAVO read(int s);
 	public void delete(int s);
+	public void modify(QnAVO vo);
 }

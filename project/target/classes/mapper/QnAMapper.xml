@@ -24,4 +24,8 @@
   	<delete id="delete">
   		delete from qna where seq like #{s}
   	</delete>
+  	
+  	<update id = "modify">
+  		update qna set title=#{title}, content=#{content}, userId=#{userId}, time = #{time} where seq like #{seq} 
+  	</update>
   </mapper>

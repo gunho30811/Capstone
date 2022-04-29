@@ -441,6 +441,34 @@ public class HomeController {
 				qDao.enrollQnA(qVo);
 				System.out.println("insert");
 			}
+			
+			else if(option.equals("modify")) {  //QnA 글 수정페이지로 이동
+				int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
+				QnAVO qVo = new QnAVO();
+				qVo = qDao.read(seq);
+				model.addAttribute("list",qVo);
+				model.addAttribute("id",user_id);
+				return "QnAModify";
+			}
+			
+			else if(option.equals("modifyQnA")) {  //QnA 글 수정 완료
+				QnAVO qVo = new QnAVO();
+				qVo.seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
+				qVo.title = httpServletRequest.getParameter("title");
+				qVo.content = httpServletRequest.getParameter("content");
+				qVo.userId = httpServletRequest.getParameter("writer");
+				qVo.time = httpServletRequest.getParameter("time");
+				
+				qDao.modify(qVo);
+				
+				
+			}
+			
+			else if(option.equals("delQnA")) {  //QnA 글 삭제
+				int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
+				qDao.delete(seq);
+			}
+			
 			list = qDao.QueryAll();
 			
 					
@@ -448,51 +476,10 @@ public class HomeController {
 			return "QnA";
 		}
 		
-	//---------------------------------자유게시판화면-------------------------------------//
-		@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
-		public String freeBoard(HttpServletRequest httpServletRequest, Model model) {
-			System.out.println("first page return");
-			
-			HttpSession session=httpServletRequest.getSession();
-			
-			String user_id=(String)session.getAttribute("userId");;
-			System.out.println("----------------------------------"+user_id);
-			
-			List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
-			list = fDao.QueryAll();
-			String option = httpServletRequest.getParameter("option");
-			if(option==null) {
-				
-			}
-			
-			else if(option.equals("gotoEnroll")) {  //글 작성 페이지로 이동
-				model.addAttribute("id",user_id);
-				System.out.println("이거되니");
-				return "FreeEnroll";
-			}
-			
-			else if(option.equals("enroll")) { //글 등록
-				FreeBoardVO vo = new FreeBoardVO();
-				vo.title = httpServletRequest.getParameter("title");
-				vo.content = httpServletRequest.getParameter("content");
-				vo.userId = httpServletRequest.getParameter("userId");
-				vo.time = httpServletRequest.getParameter("timeString");
-				
-				fDao.insert(vo);
-				list = fDao.QueryAll();
-				model.addAttribute("list",list);
-				return "freeBoard";
-			}
-			
-			else if(option.equals("search")) { //검색
-				String keyWord=httpServletRequest.getParameter("keyWord");
-				list = fDao.Search("%"+keyWord+"%");
-			}
-			model.addAttribute("list",list);
-			return "freeBoard";
-		}
-	
 		
+		
+		
+	
 	
 	
 	//--------------------04.02 carmodel 완-------------------------//
@@ -671,7 +658,51 @@ public class HomeController {
 	
 	/*
 	
+	//---------------------------------자유게시판화면-------------------------------------//
+		@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
+		public String freeBoard(HttpServletRequest httpServletRequest, Model model) {
+			System.out.println("first page return");
+			
+			HttpSession session=httpServletRequest.getSession();
+			
+			String user_id=(String)session.getAttribute("userId");;
+			System.out.println("----------------------------------"+user_id);
+			
+			List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
+			list = fDao.QueryAll();
+			String option = httpServletRequest.getParameter("option");
+			if(option==null) {
+				
+			}
+			
+			else if(option.equals("gotoEnroll")) {  //글 작성 페이지로 이동
+				model.addAttribute("id",user_id);
+				System.out.println("이거되니");
+				return "FreeEnroll";
+			}
+			
+			else if(option.equals("enroll")) { //글 등록
+				FreeBoardVO vo = new FreeBoardVO();
+				vo.title = httpServletRequest.getParameter("title");
+				vo.content = httpServletRequest.getParameter("content");
+				vo.userId = httpServletRequest.getParameter("userId");
+				vo.time = httpServletRequest.getParameter("timeString");
+				
+				fDao.insert(vo);
+				list = fDao.QueryAll();
+				model.addAttribute("list",list);
+				return "freeBoard";
+			}
+			
+			else if(option.equals("search")) { //검색
+				String keyWord=httpServletRequest.getParameter("keyWord");
+				list = fDao.Search("%"+keyWord+"%");
+			}
+			model.addAttribute("list",list);
+			return "freeBoard";
+		}
 	
+		
 	//---------------------------------firstpage 띄우기-------------------------------------//
 	@RequestMapping(value = "/firstpage", method = RequestMethod.GET)
 	public String firstpage(HttpServletRequest httpServletRequest, Model model, HttpServletResponse response) {

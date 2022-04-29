@@ -39,4 +39,9 @@ public class QnADAOImp implements QnADAO {
 	public void delete(int s) {
 		sqlSession.delete(namespace+".delete",s);
 	}
+	
+	@Override
+	public void modify(QnAVO vo) {
+		sqlSession.update(namespace+".modify",vo);
+	}
 }

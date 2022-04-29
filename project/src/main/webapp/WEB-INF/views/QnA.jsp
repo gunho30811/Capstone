@@ -29,6 +29,13 @@
 		console.log("hoho");
 		location.href = "/QnA"+"?option=goToenroll";
 	}
+	
+	function search(){
+		var keyWord = document.getElementById("keyword").value;
+		console.log(keyWord);
+		
+		location.href = "/QnA"+"?option=search&keyWord="+keyWord;
+	}
 </script>
 <body>
       
@@ -63,9 +70,9 @@
         <option>작성자</option>
         <option>제목+작성자</option>
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text">
+    <input type="text" class="search-input" placeholder="Please Enter Text" id="keyword" value = "" autocomplete="off" >
 
-     <button type="submit" class="search-btn">검색</button>
+     <button  class="search-btn" onclick="search()">검색</button>
     </div>
 
     <div class ="board_list_wrap">

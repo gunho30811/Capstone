@@ -17,13 +17,15 @@
 
 </head>
 <script>
-	function enroll(){
+	function modify(){  //QnA 글 수정
+		var seq = "${list.seq}";
 		var title=document.getElementById("title").value;
 		var content=document.getElementById("content").value;
 		var writer = "${id}";
 		var time= new Date();
 		var timeString = time.toString();
 		
+		console.log(seq);
 		if(title==""){
 			alert("제목을 입력하세요");
 			return false;
@@ -33,8 +35,8 @@
 			return false;
 		}
 		
-		alert("등록이 완료되었습니다!");
-		location.href="/QnA"+"?option=enrollQnA&title="+title+"&content="+content+"&writer="+writer+"&time="+timeString;
+		alert("수정이 완료되었습니다!");
+		location.href="/QnA"+"?option=modifyQnA&title="+title+"&content="+content+"&writer="+writer+"&time="+timeString+"&seq="+seq;
 	}
 </script>
 <body>
@@ -62,19 +64,19 @@
 
 <div class="BackGroundBox_Psfixed">
     <div class="title">
-        <h1>QnA_Write</h1>
+        <h1>QnA_Modify</h1>
     </div>
 
     <section>
         <div class="bar1">&nbsp<h5 class="write_title1">*표는 필수 입력사항입니다.</h5></div>
 
     <div class="bar2"><h1 class="write_title2">작성 제목*</h1></div>
-    <input type="search-input" class="search-input" id="title" value="">
+    <input type="search-input" class="search-input" id="title" value="${list.title }">
 
     <div class="bar3"> <h1 class="write_title2">작성 내용*</h1></div>
     <table class="content_table">
         <tr>
-        <td><textarea class="content" id="content">
+        <td><textarea class="content" id="content">${list.content}
 </textarea></td>
         </tr>
         </table>
@@ -82,8 +84,8 @@
             <input type='file' name='' multiple/>
         </form>
 
-        <div class="hr">${id}</div>
-        <button class="d-btn"onclick="enroll()">등록</button >   
+        <div class="hr">${list.userId}</div>
+        <button class="d-btn"onclick="modify()">수정</button >   
 
 
 </section>
