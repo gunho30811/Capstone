@@ -23,13 +23,4 @@ public class CarKindDAOImp implements CarKindDAO{
 	public List<CarKindVO> QuerryAll(){
 		return sqlSession.selectList(namespace+".querryAll");
 	}
-	public List<CarKindVO> paging(int paging){
-		return sqlSession.selectList(namespace+".paging", paging);
-	}
-	
-	@Override
-	public int countBoard(CarKindVO vo) {
-		int result = sqlSession.selectOne(namespace+".countBoard", vo);
-		return result;
-	}
 }

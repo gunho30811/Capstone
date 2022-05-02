@@ -14,12 +14,4 @@
     <select id="querryAll" resultType="hansung.cap.project.CarKindVO">
   		select * from carKind 
   	</select>
-  	
-  	<select id="paging" resultType="hansung.cap.project.CarKindVO">
-  		<![CDATA[select * from carkind where seq <=#{paging} order by seq desc limit 10;]]>
-  	</select>
-  	
-  	<select id="countBoard" resultType="int">
-  		SELECT COUNT(*) FROM carKind
-  	</select>
   </mapper>

@@ -90,28 +90,13 @@
             
         </table>
         <div class="paging">
-        	<c:if test = "${pageSize==1 }">
-        		<a href="/CarModel?page=1" class="num ">1</a>
-        	</c:if>
-        	<c:if test = "${pageSize==2 }">
-        		<a href="/CarModel?page=1" class="num ">1</a>
-            	<a href="/CarModel?page=2" class="num ">2</a>
-        	</c:if>
-        	<c:if test = "${pageSize==3 }">
-        		<a href="/CarModel?page=1" class="num ">1</a>
-            	<a href="/CarModel?page=2" class="num ">2</a>
-            	<a href="/CarModel?page=3" class="num ">3</a>
-        	</c:if>
-        	<c:if test = "${pageSize>3 }">
-            <a href="/CarModel?option=first" class="bt">처음</a>
-            <a href="/CarModel?option=back&&page=${page-1 }" class="num"> &lt; </a>
-            <c:set var="pageSize" value="${pageSize}"/>
-            <c:forEach var="page" begin="1" end="${pageSize}" step="1">
-            <a href="/CarModel?page=${page}" class="num">${page}</a>
-            </c:forEach>
-            <a href="/CarModel?option=next&&page=${page+1 }" class="num"> &gt; </a>
-            <a href="/CarModel?option=last" class="bt">마지막</a>
-            </c:if>
+            <a href="#" class="bt">처음</a>
+            <a href="#" class="num"> &lt; </a>
+            <a href="#" class="num ">1</a>
+            <a href="#" class="num ">2</a>
+            <a href="#" class="num ">3</a>
+            <a href="#" class="num"> &gt; </a>
+            <a href="#" class="bt">마지막</a>
         </div>
 
         <button class="d-btn"onclick="location.href='/FreeWrite'">등록</button >
