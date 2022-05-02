@@ -32,6 +32,13 @@
 	function gotoEnroll(){
 		location.href = "/free"+"?option=gotoEnroll";
 	}
+	
+	function logOut(){
+		console.log("logOut!!");
+		
+		alert("로그아웃 되었습니다!");
+		location.href = "/"+"?option=logOut";
+	}
 </script>
 <body>
       
@@ -56,7 +63,7 @@
 <br>
 
  <div class="all_tb">
-    <div class="Login_menu"> <a href="login.html">Login</a></div> 
+    <div class="Login_menu" onclick="logOut()"> <a href="/">Logout</a></div> 
     <div class="title">
         <h1>Free_Board</h1>
     </div>

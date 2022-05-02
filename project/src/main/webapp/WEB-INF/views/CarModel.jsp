@@ -23,6 +23,13 @@
 		
 		location.href = "/CarModel"+"?option=search&name="+car;
 	}
+	
+	function logOut(){
+		console.log("logOut!!");
+		
+		alert("로그아웃 되었습니다!");
+		location.href = "/"+"?option=logOut";
+	}
 </script>
 <body>
       
@@ -47,7 +54,7 @@
 <br>
 
  <div class="all_tb">
-    <div class="Login_menu"> <a href="/login">Login</a></div> 
+    <div class="Login_menu" onclick="logOut()"> <a href="/">Logout</a></div> 
     <div class="title">
         <h1>Car_model</h1>
     </div>

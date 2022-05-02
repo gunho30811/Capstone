@@ -959,7 +959,7 @@ public class HomeController {
 			QnAVO qRead=new QnAVO();
 			qRead=qDao.read(keyword);
 			rlist=rDao.CommentAll(keyword);
-			model.addAttribute("CommentVO",rlist);
+			
 			model.addAttribute("id",user_id);
 			model.addAttribute("QnAVO",qRead);
 			return "QnARead";
@@ -990,7 +990,7 @@ public class HomeController {
 			
 			QnAVO qRead=new QnAVO();
 			qRead=qDao.read(rvo.QnANum);
-			model.addAttribute("CommentVO",rlist);
+			
 			model.addAttribute("id",user_id);
 			model.addAttribute("QnAVO",qRead);
 			return "QnARead";
@@ -1007,7 +1007,7 @@ public class HomeController {
 			QnAVO qRead=new QnAVO();
 			qRead=qDao.read(keyword);
 			rlist=rDao.CommentAll(keyword);
-			model.addAttribute("CommentVO",rlist);
+			
 			model.addAttribute("id",user_id);
 			model.addAttribute("QnAVO",qRead);
 			return "QnARead";
