@@ -24,7 +24,7 @@
 		
 		var text=document.getElementById("comment-input").value;
 		var time= new Date();
-		var timeString = time.toString();
+		var timeString = time.toLocaleString();
 		
 		console.log(seq);
 		console.log(text);
@@ -54,18 +54,22 @@
 		if("${id}"!="${list.userId}"){
 			alert("권한이 없습니다");
 		}
+		else{
+			console.log(seq);
+			alert("게시글이 삭제되었습니다");
+			location.href = "/QnA"+"?option=delQnA&seq="+seq;
+		}
 		
-		console.log(seq);
-		alert("게시글이 삭제되었습니다");
-		location.href = "/QnA"+"?option=delQnA&seq="+seq;
 	}
 	
 	function modify(){ //QnA 글 수정
 		if("${id}"!="${list.userId}"){
 			alert("권한이 없습니다");
 		}
-	
-		location.href = "/QnA"+"?option=modify&seq="+seq;
+		else{
+			location.href = "/QnA"+"?option=modify&seq="+seq;
+		}
+		
 	}
 </script>
 <body>

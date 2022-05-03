@@ -21,6 +21,7 @@
 		var comment = document.getElementById("comment-input").value;
 		var freeBoardSeq = ${list.seq};
 		var time= new Date();
+		var timeString = time.toLocaleString();
 		console.log(comment);
 		console.log(freeBoardSeq);
 		
@@ -28,17 +29,20 @@
 			alert("댓글을 입력하세요");
 		}
 		
-		location.href = "/free"+"?option=comment&comment="+comment+"&seq="+freeBoardSeq+"&time="+time;
+		location.href = "/free"+"?option=comment&comment="+comment+"&seq="+freeBoardSeq+"&time="+timeString;
 	}
 	
-	function commentDelete(commentNum){
+	function commentDelete(commentNum, id){
 		var num = commentNum;
 		console.log(num);
 		var freeNum = ${list.seq}
 		console.log(freeNum);
+		var userId = id;
+		console.log(userId);
 		
-		if("${list.userId}"!="${id}"){
-			console.log("여기까지 옴?")
+		if(userId!="${id}"){
+			console.log("여?")
+			console.log(num);
 			alert("권한이 없습니다");
 		}
 		else{
@@ -65,12 +69,14 @@
 	function modify(){
 		var seq = "${list.seq}"
 		
-		if("${list.userId}"!="${id}"){
-			alert("권한이 없습니다");
-		}
-		else{
+		if("${list.userId}"=="${id}"){
 			location.href="/free"+"?option=modify&seq="+seq;
 		}
+		else{
+			alert("권한이 없습니다");
+		}
+		
+		
 	}
 </script>
 <body>
@@ -129,7 +135,7 @@
 	    </div>
 	    <div class="pull-right">
 	        
-	        <div id="delete" onclick="commentDelete(${dataVO.commentNum})">삭제</div>
+	        <div id="delete" onclick="commentDelete(${dataVO.commentNum} ,'${dataVO.userId}')">삭제</div>
 	        </div>
 	</div>
 </c:forEach>

@@ -22,7 +22,7 @@
 		var content=document.getElementById("content").value;
 		var writer = "${id}";
 		var time= new Date();
-		var timeString = time.toString();
+		var timeString = time.toLocaleString();
 		
 		if(title==""){
 			alert("제목을 입력하세요");

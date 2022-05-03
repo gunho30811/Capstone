@@ -23,7 +23,7 @@
 		var content=document.getElementById("content").value;
 		var writer = "${id}";
 		var time= new Date();
-		var timeString = time.toString();
+		var timeString = time.toLocaleString();
 		
 		console.log(seq);
 		if(title==""){
