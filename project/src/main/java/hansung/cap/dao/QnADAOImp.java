@@ -44,4 +44,14 @@ public class QnADAOImp implements QnADAO {
 	public void modify(QnAVO vo) {
 		sqlSession.update(namespace+".modify",vo);
 	}
+	
+	public List<QnAVO> paging(int paging){
+		return sqlSession.selectList(namespace+".paging", paging);
+	}
+	
+	@Override
+	public int countBoard(QnAVO vo) {
+		int result = sqlSession.selectOne(namespace+".countBoard", vo);
+		return result;
+	}
 }

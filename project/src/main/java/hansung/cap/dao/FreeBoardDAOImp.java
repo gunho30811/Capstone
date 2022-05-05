@@ -46,4 +46,14 @@ public class FreeBoardDAOImp implements FreeBoardDAO {
 	public void modify(FreeBoardVO vo) {
 		sqlSession.update(namespace+".modify",vo);
 	}
+	
+	public List<FreeBoardVO> paging(int paging){
+		return sqlSession.selectList(namespace+".paging", paging);
+	}
+	
+	@Override
+	public int countBoard(FreeBoardVO vo) {
+		int result = sqlSession.selectOne(namespace+".countBoard", vo);
+		return result;
+	}
 }
