@@ -4,143 +4,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
-    <title>index</title>
-    <script
-     src="https://kit.fontawesome.com/af4e1eff79.js"
-     crossorigin="anonymous"
-     ></script>
-     
-</head>
-<script>
-	
-	console.log(${login});
-	console.log(${userId});
-	console.log(${logOut});
-	
-	
-		
-	function logOut(){
-		
-		location.href="/"+"?option=logOut";
-	}
-</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Pront bar</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" /> 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="resources/css/index.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/jquery.fullPage.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src ="resources/js/jquery.fullPage.js"></script>
+    <script src="resources/js/main.js"></script>
+
+</head>  
 <body>
-<div class="intro_bg">
-        <nav class="prontbar">
-            <div class="bar_logo">
-            <i class="fa-solid fa-car-crash"></i>
-            <a href="">HansungProject</a>
-            </div>
-
-        <ul class="bar_menu">
-            <li><a href="/carList">CCTV_analysis</a></li>
-            <li><a href="/CarModel">Car_model </a></li>
-            <li><a href="">Streaming</a></li>
-            <li><a href="/QnA">QnA</a></li>
-            <li><a href="/free">Free_Board</a></li>
-        </ul>
-
-        <div class="Login_menu"> 
-        	<a href="/login">${login}</a>&nbsp; &nbsp; &nbsp;
-        	<a href="" >${userId}</a>&nbsp; &nbsp; &nbsp;
-        	<a href="" onclick="logOut()">${logOut }</a>
-        </div>
-
-
-        <ul class="bar_icons">
-            <li><i class="fa-brands fa-twitter"></i></li>
-            <li><i class="fa-brands fa-facebook"></i></li>
-        </ul>
-
-        <a href="#" class="bar_toogle">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-    
-     </nav>    
-        <div class="intro_text">
-            <h1>우리는 승리할 것이다. 언제나 그랬듯이</h1>
-        </div>
-
-    <div class="screen_main">
-            
-            <div class="CCTV_analysis"> <a href="/carList">CCTV_analysis</a> </div>
+<div id="fullpage">
+    <section class ="section">
+         <div class="wrap">
+        <header id="index_header" class="header">       
+            <nav class="prontbar" id="index_prontbar">
+                    <div class="bar_logo">
+                    <i class="fa-solid fa-car-crash"></i>
+                    <a href="">HansungProject</a>
+                    </div>
         
-        <div class="cctv_bg">
-            <div class="cctv.jpg">
-                <img src ="/resources/img/CCTV.jpg" alt="My Image">
-            </div>
-            <div class="content1">
-                내용 내용 내용 ?<br>
-                 블라 블라 블라<br>
-                 블라 블라 블라<br>
-                 블라 블라 블라<br>
-            </div>
-
-        </div>
-    
+                <ul class="bar_menu">
+                    <li><a href="CCTV.html">CCTV_analysis</a></li>
+                    <li><a href="Car_model.html">Car_model </a></li>
+                    <li><a href="index_practice.html">practice</a></li>
+                    <li><a href="Free.html">Free_Board</a></li>
+                    <li><a href="QnA.html">QnA</a></li>
+                </ul>
         
-    
-            <div class="Car_Model"> <a href="/CarModel">Car_model</a></div>
-    
-        <div class="Car_bg">
-            <div class="Car.jpg">
-                <img src ="/resources/img/Cm1.jpg" alt="My Image">
-            </div>
-            <div class="content2">
-                내용 내용 내용 ?<br>
-                 블라 블라 블라<br>
-                 블라 블라 블라<br>
-                 블라 블라 블라<br>
-            </div>
+                <div class="Login_menu"> <a href="login.html">Login</a></div>
+        
+        
+                <ul class="bar_icons">
+                    <li><i class="fa-brands fa-twitter"></i></li>
+                    <li><i class="fa-brands fa-facebook"></i></li>
+                </ul>
+        
+                <a href="#" class="bar_toogle">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </nav> 
+        </header>
+        
+        <div class="shell">
+            <img src="https://ifh.cc/g/rp1twW.png" id="img-1">
+            <img src="https://ifh.cc/g/AD5DHx.png" id="img-2">
+            <img src="https://ifh.cc/g/H5kNHW.png" id="img-3">
 
         </div>
 
-        <div class="Streaming"> <a href="">Streaming</a></div>
-
-        <div class="Streaming_bg">
-            <div class="Streaming.jpg">
-                <img src ="/resources/img/Cm1.jpg" alt="My Image">
-            </div>
-            <div class="content3">
-                내용 내용 내용 ?<br>
-                 블라 블라 블라<br>
-                 블라 블라 블라<br>
-                 블라 블라 블라<br>
-            </div>
-    
+       
+        <div class="main">
+        <!-- Slider main container -->
+        <div class="swiper-container"> 
+        <!-- 보여지는 영역 --> 
+        <div class="swiper-wrapper" id="swiper-wrapper">
+        <!-- <div class="swiper-slide">내용</div> 를 추가하면된다 -->
+        <div class="swiper-slide slide1"><img class="pr1"src="https://ifh.cc/g/sTWqT6.jpg"></div>
+        <div class="swiper-slide slide2"><img class="pr1"src="https://ifh.cc/g/zHaVVL.jpg"></div>
+        <div class="swiper-slide slide3"><img class="pr1"src="https://ifh.cc/g/qFoRPC.jpg"></div>
+        </div> <!-- 페이징 버튼 처리 상황에 따라 추가 삭제가능-->
+        
         </div>
-    
-        
-        
-        
+        </div>
 
 
+        </div>
+    </section>
+
+    <section class ="section">
+    <div class="section section_fullpage">
+    <img class="pr2" src="https://images.pexels.com/photos/3205735/pexels-photo-3205735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"><img class="pr3" src="http://www.netchus.com/resources/img/layout/main/banner-3-bg.jpg">
+    <div class="banner-title">
+        <p class ="title"> CCTV_analysis</p>
+        <p class ="summary">딥러닝을 이용한 분석</p>
+        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
     </div>
-        
-    
+    </div>
+    </section>
 
+    <section class ="section">
+    <div class="section section_fullpage">
+    <img class="pr4" src="https://images.pexels.com/photos/3770875/pexels-photo-3770875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+    <div class="banner-title_two">
+        <p class ="title"> Car_Model</p>
+        <p class ="summary">다양한 차량에 대한 정보</p>
+        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+    </div>
+    </div>
+    </section>
+
+    <section class ="section">
+    <div class="section section_fullpage">
+    <img class="pr4" src="http://www.netchus.com/resources/img/layout/main/banner-4-bg.jpg">
+    <div class="banner-title_two">
+        <p class ="title"> Streaming</p>
+        <p class ="summary">실시간영상, 실시간 녹화</p>
+        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+    </div>
+    </div>
+    </section>
+
+    <section class ="section">
+    <div class="section section_fullpage">
+    <img class="pr4" src="https://images.pexels.com/photos/6210598/pexels-photo-6210598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <div class="banner-title_two">
+        <p class ="title"> Free_Board</p>
+        <p class ="summary">다양한 소통, 다채로운 이야기</p>
+        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+    </div>
+    </div>
+    </section>
+
+    <section class ="section">
+    <div class="section section_fullpage">
+    <img class="pr5" src="https://images.pexels.com/photos/10981242/pexels-photo-10981242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <div class="banner-title_two">
+        <p class ="title"> QnA</p>
+        <p class ="summary">다양한 소통, 다채로운 이야기</p>
+        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+        </div>
+        <footer class="index_footer">
+        <div class="name_box">
+            <p><b>김영우 &nbsp 라건호</b><p>
+            <p><b>조병규 &nbsp 조윤태</b></p>
+        </div>
+        <div class="name_project">
+            <p>Hansung_Project</p>
+        </div>
+        <div class="name_number">
+            <p>대표번호</p>
+            <p>010-2703-8311</p>
+        </div>    
+        </footer>
+     </div>
+    </section>
 
 </div>
-    
+
+
+
+
+
+
 <script>
+    const swiper = new Swiper('.swiper-container',
+    {
+        direction: 'horizontal',
+        slidesPerView:3,
+        spaceBetween: 30,
+        effect: 'fade',
+        centeredSlides:true,
+        autoplay:{
+            delay:4000,
+            disableOnlnteraction: false,
+        },
+    }
+    
+    );
 
-    const toogle = document.querySelector('.bar_toogle');
-    const menu = document.querySelector('.bar_menu');
-    const icons = document.querySelector('.bar_icons');
 
-    toogle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-    icons.classList.toggle('active');
-    });
+    $( "#fullpage" ).mousemove(function() {
+			x = event.pageX;
+			y = event.pageY; 
+			$("section .shell img#img-1").css("margin-top",(x)*.007).css("margin-left",-482+((y)*.007)).css("opacity",1-((x-y)*.0002));
+			$("section .shell img#img-2").css("margin-top",(y)*.022).css("margin-left",-490+((x)*.025)).css("opacity",1-((x-y)*.0008));
+			$("section .shell img#img-3").css("margin-top",-(y)*.028).css("margin-left",-475-((x)*.02)).css("opacity",1-((x-y)*.0007));
+		
+		})
 
-    </script>
+</script>-->
+
+
+
+
+    <!----<script>
+
+    $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 650) {
+                $(".main").addClass("active");
+            }
+        });
+             
+    
+            
+    
+    
+</script> ---->
+
+
 
 
 </body>
+
+
+
+
+
 </html>
