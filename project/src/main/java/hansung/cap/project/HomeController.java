@@ -66,6 +66,8 @@ public class HomeController {
 		
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
+		model.addAttribute("id",user_id);
+		
 		String login;
 		String option = httpServletRequest.getParameter("option");
 		
@@ -76,7 +78,8 @@ public class HomeController {
 		}
 		else {
 			login = "LogOut";
-			model.addAttribute("userId",user_id);
+			System.out.println(user_id+"????");
+			model.addAttribute("login",user_id);
 			model.addAttribute("logOut","logOut");
 			
 		}
@@ -88,15 +91,9 @@ public class HomeController {
 			System.out.println("log Out!!!");
 			session.invalidate();
 			System.out.println("session delete");
-			login="login";
-			String userId = "sdfsd";
-			String logOut = "sadfsfasf";
-			System.out.println(login);
-			System.out.println(userId);
-			System.out.println(logOut);
+			
 			model.addAttribute("login","login");
-			model.addAttribute("userId",userId);
-			model.addAttribute("logOut",logOut);
+			model.addAttribute("logOut","");
 			return "index";
 		}
 		
@@ -146,8 +143,8 @@ public class HomeController {
 				user_id=(String)session.getAttribute("userId");
 				System.out.println(user_id);
 				model.addAttribute("id",user_id);
-				model.addAttribute("login","");
-				model.addAttribute("userId",user_id);
+				model.addAttribute("login",user_id);
+				
 				model.addAttribute("logOut","logOut");
 				return "index";
 				

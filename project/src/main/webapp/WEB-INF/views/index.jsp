@@ -21,6 +21,23 @@
     <script src="resources/js/main.js"></script>
 
 </head>  
+<script>
+	function login(){
+		if('${id}'==null){
+			alert("이미 로그인 되어있습니다");
+			
+		}
+		else{
+			location.href="/login";	
+		}
+			
+			
+	}
+	
+	function logOut(){
+		location.href="/"+"?option=logOut";	
+	}
+</script>
 <body>
 <div id="fullpage">
     <section class ="section">
@@ -33,15 +50,18 @@
                     </div>
         
                 <ul class="bar_menu">
-                    <li><a href="CCTV.html">CCTV_analysis</a></li>
-                    <li><a href="Car_model.html">Car_model </a></li>
+                    <li><a href="/carList">CCTV_analysis</a></li>
+                    <li><a href="/CarModel">Car_model </a></li>
                     <li><a href="index_practice.html">practice</a></li>
-                    <li><a href="Free.html">Free_Board</a></li>
-                    <li><a href="QnA.html">QnA</a></li>
+                    <li><a href="/free">Free_Board</a></li>
+                    <li><a href="/QnA">QnA</a></li>
                 </ul>
         
-                <div class="Login_menu"> <a href="login.html">Login</a></div>
-        
+                <div class="Login_menu"> 
+                	<p onclick = "login()">${login}</p> &nbsp;&nbsp;
+                	<p onclick = "logOut()">${logOut}</p>
+                </div>
+        		 
         
                 <ul class="bar_icons">
                     <li><i class="fa-brands fa-twitter"></i></li>
@@ -85,8 +105,8 @@
     <img class="pr2" src="https://images.pexels.com/photos/3205735/pexels-photo-3205735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"><img class="pr3" src="http://www.netchus.com/resources/img/layout/main/banner-3-bg.jpg">
     <div class="banner-title">
         <p class ="title"> CCTV_analysis</p>
-        <p class ="summary">딥러닝을 이용한 분석</p>
-        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+        <p class ="summary">딥러닝을 이용한 CCTV 분석</p>
+        <a class="arr" href="/carList">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
     </div>
     </div>
     </section>
@@ -96,8 +116,8 @@
     <img class="pr4" src="https://images.pexels.com/photos/3770875/pexels-photo-3770875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
     <div class="banner-title_two">
         <p class ="title"> Car_Model</p>
-        <p class ="summary">다양한 차량에 대한 정보</p>
-        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+        <p class ="summary">다양한 차량에 대한 정보를 알고 싶다면</p>
+        <a class="arr" href="/CarModel">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
     </div>
     </div>
     </section>
@@ -119,7 +139,7 @@
     <div class="banner-title_two">
         <p class ="title"> Free_Board</p>
         <p class ="summary">다양한 소통, 다채로운 이야기</p>
-        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+        <a class="arr" href="/free">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
     </div>
     </div>
     </section>
@@ -129,8 +149,8 @@
     <img class="pr5" src="https://images.pexels.com/photos/10981242/pexels-photo-10981242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
     <div class="banner-title_two">
         <p class ="title"> QnA</p>
-        <p class ="summary">다양한 소통, 다채로운 이야기</p>
-        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+        <p class ="summary">문의 사항이 있다면</p>
+        <a class="arr" href="/QnA">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
         </div>
         <footer class="index_footer">
         <div class="name_box">
