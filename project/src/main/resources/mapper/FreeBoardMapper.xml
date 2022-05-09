@@ -39,7 +39,7 @@
   	
   	<select id="paging" resultType="hansung.cap.project.FreeBoardVO">
     	<![CDATA[
-		select * from freeboard where SEQ <=#{paging} order by SEQ desc limit 10;]]>
+		select * from freeboard order by time desc limit #{paging},10;]]>
     </select>
   	
   	<select id="countBoard" resultType="int">

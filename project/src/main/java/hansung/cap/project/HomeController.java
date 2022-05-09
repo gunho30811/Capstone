@@ -530,7 +530,7 @@ public class HomeController {
 			list = qDao.QueryAll();
 			model.addAttribute("page", page);
 			Integer p = Integer.parseInt(page);
-			int paging = listSize-(10*(p-1));
+			int paging = 10*(p-1);
 			list = qDao.paging(paging);		
 			model.addAttribute("list",list);
 			return "QnA";
@@ -818,7 +818,7 @@ public class HomeController {
 		}
 		model.addAttribute("page", page);
 		Integer p = Integer.parseInt(page);
-		int paging = listSize-(10*(p-1));
+		int paging = 10*(p-1);
 		list = fDao.paging(paging);
 		model.addAttribute("list",list);
 		return "Free";
