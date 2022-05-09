@@ -770,17 +770,17 @@ public class HomeController {
 		}
 		
 		else if(option.equals("enroll")) {  //글을 등록
+			System.out.println("글을 등록");
 			FreeBoardVO fVO = new FreeBoardVO();
 			fVO.title=httpServletRequest.getParameter("title");
 			fVO.content=httpServletRequest.getParameter("content");
 			fVO.userId=httpServletRequest.getParameter("writer");
 			fVO.time=httpServletRequest.getParameter("time");
 			
+			System.out.println(fVO.time);
 			fDao.insert(fVO);
-			list = fDao.QueryAll();
 			
-					
-			
+	
 		}
 		
 		
