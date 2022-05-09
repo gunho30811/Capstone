@@ -402,12 +402,25 @@ public class HomeController {
 			}
 			else if(option.equals("search")) {  //검색
 				String keyWord = httpServletRequest.getParameter("keyWord");
-				list = qDao.search("%"+keyWord+"%");
+				String select = httpServletRequest.getParameter("select");
+				
+				if(select.equals("title")) {
+					list = qDao.searchTitle("%"+keyWord+"%");
+				}
+				
+				else if(select.equals("userId")) {
+					list = qDao.searchUser("%"+keyWord+"%");
+				}
+				
+				else if(select.equals("multi")) {
+					list = qDao.search("%"+keyWord+"%");
+				}				
+				
 				model.addAttribute("list", list);
 				return "QnA";
 			}
 			
-			else if(option.equals("read")) {
+			else if(option.equals("read")) {  //글 열람
 				System.out.println("QnA read");
 				int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
 				QnAVO qVO = new QnAVO();
@@ -481,6 +494,10 @@ public class HomeController {
 				
 				qDao.enrollQnA(qVo);
 				System.out.println("insert");
+				list = qDao.QueryAll();
+				
+				model.addAttribute("list",list);
+				return "QnA";
 			}
 			
 			else if(option.equals("modify")) {  //QnA 글 수정페이지로 이동
@@ -666,8 +683,23 @@ public class HomeController {
 		}
 		else if(option.equals("search")) {  //freeboard 검색
 			String s = httpServletRequest.getParameter("text");
-			list = fDao.Search("%"+s+"%");
+			String select = httpServletRequest.getParameter("select");
+			
+			if(select.equals("title")) {
+				System.out.println("?????");
+				list = fDao.SearchTitle("%"+s+"%");
+			}
+			
+			else if(select.equals("userId")) {
+				list = fDao.SearchUser("%"+s+"%");
+			}
+			
+			else if(select.equals("multi")) {
+				list = fDao.Search("%"+s+"%");
+			}
+						
 			model.addAttribute("list",list);
+			return "Free";
 		}
 		else if(option.equals("view")) {   //freeboard 보기
 			int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));

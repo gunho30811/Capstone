@@ -18,6 +18,14 @@
   		select * from qna where title like #{s} or content like #{s} or userid like #{s} 
   	</select>
   	
+  	<select id="searchTitle" resultType="hansung.cap.project.QnAVO">
+  		select * from qna where title like #{s}  
+  	</select>
+  	
+  	<select id="searchUser" resultType="hansung.cap.project.QnAVO">
+  		select * from qna where userid like #{s} 
+  	</select>
+  	
   	<select id="read" resultType="hansung.cap.project.QnAVO">
   		select * from qna where seq like #{s}
   	</select>

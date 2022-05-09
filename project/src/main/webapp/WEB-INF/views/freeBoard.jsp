@@ -22,9 +22,11 @@
 	
 	function search(){
 		var keyWord=document.getElementById("searchText").value;
+		var selection = document.getElementById("selection").value;
 		
+		console.log(selection);
 		console.log(keyWord);
-		location.href="/freeBoard"+"?option=search&keyWord="+keyWord;
+		//location.href="/freeBoard"+"?option=search&keyWord="+keyWord;
 	}
 	
 </script>
@@ -51,10 +53,10 @@
    
     </div>
     <div class="search-wrap">
-    <select onchange="selectBoxChange(this.value)">
+    <select onchange="selectBoxChange(this.value)" id="selection">
         <option value="title">제목</option>
         <option value="userId">작성자</option>
-        <option>제목+작성자</option>
+        <option value="multi">제목+작성자</option>
     </select>  
     <input type="text" class="search-input" placeholder="Please Enter Text" id="searchText" autocomplete="off" />
 

@@ -32,9 +32,12 @@
 	
 	function search(){
 		var keyWord = document.getElementById("keyword").value;
+		var selection = document.getElementById("selection").value;
+		
+		console.log(selection);
 		console.log(keyWord);
 		
-		location.href = "/QnA"+"?option=search&keyWord="+keyWord;
+		location.href = "/QnA"+"?option=search&keyWord="+keyWord+"&select="+selection;
 	}
 	
 	function logOut(){
@@ -72,10 +75,10 @@
         <h1>QnA</h1>
     </div>
     <div class="search-wrap">
-    <select>
-        <option>제목</option>
-        <option>작성자</option>
-        <option>제목+작성자</option>
+    <select id="selection">
+        <option value="title">제목</option>
+        <option value="userId">작성자</option>
+        <option value="multi">제목+작성자</option>
     </select>  
     <input type="text" class="search-input" placeholder="Please Enter Text" id="keyword" value = "" autocomplete="off" >
 

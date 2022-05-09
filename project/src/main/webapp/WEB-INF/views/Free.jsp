@@ -26,7 +26,12 @@
 	
 	function search(){
 		var text  = document.getElementById("search").value;
-		location.href = "/free"+"?option=search&text="+text;
+		var selection = document.getElementById("selection").value;
+		
+		console.log(selection);
+		console.log(text);
+		
+		location.href = "/free"+"?option=search&text="+text+"&select="+selection;
 	}
 	
 	function gotoEnroll(){
@@ -68,14 +73,14 @@
         <h1>Free_Board</h1>
     </div>
     <div class="search-wrap">
-    <select>
-        <option>제목</option>
-        <option>작성자</option>
-        <option>제목+작성자</option>
+    <select id="selection">
+        <option value="title">제목</option>
+        <option value="userId">작성자</option>
+        <option value="multi">제목+작성자</option>
     </select>  
     <input type="text" class="search-input" placeholder="Please Enter Text" id="search" value="" autocomplete="off" />
 
-     <button type="submit" class="search-btn" onclick = "search()">검색</button>
+     <button  class="search-btn" onclick = "search()">검색</button>
     </div>
 
     <div class ="board_list_wrap">

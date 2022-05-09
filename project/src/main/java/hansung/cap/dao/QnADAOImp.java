@@ -31,6 +31,15 @@ public class QnADAOImp implements QnADAO {
 	}
 	
 	@Override
+	public List<QnAVO> searchTitle(String s){
+		return sqlSession.selectList(namespace+".searchTitle",s);
+	}
+	
+	@Override
+	public List<QnAVO> searchUser(String s){
+		return sqlSession.selectList(namespace+".searchUser",s);
+	}
+	@Override
 	public QnAVO read(int s){
 		return sqlSession.selectOne(namespace+".read",s);
 	}

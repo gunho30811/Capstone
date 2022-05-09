@@ -32,6 +32,17 @@ public class FreeBoardDAOImp implements FreeBoardDAO {
 	public List<FreeBoardVO> Search(String s){
 		return sqlSession.selectList(namespace+".searchAll",s);
 	}
+	
+	@Override
+	public List<FreeBoardVO> SearchTitle(String s){
+		return sqlSession.selectList(namespace+".searchTitle",s);
+	}
+	
+	@Override
+	public List<FreeBoardVO> SearchUser(String s){
+		return sqlSession.selectList(namespace+".searchUser",s);
+	}
+	
 	@Override
 	public FreeBoardVO Read(int a){
 		return sqlSession.selectOne(namespace+".read",a);
