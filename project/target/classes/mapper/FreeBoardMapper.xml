@@ -17,6 +17,14 @@
   		select * from freeboard where title like #{s} or userid like #{s} 
   	</select>
   	
+  	<select id="searchTitle" resultType="hansung.cap.project.FreeBoardVO">
+  		select * from freeboard where title like #{s} 
+  	</select>
+  	
+  	<select id="searchUser" resultType="hansung.cap.project.FreeBoardVO">
+  		select * from freeboard where userid like #{s} 
+  	</select>
+  	
   	<select id="read" resultType="hansung.cap.project.FreeBoardVO">
   		select * from freeboard where seq like #{a} 
   	</select>
@@ -31,7 +39,7 @@
   	
   	<select id="paging" resultType="hansung.cap.project.FreeBoardVO">
     	<![CDATA[
-		select * from freeboard where SEQ <=#{paging} order by SEQ desc limit 10;]]>
+		select * from freeboard order by time desc limit #{paging},10;]]>
     </select>
   	
   	<select id="countBoard" resultType="int">

@@ -1,14 +1,28 @@
 
+
 body{
     margin: 0;
     font-family:'Electrolize';
 }
+
 
 a{
     text-decoration: none;
     color: rgb(255, 255, 255);
 
 }
+.top{  /*5.10*/
+    position: fixed;
+    right:0;
+    left:97%;
+    top:50%;
+    text-align: center;
+    z-index: 505;
+}
+.top a{ /*5.10*/
+    color: #111;
+}
+
 
 .wrap {
     min-height: 100%;
@@ -39,6 +53,7 @@ a{
     overflow: hidden;
     z-index: 1;
 }
+
 
 .pr1{ width:100%; height:720px;} 
 /*swiper-slide*/
@@ -113,14 +128,63 @@ footer.index_footer{
     height: 400px;
     width: 400px;
 }
-.banner-title p.title{
-    color: #fff;
+
+.banner-title hr{
+    position:absolute;
+    top:-195px;
+    right:-16%;
+    transform: translateX(21%);
+    width:0px;
+    height: 0.3%;
+    background-color:transparent;
+    border:0px;
+    transition:all 1s ease-in-out
+
 }
+.section:hover .banner-title hr{
+    position:absolute;
+    height: 0.3%;
+    background-color:black;
+    width:680px;
+    border:0px;
+    transition:2.7s;
+}
+
+
+
+.banner-title p.title{
+    position: absolute;
+    top:-40px;
+    color: #fff;
+    transition:all 1s ease-in-out
+
+    /*애니메이션 이름*/
+
+}
+.section:hover .banner-title p.title{
+    position:absolute;
+    top:-250px;
+    font-size:40px;
+    transition:1.5s;
+}
+
 .banner-title p.summary{
+    position: absolute;
+    top:-20px;
     color: rgba(255,255,255,.2);
+    transition:all 1s ease-in-out
+
+}
+.section:hover .banner-title p.summary{
+    position:absolute;
+    top:-180px;
+    font-size:25px;
+    transition:1.5s;
 }
 
 .banner-title a.arr{
+    position: relative;
+    top:20px;
     color: rgba(255,255,255,.2);
 }
 
@@ -132,17 +196,61 @@ footer.index_footer{
     height: 800px;
     width: 400px;
 }
+.banner-title_two hr{
+    position:absolute;
+    top:25px;
+    right:3%;
+    transform: translateX(21%);
+    width:0px;
+    height: 0.3%;
+    background-color:transparent;
+    border:0px;
+    transition:all 1s ease-in-out
+
+}
+.section:hover .banner-title_two hr{
+    position:absolute;
+    height: 0.3%;
+    background-color:black;
+    width:700px;
+    border:0px;
+    transition:3s;
+}
 
 .banner-title_two p.title{
+    position:absolute;
+    left:85px;
+    top:80px;
     font-size:40px;
     color: #fff;
+    transition:all .5s ease-in-out;
+}
+.section:hover .banner-title_two p.title {
+    position:absolute;
+    top:-50px;
+    transition:1s;
+    font-size:50px;
 }
 .banner-title_two p.summary{
+    position:absolute;
+    left:87px;
+    top:150px;
+    font-size:18px;
     margin-top:30px;
     color:#e9ecef;
- 
+    transition:all .5s ease-in-out;
 }
+.section:hover .banner-title_two p.summary {
+    position:absolute;
+    top:50px;
+    transition:1s;
+    font-size:20px;
+}
+
 .banner-title_two a.arr{
+    position:absolute;
+    top:200px;
+    left:100px;
     margin-top: 100px;
     color:#e9ecef;
  

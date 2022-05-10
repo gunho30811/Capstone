@@ -104,6 +104,7 @@
     <div class="section section_fullpage">
     <img class="pr2" src="https://images.pexels.com/photos/3205735/pexels-photo-3205735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"><img class="pr3" src="http://www.netchus.com/resources/img/layout/main/banner-3-bg.jpg">
     <div class="banner-title">
+    	<hr>
         <p class ="title"> CCTV_analysis</p>
         <p class ="summary">딥러닝을 이용한 CCTV 분석</p>
         <a class="arr" href="/carList">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
@@ -115,6 +116,7 @@
     <div class="section section_fullpage">
     <img class="pr4" src="https://images.pexels.com/photos/3770875/pexels-photo-3770875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
     <div class="banner-title_two">
+    	<hr>
         <p class ="title"> Car_Model</p>
         <p class ="summary">다양한 차량에 대한 정보를 알고 싶다면</p>
         <a class="arr" href="/CarModel">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
@@ -126,6 +128,7 @@
     <div class="section section_fullpage">
     <img class="pr4" src="http://www.netchus.com/resources/img/layout/main/banner-4-bg.jpg">
     <div class="banner-title_two">
+    	<hr>
         <p class ="title"> Streaming</p>
         <p class ="summary">실시간영상, 실시간 녹화</p>
         <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
@@ -137,6 +140,7 @@
     <div class="section section_fullpage">
     <img class="pr4" src="https://images.pexels.com/photos/6210598/pexels-photo-6210598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
     <div class="banner-title_two">
+    	<hr>
         <p class ="title"> Free_Board</p>
         <p class ="summary">다양한 소통, 다채로운 이야기</p>
         <a class="arr" href="/free">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
@@ -148,6 +152,7 @@
     <div class="section section_fullpage">
     <img class="pr5" src="https://images.pexels.com/photos/10981242/pexels-photo-10981242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
     <div class="banner-title_two">
+    	<hr>
         <p class ="title"> QnA</p>
         <p class ="summary">문의 사항이 있다면</p>
         <a class="arr" href="/QnA">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
@@ -171,7 +176,12 @@
 </div>
 
 
-
+<div class="top"> <!--5.10-->
+    <a href="" onClick="javascript:window.scrollTo(0,0)">
+        <p>TOP</p>
+        <img src="http://www.netchus.com/resources/img/layout/top.png">
+	</a> 
+</div>
 
 
 
@@ -200,6 +210,10 @@
 			$("section .shell img#img-3").css("margin-top",-(y)*.028).css("margin-left",-475-((x)*.02)).css("opacity",1-((x-y)*.0007));
 		
 		})
+		
+	$(function(){
+        $("banner-title_two")
+	});
 
 </script>-->
 
