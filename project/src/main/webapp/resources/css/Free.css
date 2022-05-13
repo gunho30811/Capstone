@@ -1,3 +1,20 @@
+
+@font-face {
+    font-family: 'WooridaumB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IBMPlexSansKR-ExtraLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-ExtraLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 body{
     margin: 0;
     font-family:'Electrolize';
@@ -5,15 +22,222 @@ body{
     width: 100%; 
 }
 
-a{
+*{
+	margin: 0;
+	padding: 0;
+}
 
+/*body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}*/
+
+.imgList1 {
+    position:absolute;
+    margin-top:2%;
+    left:8%;
+	width: 81%;
+    height: 40%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.imgList1 :nth-child(4){
+    position: absolute;
+    margin-top:45%;
+    justify-content: space-around;
+	align-items: center;
+}
+
+.imgList1 :nth-child(5){
+    position: absolute;
+    right:50%;
+    margin-top:45%;
+    margin-left:35%;
+    justify-content: space-around;
+	align-items: center;
+}
+.imgList1 :nth-child(6){
+    position: absolute;
+    right:50%;
+    margin-top:45%;
+    margin-left:70%;
+    justify-content: space-around;
+	align-items: center;
+}
+
+
+/*.imgList2 {
+    position:absolute;
+    margin-top:25%;
+    left:8%;
+	width: 81%;
+    height: 20%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}*/
+
+.imgC p {
+	text-align: center;
+    font-family:'WooridaumB';
+}
+.imgC{
+    height:50%;
+    width:20%;
+    left:5%;
+    }
+.imgC img{
+    height: 100%;
+    width: 100%;
+    transition: all .5s ease-in-out;
+}
+.imgC img:hover 
+{
+    transform: scale(1.5);
+    transition: 0.5s;
+
+}
+
+.modal {
+	display: none;
+	z-index: 500;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+    	font-family: 'WooridaumB';
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.8)
+}
+
+.modal button {
+	position: absolute;
+	top: 3rem;
+	right: 3rem;
+	background: transparent;
+	border: 0;
+	color: #ffffff;
+	font-size: 3rem;
+}
+
+.modalBox {
+	position: relative;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+	background-color:transparent;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+}
+
+.modal_content{
+    box-sizing: content-box;
+    border: 0px solid;
+    width: 600px;
+    height: 30px;
+    word-break:break-all;
+    border: solid #000 0px;
+    text-align:left;
+}
+
+span.info{
+    font-size:20px;
+    font-family: 'IBMPlexSansKR-ExtraLight';
+    color:#fff;
+}
+
+
+.modalBox img {
+	width: 100%;
+}
+
+.modalBox p {
+	color: #ffffff;
+	background-color: transparent;
+	font-size: 2rem;
+    font-family: 'IBMPlexSansKR-ExtraLight';
+	padding: .2rem;
+    padding-left:40px;
+    padding-bottom:20px;
+    text-align: center;
+    
+
+}
+
+.modal_admin{
+    position:absolute; width:100%; height:100%;
+    background: rgba(52, 52, 52, 0.3); top:0; left:0; 
+    display: none;
+}
+
+.modalBox_admin{
+    width:400px; height:400px;
+    background-color:#fff; border-radius:10px;
+    position:relative; top:50%; left:50%;
+    margin-top:-100px; margin-left:-220px;
+    text-align:center;
+    box-sizing:border-box;
+    line-height:23px; cursor:pointer;
+  }
+  .modal_admin button.x {
+	position: absolute;
+	top: 3rem;
+	right: 3rem;
+	background: transparent;
+	border: 0;
+	color: #ffffff;
+	font-size: 3rem;
+}
+
+
+.modal_input_area{
+    float:left;
+    box-sizing: border-box;
+    position: relative;
+    padding-top:20px;
+    width:400px;
+}
+.modal_input_area input{
+    width:250px;
+    height:100%;
+    border-radius: 10px;
+}
+
+.modal_input_area label{
+    width:100px;
+    float: left;
+    font-family: 'IBMPlexSansKR-ExtraLight';
+
+}
+
+.modal_input_upload{
+    float:left;
+    box-sizing: border-box;
+    width:300px;
+    padding-top:30px;
+    padding-left:10px;
+    text-align: left;
+}
+
+.modal_admin_input select{
+    float:left;
+    width:80px;
+    margin-top:27px;
+    margin-left:10px;
+}
+
+
+a{
     text-decoration: none;
     color: black;
 }
 
 .all{ 
-
-   
+    margin-top:-10px;
    
 }
 
@@ -78,7 +302,7 @@ a{
     
     position: relative;    
     left:90px;
-    top:-10px;
+    top:10px;
     width:500px;
     height: 32px;
    
@@ -109,17 +333,22 @@ input::-webkit-input-placeholder {
 }
 
 .search-btn{
-   
+    background-color:transparent;
+    list-style: none;
     position: relative;
     top: 0.5px;
+    width: 35px;
     height: 32px;
-    border-radius: 10px;
+    border-radius: 7px;
+    border: 0.5px solid black;
+    font-family: 'IBMPlexSansKR-ExtraLight';
+    font-weight: bold;
 }
 
 .board_list_wrap{   
     width:1000px;
     margin-left: 35px;
-    height: 65%;
+    height: 15%;
     padding-left: 55px;
     padding-top: 40px;
 }
@@ -154,7 +383,9 @@ table{border-collapse:collapse;}
     text-decoration: underline;}
     
 .board_list_wrap .paging{
-   margin-top: 10px; 
+    position: absolute;
+   top: 92%;
+   left: 37.5%; 
    font-size:0;
    text-align: center;
 }
@@ -164,7 +395,8 @@ table{border-collapse:collapse;}
     font-size: 12px;
     margin-left: 10px;
     padding: 5px 10px;
-    
+    font-family: 'IBMPlexSansKR-ExtraLight';
+
 }
 .board_list_wrap .paging a.num{
     border: 1px solid black;
@@ -180,26 +412,49 @@ table{border-collapse:collapse;}
 
 
 .board_list_wrap .paging a.bt{
-    background: #ccc;
-    border: 1px solid #ccc;
+	background-color:transparent;
+    border: 1px solid transparent;
+
 }
 
 button.d-btn{
-    position: relative;
-    left:450px;
-    top:10px;
+    position: absolute;
+    left:45.5%;
+    top:84%;
     background: black;
     color:#fff;
     width:80px;
     height: 40px;
     border:0px;
-}
+    border-radius: 10px;
+    font-family: 'IBMPlexSansKR-ExtraLight';
+    font-weight: bold;
 
+}
 button.d-btn:hover{
     background-color: #d49466;
-    
     width: 80px;
+    border-radius: 10px;
 }
+
+button.f-btn{
+    z-index: 1;
+    position: absolute;
+    left:45.5%;
+    top:84%;
+    background: black;
+    color:#fff;
+    width:80px;
+    height: 40px;
+    border:0px;
+    border-radius: 10px;
+    font-family: 'IBMPlexSansKR-ExtraLight';
+    font-weight: bold;
+
+}
+
+
+
 
 /****************테이블 end************************************/
 
@@ -228,8 +483,7 @@ button.d-btn:hover{
    
         .bar_menu li:hover{
             background-color: #d49466;
-            border-radius: 20px;
-           
+            border-radius: 20px;           
             width:140.8px;
         }
      

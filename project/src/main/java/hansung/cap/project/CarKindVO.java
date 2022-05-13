@@ -7,6 +7,7 @@ public class CarKindVO {
 	String carFuel;
 	String carRoad;
 	String carEngine;
+	String carImage;
 	
 	public String getCarKind() {
 		return carKind;
@@ -44,5 +45,10 @@ public class CarKindVO {
 	public void setCarEngine(String carEngine) {
 		this.carEngine = carEngine;
 	}
-
+	public String getCarImage() {
+		return carImage;
+	}
+	public void setCarImage(String carImage) {
+		this.carImage = carImage;
+	}
 }
