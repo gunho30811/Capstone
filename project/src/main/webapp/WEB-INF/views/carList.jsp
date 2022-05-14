@@ -86,12 +86,12 @@
         	</c:if>
         	<c:if test = "${pageSize>3 }">
             <a href="/carList?option=first" class="bt">처음</a>
-            <a href="/carList?option=back&&page=${page-1 }" class="num"> &lt; </a>
+            <a href="/carList?option=back&&page=${page}&&nowBlock=${nowBlock-1}" class="num"> &lt; </a>
             <c:set var="pageSize" value="${pageSize}"/>
-            <c:forEach var="page" begin="1" end="${pageSize}" step="1">
-            <a href="/carList?page=${page}" class="num">${page}</a>
+            <c:forEach var="page" begin="${nowBlock}" end="${nowBlock+2}" step="1">
+            <a href="/carList?page=${page}&&nowBlock=${nowBlock}" class="num">${page}</a>
             </c:forEach>
-            <a href="/carList?option=next&&page=${page+1 }" class="num"> &gt; </a>
+            <a href="/carList?option=next&&page=${page}&&nowBlock=${nowBlock+1}" class="num"> &gt; </a>
             <a href="/carList?option=last" class="bt">마지막</a>
             </c:if>
         </div>

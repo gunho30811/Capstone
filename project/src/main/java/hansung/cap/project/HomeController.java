@@ -263,7 +263,15 @@ public class HomeController {
 		} else {
 			pageSize = listSize/10 + 1;
 		}
-		
+		int blockSize;
+		if(pageSize<3) {
+			blockSize = 1;
+		}
+		else {
+			blockSize = pageSize-2;
+		}
+		model.addAttribute("blockSize", blockSize);
+		String nowBlock = httpServletRequest.getParameter("nowBlock");
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
 		
@@ -284,6 +292,7 @@ public class HomeController {
 		
 		if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
 			page = "1";
+			nowBlock="1";
 		}
 		
 		System.out.println("page : " + page);
@@ -295,10 +304,13 @@ public class HomeController {
 		else if(option.equals("first")) {
 			System.out.println("////////////////////////first");
 			page = "1";
+			nowBlock = "1";
 		}
 		else if(option.equals("last")) {
 			System.out.println("////////////////////////last");
 			page = String.valueOf(pageSize);
+			String snowBlock = Integer.toString(blockSize);
+			nowBlock = snowBlock;
 		}
 		else if(option.equals("next")) {
 			System.out.println("////////////////////////next");
@@ -307,6 +319,12 @@ public class HomeController {
 			if(ipage>=pageSize) {
 				String spage = Integer.toString(pageSize);
 				page=spage;
+			}
+			Integer inowBlock = Integer.parseInt(nowBlock);
+			System.out.println("blockSize : " + blockSize);
+			if(inowBlock>=blockSize) {
+				String snowBlock = Integer.toString(blockSize);
+				nowBlock = snowBlock;
 			}
 			
 		}
@@ -317,11 +335,16 @@ public class HomeController {
 			if(ipage<=1) {
 				page="1";
 			}
+			Integer inowBlock = Integer.parseInt(nowBlock);
+			if(inowBlock<=1) {
+				nowBlock = "1";
+			}
 		}
 		else {
 			
 		}
 		model.addAttribute("page", page);
+		model.addAttribute("nowBlock", nowBlock);
 		
 		
 		Integer p = Integer.parseInt(page);
@@ -359,8 +382,16 @@ public class HomeController {
 			} else {
 				pageSize = listSize/10 + 1;
 			}
+			int blockSize;
+			if(pageSize<3) {
+				blockSize = 1;
+			}
+			else {
+				blockSize = pageSize-2;
+			}
+			model.addAttribute("blockSize", blockSize);
 			
-			
+			String nowBlock = httpServletRequest.getParameter("nowBlock");
 			String option = httpServletRequest.getParameter("option");
 			String page = httpServletRequest.getParameter("page");
 			model.addAttribute("listSize", listSize);
@@ -369,6 +400,7 @@ public class HomeController {
 			System.out.println("pageSize : " + pageSize);
 			if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
 				page = "1";
+				nowBlock="1";
 			}
 			
 			if(option==null) {
@@ -377,10 +409,13 @@ public class HomeController {
 			else if(option.equals("first")) {
 				System.out.println("////////////////////////first");
 				page = "1";
+				nowBlock = "1";
 			}
 			else if(option.equals("last")) {
 				System.out.println("////////////////////////last");
 				page = String.valueOf(pageSize);
+				String snowBlock = Integer.toString(blockSize);
+				nowBlock = snowBlock;
 			}
 			else if(option.equals("next")) {
 				System.out.println("////////////////////////next");
@@ -390,6 +425,12 @@ public class HomeController {
 					String spage = Integer.toString(pageSize);
 					page=spage;
 				}
+				Integer inowBlock = Integer.parseInt(nowBlock);
+				System.out.println("blockSize : " + blockSize);
+				if(inowBlock>=blockSize) {
+					String snowBlock = Integer.toString(blockSize);
+					nowBlock = snowBlock;
+				}
 				
 			}
 			else if(option.equals("back")) {
@@ -398,6 +439,10 @@ public class HomeController {
 				Integer ipage = Integer.parseInt(page);
 				if(ipage<=1) {
 					page="1";
+				}
+				Integer inowBlock = Integer.parseInt(nowBlock);
+				if(inowBlock<=1) {
+					nowBlock = "1";
 				}
 			}
 			else if(option.equals("search")) {  //검색
@@ -486,7 +531,6 @@ public class HomeController {
 			}
 			
 			else if(option.equals("enrollQnA")) {  //QnA 글 등록
-				
 				qVo.title = httpServletRequest.getParameter("title");
 				qVo.content = httpServletRequest.getParameter("content");
 				qVo.userId = httpServletRequest.getParameter("writer");
@@ -494,10 +538,7 @@ public class HomeController {
 				
 				qDao.enrollQnA(qVo);
 				System.out.println("insert");
-				list = qDao.QueryAll();
-				
-				model.addAttribute("list",list);
-				return "QnA";
+
 			}
 			
 			else if(option.equals("modify")) {  //QnA 글 수정페이지로 이동
@@ -528,6 +569,7 @@ public class HomeController {
 			}
 			
 			list = qDao.QueryAll();
+			model.addAttribute("nowBlock", nowBlock);
 			model.addAttribute("page", page);
 			Integer p = Integer.parseInt(page);
 			int paging = 10*(p-1);
@@ -544,104 +586,104 @@ public class HomeController {
 	
 	//--------------------04.02 carmodel 완-------------------------//
 		
-		@RequestMapping(value = "/CarModel", method = RequestMethod.GET)
-		public String carModel(HttpServletRequest httpServletRequest, Model model) {
-			HttpSession session=httpServletRequest.getSession();
-			String user_id=(String)session.getAttribute("userId"); ;
-			model.addAttribute("id",user_id);
-			
-			if(user_id==null) {
-				return "login";
+	@RequestMapping(value = "/CarModel", method = RequestMethod.GET)
+	public String carModel(HttpServletRequest httpServletRequest, Model model) {
+		HttpSession session=httpServletRequest.getSession();
+		String user_id=(String)session.getAttribute("userId"); ;
+		model.addAttribute("id",user_id);
+		
+		if(user_id==null) {
+			return "login";
+		}
+		
+		List<CarKindVO> list = new ArrayList<CarKindVO>();
+		list = cDao.QuerryAll();
+		CarKindVO cVO = new CarKindVO();
+		int listSize = cDao.countBoard(cVO);
+		int pageSize;
+		if(listSize%6==0) {
+			pageSize = listSize/6;
+		} else {
+			pageSize = listSize/6 +1;
+		}
+		int blockSize;
+		if(pageSize<3) {
+			blockSize = 1;
+		}
+		else {
+			blockSize = pageSize-2;
+		}
+		model.addAttribute("blockSize", blockSize);
+		model.addAttribute("listSize", listSize);
+		model.addAttribute("pageSize", pageSize);
+		System.out.println("listSize : " + listSize);
+		System.out.println("pageSize : " + pageSize);
+		
+		String nowBlock = httpServletRequest.getParameter("nowBlock");
+		String page = httpServletRequest.getParameter("page");
+		String option = httpServletRequest.getParameter("option");
+		if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
+			page = "1";
+			nowBlock="1";
+		}
+		
+		if(option==null) {
+		}
+		else if(option.equals("first")) {
+			System.out.println("////////////////////////first");
+			page = "1";
+			nowBlock = "1";
+		}
+		else if(option.equals("last")) {
+			System.out.println("////////////////////////last");
+			page = String.valueOf(pageSize);
+			String snowBlock = Integer.toString(blockSize);
+			nowBlock = snowBlock;
+		}
+		else if(option.equals("next")) {
+			System.out.println("////////////////////////next");
+			System.out.println("page : " + page);
+			System.out.println("nowBlock : " + nowBlock);
+			Integer ipage = Integer.parseInt(page);
+			if(ipage>=pageSize) {
+				String spage = Integer.toString(pageSize);
+				page=spage;
 			}
 			
-			List<CarKindVO> list = new ArrayList<CarKindVO>();
-			list = cDao.QuerryAll();
-			CarKindVO cVO = new CarKindVO();
-			int listSize = cDao.countBoard(cVO);
-			int pageSize;
-			if(listSize%6==0) {
-				pageSize = listSize/6;
-			} else {
-				pageSize = listSize/6 +1;
-			}
-			int blockSize;
-			if(pageSize<3) {
-				blockSize = 1;
-			}
-			else {
-				blockSize = pageSize-2;
-			}
-			model.addAttribute("blockSize", blockSize);
-			model.addAttribute("listSize", listSize);
-			model.addAttribute("pageSize", pageSize);
-			System.out.println("listSize : " + listSize);
-			System.out.println("pageSize : " + pageSize);
-			
-			String nowBlock = httpServletRequest.getParameter("nowBlock");
-			String page = httpServletRequest.getParameter("page");
-			String option = httpServletRequest.getParameter("option");
-			if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
-				page = "1";
-				nowBlock="1";
-			}
-			
-			if(option==null) {
-			}
-			else if(option.equals("first")) {
-				System.out.println("////////////////////////first");
-				page = "1";
-				nowBlock = "1";
-			}
-			else if(option.equals("last")) {
-				System.out.println("////////////////////////last");
-				page = String.valueOf(pageSize);
+			Integer inowBlock = Integer.parseInt(nowBlock);
+			System.out.println("blockSize : " + blockSize);
+			if(inowBlock>=blockSize) {
 				String snowBlock = Integer.toString(blockSize);
 				nowBlock = snowBlock;
 			}
-			else if(option.equals("next")) {
-				System.out.println("////////////////////////next");
-				System.out.println("page : " + page);
-				System.out.println("nowBlock : " + nowBlock);
-				Integer ipage = Integer.parseInt(page);
-				if(ipage>=pageSize) {
-					String spage = Integer.toString(pageSize);
-					page=spage;
-				}
-				
-				Integer inowBlock = Integer.parseInt(nowBlock);
-				System.out.println("blockSize : " + blockSize);
-				if(inowBlock>=blockSize) {
-					String snowBlock = Integer.toString(blockSize);
-					nowBlock = snowBlock;
-				}
-				
+			
+		}
+		else if(option.equals("back")) {
+			System.out.println("////////////////////////back");
+			System.out.println("page : " + page);
+			System.out.println("nowBlock : " + nowBlock);
+			Integer ipage = Integer.parseInt(page);
+			if(ipage<=1) {
+				page="1";
 			}
-			else if(option.equals("back")) {
-				System.out.println("////////////////////////back");
-				System.out.println("page : " + page);
-				System.out.println("nowBlock : " + nowBlock);
-				Integer ipage = Integer.parseInt(page);
-				if(ipage<=1) {
-					page="1";
-				}
-				
-				Integer inowBlock = Integer.parseInt(nowBlock);
-				if(inowBlock<=1) {
-					nowBlock = "1";
-				}
+			
+			Integer inowBlock = Integer.parseInt(nowBlock);
+			if(inowBlock<=1) {
+				nowBlock = "1";
 			}
-			else if(option.equals("search")) {
-				String searchText = httpServletRequest.getParameter("name");
-				list = cDao.Querrycar(searchText);
-			}
-			model.addAttribute("page", page);
-			model.addAttribute("nowBlock", nowBlock);
-			Integer p = Integer.parseInt(page);
-			int paging = listSize-(6*(p-1));		//sql에 넘겨줄 변수 계산
-			list = cDao.paging(paging);
-			model.addAttribute("list",list);
-			return "CarModel";
-		}	
+		}
+		else if(option.equals("search")) {
+			String searchText = httpServletRequest.getParameter("name");
+			list = cDao.Querrycar(searchText);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("nowBlock", nowBlock);
+		Integer p = Integer.parseInt(page);
+		int paging = listSize-(6*(p-1));		//sql에 넘겨줄 변수 계산
+		list = cDao.paging(paging);
+		model.addAttribute("list",list);
+		return "CarModel";
+	}	
 	
 	
 	
@@ -665,15 +707,26 @@ public class HomeController {
 		} else {
 			pageSize = listSize/10 + 1;
 		}
+		int blockSize;
+		if(pageSize<3) {
+			blockSize = 1;
+		}
+		else {
+			blockSize = pageSize-2;
+		}
+		model.addAttribute("blockSize", blockSize);
 		model.addAttribute("listSize", listSize);
 		model.addAttribute("pageSize", pageSize);
 		System.out.println("listSize : " + listSize);
 		System.out.println("pageSize : " + pageSize);
+		System.out.println("blockSize : " + blockSize);
 		
+		String nowBlock = httpServletRequest.getParameter("nowBlock");
 		String page = httpServletRequest.getParameter("page");
 		String option = httpServletRequest.getParameter("option");
 		if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
 			page = "1";
+			nowBlock="1";
 		}
 		
 		
@@ -683,10 +736,13 @@ public class HomeController {
 		else if(option.equals("first")) {
 			System.out.println("////////////////////////first");
 			page = "1";
+			nowBlock="1";
 		}
 		else if(option.equals("last")) {
 			System.out.println("////////////////////////last");
 			page = String.valueOf(pageSize);
+			String snowBlock = Integer.toString(blockSize);
+			nowBlock = snowBlock;
 		}
 		else if(option.equals("next")) {
 			System.out.println("////////////////////////next");
@@ -696,6 +752,12 @@ public class HomeController {
 				String spage = Integer.toString(pageSize);
 				page=spage;
 			}
+			Integer inowBlock = Integer.parseInt(nowBlock);
+			System.out.println("blockSize : " + blockSize);
+			if(inowBlock>=blockSize) {
+				String snowBlock = Integer.toString(blockSize);
+				nowBlock = snowBlock;
+			}
 			
 		}
 		else if(option.equals("back")) {
@@ -704,6 +766,10 @@ public class HomeController {
 			Integer ipage = Integer.parseInt(page);
 			if(ipage<=1) {
 				page="1";
+			}
+			Integer inowBlock = Integer.parseInt(nowBlock);
+			if(inowBlock<=1) {
+				nowBlock = "1";
 			}
 		}
 		else if(option.equals("search")) {  //freeboard 검색
@@ -841,6 +907,7 @@ public class HomeController {
 			model.addAttribute("list",fVO);
 			return "freeView";
 		}
+		model.addAttribute("nowBlock", nowBlock);
 		model.addAttribute("page", page);
 		Integer p = Integer.parseInt(page);
 		int paging = 10*(p-1);

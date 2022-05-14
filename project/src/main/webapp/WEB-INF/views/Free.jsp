@@ -44,6 +44,7 @@
 		alert("로그아웃 되었습니다!");
 		location.href = "/"+"?option=logOut";
 	}
+	console.log("${nowBlock}");
 </script>
 <body>
       
@@ -121,12 +122,12 @@
         	</c:if>
         	<c:if test = "${pageSize>3 }">
             <a href="/free?option=first" class="bt">처음</a>
-            <a href="/free?option=back&&page=${page-1 }" class="num"> &lt; </a>
+            <a href="/free?option=back&&page=${page}&&nowBlock=${nowBlock-1}" class="num"> &lt; </a>
             <c:set var="pageSize" value="${pageSize}"/>
-            <c:forEach var="page" begin="1" end="${pageSize}" step="1">
-            <a href="/free?page=${page}" class="num">${page}</a>
+            <c:forEach var="page" begin="${nowBlock}" end="${nowBlock+2}" step="1">
+            <a href="/free?page=${page}&&nowBlock=${nowBlock}" class="num">${page}</a>
             </c:forEach>
-            <a href="/free?option=next&&page=${page+1 }" class="num"> &gt; </a>
+            <a href="/free?option=next&&page=${page}&&nowBlock=${nowBlock+1}" class="num"> &gt; </a>
             <a href="/free?option=last" class="bt">마지막</a>
             </c:if>
         </div>

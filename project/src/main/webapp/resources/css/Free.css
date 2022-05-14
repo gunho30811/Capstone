@@ -13,6 +13,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 body{
@@ -69,7 +76,7 @@ body{
 }
 
 
-/*.imgList2 {
+.imgList2 {
     position:absolute;
     margin-top:25%;
     left:8%;
@@ -78,7 +85,7 @@ body{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-}*/
+}
 
 .imgC p {
 	text-align: center;
@@ -383,31 +390,38 @@ table{border-collapse:collapse;}
     text-decoration: underline;}
     
 .board_list_wrap .paging{
-    position: absolute;
-   top: 92%;
-   left: 37.5%; 
+   display: flex;
+   flex-flow:row nowrap;
+   justify-content:center;
+   position: absolute;
+   box-sizing: border-box;
+   width:300px;
+   top:92%;
+   left:37%; 
    font-size:0;
-   text-align: center;
 }
 .board_list_wrap .paging a {
-   
-    display: inline-block;
-    font-size: 12px;
-    margin-left: 10px;
-    padding: 5px 10px;
-    font-family: 'IBMPlexSansKR-ExtraLight';
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 10px;
+    font-family: 'GangwonEduPowerExtraBoldA';
 
 }
 .board_list_wrap .paging a.num{
-    border: 1px solid black;
     border-radius: 100px;
     color:black;
-    background: #fff;
+    font-weight: bold;
+
     }
 
+.board_list_wrap .paging a.num:first-child{
 
-.board_list_wrap .paging a:first-child{
-    margin-left: 0;
+}
+.board_list_wrap .paging a.num:nth-child(2){
+}
+
+.board_list_wrap .paging a.bt:first-child{
+    margin-left:20px;
 }
 
 

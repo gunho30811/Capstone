@@ -123,12 +123,12 @@
         	</c:if>
         	<c:if test = "${pageSize>3 }">
             <a href="/QnA?option=first" class="bt">처음</a>
-            <a href="/QnA?option=back&&page=${page-1 }" class="num"> &lt; </a>
+            <a href="/QnA?option=back&&page=${page}&&nowBlock=${nowBlock-1}" class="num"> &lt; </a>
             <c:set var="pageSize" value="${pageSize}"/>
-            <c:forEach var="page" begin="1" end="${pageSize}" step="1">
-            <a href="/QnA?page=${page}" class="num">${page}</a>
+            <c:forEach var="page" begin="${nowBlock}" end="${nowBlock+2}" step="1">
+            <a href="/QnA?page=${page}&&nowBlock=${nowBlock}" class="num">${page}</a>
             </c:forEach>
-            <a href="/QnA?option=next&&page=${page+1 }" class="num"> &gt; </a>
+            <a href="/QnA?option=next&&page=${page}&&nowBlock=${nowBlock+1}" class="num"> &gt; </a>
             <a href="/QnA?option=last" class="bt">마지막</a>
             </c:if>
         </div>
