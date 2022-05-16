@@ -6,56 +6,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="건호" content="width=device-width, initial-scale=1.0">
-    <title>Car_model</title>
-    <link rel="stylesheet" href="/resources/css/Car_model.css">
+    <link rel="stylesheet" href="/resources/css/Free.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
-
+<script
+     src="https://kit.fontawesome.com/af4e1eff79.js"
+     crossorigin="anonymous"></script>
 
 </head>
+<script>
+function logOut(){
+	console.log("logOut!!");
+	
+	alert("로그아웃 되었습니다!");
+	location.href = "/"+"?option=logOut";
+}
+function search(){
+	var car = document.getElementById("search").value;
+	console.log(car);
+	
+	var sel = document.getElementById("sel").value;
+	console.log(sel);
+	
+	location.href = "/CarModel"+"?option=search&name="+car+"&sel="+sel;
+}
+</script>
 <body>
+      
+
     
-
 <div class="all">
+    <header class="back_color"></header><!----3.23--->
+    <footer class="back_color2"></footer><!---3.23-->
+        <ul class="bar_menu">
+            <li class="bar_logo">
+                <i class="fa-solid fa-car-crash"></i>
+                <a href="/"><b>HansungProject</b></a>
+            </li>
+            <li><a href="/carList">CCTV_analysis</a></li>
+            <li><a href="/CarModel">Car_model </a></li>
+            <li><a href="/">Streaming</a></li>
+            <li><a href="/QnA">QnA</a></li>
+            <li><a href="/free">Free_Board</a></li>
+    
+        </ul>    
+     
+<br>
 
+ <div class="all_tb">
+    <div class="Login_menu" onclick="logOut()"> <a href="/">Logout</a></div> 
     <div class="title">
-        <h1>title</h1>
-    </div>
-
-    <div class="prontbar">
-  
-
-    <ul class="bar_menu">
-        <li><a href="/carList">CCTV_analysis</a></li>
-        <li><a href="/CarModel">Car_model </a></li>
-        <li><a href="">Streaming</a></li>
-        <li><a href="/QnA">QnA</a></li>
-        <li><a href="/free">Free_Board</a></li>
-
-    </ul>    
- 
-   
+        <h1>CCTV_analysis</h1>
     </div>
     <div class="search-wrap">
     <select>
         <option>차종</option>
         <option>색</option>
+        <option>시간</option>
         <option>차종+색</option>
     </select>  
     <input type="text" class="search-input" placeholder="Please Enter Text">
 
-     <button type="submit" class="search-btn">검색</button>
+     <button onclick="search()" class="search-btn">검색</button>
     </div>
 
     <div class ="board_list_wrap">
         <table class="board_list">
-        <caption>게시판 목록</caption>
+        
             <thead>
                 <tr>
                 <th>인덱스</th>
                 <th>차종</th>
-                <th>색</th>
                 <th>시간</th>                
                 </tr>
          </thead>
@@ -64,7 +86,6 @@
                 <tr>
                   <td><c:out value="${dataVO.seq}"/></td>
                   <td><c:out value="${dataVO.model}"/></td>
-                  <td><c:out value="${dataVO.carColor}"/></td>
                   <td><c:out value="${dataVO.time}"/></td>
                         
                  </tr>
@@ -96,10 +117,16 @@
             </c:if>
         </div>
 
+        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
 
     </div>
     
+ </div>    <!-------all_tb---3.23------->
+
+ 
 </div>
+
+
 
 </body>
 

@@ -23,39 +23,39 @@
 
 
 body{
-    margin: 0;
     font-family:'Electrolize';
-    height: 100%;
+   min-height: 100vh;
     width: 100%; 
 }
 
 *{
-	margin: 0;
-	padding: 0;
+   margin: 0;
+   padding: 0;
 }
 
 /*body {
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }*/
 
 .imgList1 {
     position:absolute;
     margin-top:2%;
     left:8%;
-	width: 81%;
+   width: 81%;
     height: 40%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
 }
 .imgList1 :nth-child(4){
     position: absolute;
     margin-top:45%;
+    margin-left: 1.7%;
     justify-content: space-around;
-	align-items: center;
+    align-items: center;
 }
 
 .imgList1 :nth-child(5){
@@ -64,31 +64,20 @@ body{
     margin-top:45%;
     margin-left:35%;
     justify-content: space-around;
-	align-items: center;
+   align-items: center;
 }
 .imgList1 :nth-child(6){
     position: absolute;
     right:50%;
     margin-top:45%;
-    margin-left:70%;
+    margin-left:68.5%;
     justify-content: space-around;
-	align-items: center;
+   align-items: center;
 }
 
-
-.imgList2 {
-    position:absolute;
-    margin-top:25%;
-    left:8%;
-	width: 81%;
-    height: 20%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
 
 .imgC p {
-	text-align: center;
+   text-align: center;
     font-family:'WooridaumB';
 }
 .imgC{
@@ -109,36 +98,36 @@ body{
 }
 
 .modal {
-	display: none;
-	z-index: 500;
-	width: 100%;
-	height: 100vh;
-	position: fixed;
-    	font-family: 'WooridaumB';
-	top: 0;
-	left: 0;
-	background-color: rgba(0,0,0,0.8)
+   display: none;
+   z-index: 500;
+   width: 100%;
+   height: 100vh;
+   position: fixed;
+    font-family: 'WooridaumB';
+   top: 0;
+   left: 0;
+   background-color: rgba(0,0,0,0.8)
 }
 
 .modal button {
-	position: absolute;
-	top: 3rem;
-	right: 3rem;
-	background: transparent;
-	border: 0;
-	color: #ffffff;
-	font-size: 3rem;
+   position: absolute;
+   top: 3rem;
+   right: 3rem;
+   background: transparent;
+   border: 0;
+   color: #ffffff;
+   font-size: 3rem;
 }
 
 .modalBox {
-	position: relative;
-	top: 20%;
-	left: 50%;
-	transform: translate(-50%, -20%);
-	background-color:transparent;
-	width: 30%;
-	height: 30%;
-	text-align: center;
+   position: relative;
+   top: 20%;
+   left: 50%;
+   transform: translate(-50%, -20%);
+   background-color:transparent;
+   width: 30%;
+   height: 30%;
+   text-align: center;
 }
 
 .modal_content{
@@ -151,7 +140,7 @@ body{
     text-align:left;
 }
 
-pre.info{
+span.info{
     font-size:20px;
     font-family: 'IBMPlexSansKR-ExtraLight';
     color:#fff;
@@ -159,15 +148,15 @@ pre.info{
 
 
 .modalBox img {
-	width: 100%;
+   width: 100%;
 }
 
 .modalBox p {
-	color: #ffffff;
-	background-color: transparent;
-	font-size: 2rem;
+   color: #ffffff;
+   background-color: transparent;
+   font-size: 2rem;
     font-family: 'IBMPlexSansKR-ExtraLight';
-	padding: .2rem;
+   padding: .2rem;
     padding-left:40px;
     padding-bottom:20px;
     text-align: center;
@@ -191,13 +180,13 @@ pre.info{
     line-height:23px; cursor:pointer;
   }
   .modal_admin button.x {
-	position: absolute;
-	top: 3rem;
-	right: 3rem;
-	background: transparent;
-	border: 0;
-	color: #ffffff;
-	font-size: 3rem;
+   position: absolute;
+   top: 3rem;
+   right: 3rem;
+   background: transparent;
+   border: 0;
+   color: #ffffff;
+   font-size: 3rem;
 }
 
 
@@ -259,7 +248,7 @@ a{
     position: absolute;
     top:-0.42px;
     width: 1018px;
-    height: 104%;
+    height: 100%;
     background-color: #7193C1;
 }
 
@@ -271,8 +260,8 @@ a{
     border-bottom-left-radius: 30px;
     background: #C0D0E6;
     width:76.7%;
-    height:104%;
-    position:absolute;
+    height:100%;
+    position:fixed;
     right:1px;
     top:-1px;
     padding-left:82.5px; 
@@ -348,7 +337,7 @@ input::-webkit-input-placeholder {
     height: 32px;
     border-radius: 7px;
     border: 0.5px solid black;
-    font-family: 'IBMPlexSansKR-ExtraLight';
+    font-family: 'WooridaumB';
     font-weight: bold;
 }
 
@@ -358,6 +347,17 @@ input::-webkit-input-placeholder {
     height: 15%;
     padding-left: 55px;
     padding-top: 40px;
+    font-family: 'WooridaumB';
+
+}
+.board_list_wrap_Free{   
+    width:1000px;
+    margin-left: 35px;
+    height: 15%;
+    padding-left: 55px;
+    padding-top: 40px;
+    font-family: 'WooridaumB';
+
 }
 
 table{border-collapse:collapse;}
@@ -367,7 +367,8 @@ table{border-collapse:collapse;}
     border-top: 2px solid #B7D5E2;
     border-bottom: 2px solid #B7D5E2;
     background: #B7D5E2;
-    height: 65%;
+    height: 105%;
+    margin-bottom:-30%;
    
 }
 .board_list tr{
@@ -426,9 +427,8 @@ table{border-collapse:collapse;}
 
 
 .board_list_wrap .paging a.bt{
-	background-color:transparent;
+   background-color:transparent;
     border: 1px solid transparent;
-
 }
 
 button.d-btn{
@@ -477,7 +477,7 @@ button.f-btn{
  /*********Prontbar*******************/
 
 .bar_menu{
-    position: absolute;
+    position: fixed;
     list-style: none;
     padding:5px;
     background:#7193C1;
@@ -502,8 +502,8 @@ button.f-btn{
         }
      
     .bar_menu li{
-        padding: 50px 19px;
-        font-size: 19px;
+        padding: 50px 15px;
+        font-size: 15px;
  
      
         
@@ -518,4 +518,3 @@ button.f-btn{
         font-size: 17px;
     }
 /*************pront end*****************************/
-
