@@ -28,7 +28,10 @@ function search(){
 	var car = document.getElementById("search").value;
 	console.log(car);
 	
-	location.href = "/CarModel"+"?option=search&name="+car;
+	var sel = document.getElementById("sel").value;
+	console.log(sel);
+	
+	location.href = "/CarModel"+"?option=search&name="+car+"&sel="+sel;
 }
 console.log("${pageSize}");
 console.log("${page}");
@@ -62,15 +65,13 @@ console.log("${nowBlock}");
         <h1>Car_Model</h1>
     </div>
     <div class="search-wrap">
-    <select>
-        <option>차종</option>
-        <option>색</option>
-        <option>시간</option>
-        <option>차종+색</option>
+    <select id="sel">
+        <option value="carkind">차종</option>
+        <option value="carmaker">제조사</option>
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text">
+    <input type="text" id="search" class="search-input" placeholder="Please Enter Text" autocomplete="off">
 
-     <button type="submit" class="search-btn">검색</button>
+     <button onclick="search()" class="search-btn">검색</button>
     </div>
 <!--  -->
     <div class="imgList1">

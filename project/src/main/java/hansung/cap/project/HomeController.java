@@ -673,8 +673,21 @@ public class HomeController {
 			}
 		}
 		else if(option.equals("search")) {
+			System.out.println("검색 기능입니다");
 			String searchText = httpServletRequest.getParameter("name");
-			list = cDao.Querrycar(searchText);
+			String sel =  httpServletRequest.getParameter("sel");
+			if(sel.equals("carkind")){//차 이름으로 검색
+				System.out.println("차 이름으로 검색");
+				list = cDao.Querrycar("%"+searchText+"%");
+			}
+			else if(sel.equals("carmaker")) {
+				System.out.println("제조사로 검색");
+				list = cDao.QuerryMaker("%"+searchText+"%");
+			}
+			
+			model.addAttribute("list",list);
+			return "CarModel";
+			
 		}
 		model.addAttribute("page", page);
 		model.addAttribute("nowBlock", nowBlock);
