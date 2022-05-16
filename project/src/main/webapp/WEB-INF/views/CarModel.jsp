@@ -78,7 +78,9 @@ console.log("${nowBlock}");
 		<div class="imgC">
 		<c:set var="img" value="${dataVO.carImage}"/>
 		<img src="<c:out value='${img}'/>"/>
-		<p><c:out value="${dataVO.carKind}"/></p>
+		<p class="kind"><c:out value="${dataVO.carKind}"/></p>
+		<p class="detail" style="color:transparent">가격 : <c:out value="${dataVO.carPrice}"/> | 제조사 : <c:out value="${dataVO.carMaker}"/> | 연비 : <c:out value="${dataVO.carFuel}"/> </p>
+		<p class="detail2" style="color:transparent">차 엔진 : <c:out value="${dataVO.carEngine}"/> | 적재용량 : <c:out value="${dataVO.carRoad}"/></p>
 		</div>
 		</c:forEach>
 	</div>
@@ -91,11 +93,10 @@ console.log("${nowBlock}");
 			<img src="" alt=""><!--이미지 받아오는 곳-->
             <strong><p></p></strong>
             <div class="modal_content">
-                <span class="info">
-                	<strong>제조사</strong>
-                    &nbsp;&nbsp; 977~1,493만원 | 14.4~15km/L | 1370L 수용
-                    
-                </span>
+                <pre class="info" id="set1">
+                	
+                </pre>
+                
             </div>
             
 		</div>
@@ -195,7 +196,8 @@ console.log("${nowBlock}");
 
 </body>
 
-<script>$(function(){
+<script>
+$(function(){
     // 	이미지 클릭시 해당 이미지 모달
         $(".imgC").click(function(){
             $(".modal").show();
@@ -206,9 +208,14 @@ console.log("${nowBlock}");
             $(".modalBox img").attr("alt", imgAlt);
             
             // 해당 이미지 텍스트 가져오기
-            var imgTit =  $(this).children("p").text();
+            var imgTit =  $(this).children(".kind").text();
             $(".modalBox p").text(imgTit);
+            var srcText = $(this).children(".detail").text();
             
+            var srcText2 = $(this).children(".detail2").text();
+            
+            var srcText3 = srcText + "\n" + srcText2;
+            $(".modalBox pre").text(srcText3);
        // 해당 이미지에 alt값을 가져와 제목으로
             //$(".modalBox p").text(imgAlt);
         });

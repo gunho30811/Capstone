@@ -90,20 +90,18 @@
         
             <thead>
                 <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>시간</th>                
+	                <th>제목</th>
+	                <th>작성자</th>
+	                <th>시간</th>                
                 </tr>
          </thead>
             <tbody>
 				<c:forEach items="${list}" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
                       <tr>
-                      <td><c:out value="${dataVO.seq}"/></td> 
-                      <td onclick="QnAView(${dataVO.seq})"><c:out value="${dataVO.title}"/></td>
-                      <td><c:out value="${dataVO.userId}"/></td>
-                      <td><c:out value="${dataVO.time}"/></td>
-         
+	                      <td onclick="QnAView(${dataVO.seq})"><c:out value="${dataVO.title}"/></td>
+	                      <td><c:out value="${dataVO.userId}"/></td>
+	                      <td><c:out value="${dataVO.time}"/></td>
+	         
                        </tr>
                  </c:forEach>
             </tbody>

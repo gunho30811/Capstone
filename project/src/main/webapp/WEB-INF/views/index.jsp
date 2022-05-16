@@ -159,7 +159,7 @@
         </div>
         <footer class="index_footer">
         <div class="name_box">
-            <p><b>김영우 &nbsp 라건호</b><p>
+            <p><b>김영우 &nbsp 김민수 &nbsp 라건호</b><p>
             <p><b>조병규 &nbsp 조윤태</b></p>
         </div>
         <div class="name_project">
