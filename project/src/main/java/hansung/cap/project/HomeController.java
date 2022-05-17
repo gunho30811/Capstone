@@ -181,7 +181,7 @@ public class HomeController {
 			mVo.userQuestion=userQuestion;
 			int result = mDao.idCheck(mVo);
 			
-			
+				
 			if(result == 0) {					//중복이 아니라면 쿼리에서 0 반환
 				mDao.InsertId(mVo);
 				String s = "login";

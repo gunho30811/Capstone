@@ -60,7 +60,7 @@ console.log("${nowBlock}");
 <br>
 
 <div class="all_tb">
-    <div class="Login_menu" onclick="logOut()"> <a href="/">Logout</a></div>
+    <div class="Login_menu" onclick="logOut()"> <a >Logout</a></div>
     <div class="title">
         <h1>Car_Model</h1>
     </div>
