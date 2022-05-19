@@ -63,4 +63,19 @@ public class QnADAOImp implements QnADAO {
 		int result = sqlSession.selectOne(namespace+".countBoard", vo);
 		return result;
 	}
+	@Override
+	public int ScountBoard1(String msg) {
+		int result = sqlSession.selectOne(namespace+".ScountBoard1", msg);
+		return result;
+	}
+	@Override
+	public int ScountBoard2(String msg) {
+		int result = sqlSession.selectOne(namespace+".ScountBoard2", msg);
+		return result;
+	}
+	@Override
+	public int ScountBoard3(String msg) {
+		int result = sqlSession.selectOne(namespace+".ScountBoard3", msg);
+		return result;
+	}
 }

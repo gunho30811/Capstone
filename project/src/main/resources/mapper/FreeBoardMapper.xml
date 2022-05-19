@@ -45,5 +45,15 @@
   	<select id="countBoard" resultType="int">
 		SELECT COUNT(*) FROM freeboard
 	</select>
+	
+	<select id="ScountBoard1" resultType="int">
+		SELECT COUNT(*) FROM freeboard where title like #{msg}
+	</select>
+	<select id="ScountBoard2" resultType="int">
+		SELECT COUNT(*) FROM freeboard where userId like #{msg}
+	</select>
+	<select id="ScountBoard3" resultType="int">
+		SELECT COUNT(*) FROM freeboard where title like #{msg} or userId like #{msg}
+	</select>
   </mapper>
   

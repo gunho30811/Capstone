@@ -15,4 +15,7 @@ public interface QnADAO {
 	public void modify(QnAVO vo);
 	public List<QnAVO> paging(int paging);
 	public int countBoard(QnAVO vo);
+	public int ScountBoard1(String msg);
+	public int ScountBoard2(String msg);
+	public int ScountBoard3(String msg);
 }

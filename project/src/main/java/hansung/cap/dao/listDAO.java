@@ -12,4 +12,6 @@ public interface listDAO {
 	public List<listVO> paging(int paging);
 	public List<listVO> searchName(String msg);
 	public int countBoard(listVO vo);
+	public int ScountBoard1(String msg);
+	public int ScountBoard2(String msg);
 }

@@ -345,14 +345,37 @@ public class HomeController {
 			String text = httpServletRequest.getParameter("name");
 			String sel = httpServletRequest.getParameter("sel");
 			List<listVO> clist =  new ArrayList<listVO>();
+			if(text.equals("")) {
+				System.out.println("NULL");
+				model.addAttribute("page", page);
+				model.addAttribute("nowBlock", nowBlock);
+				Integer p = Integer.parseInt(page);
+				List<listVO> list = new ArrayList<listVO>();
+				int paging = listSize-(10*(p-1));		//sql에 넘겨줄 변수 계산
+				list = lDao.paging(paging);
+				model.addAttribute("list",list);
+				return "carList";
+			}
 			if(sel.equals("model")) {
 				clist = lDao.QueryModel("%"+text+"%");
+				listSize = lDao.ScountBoard1("%"+text+"%");
+				if(listSize%10==0) {
+					pageSize = listSize/10;
+				} else {
+					pageSize = listSize/10 + 1;
+				}
 			}
 			else if(sel.equals("time")) {
 				clist = lDao.QueryTime("%"+text+"%");
+				listSize = lDao.ScountBoard2("%"+text+"%");
+				if(listSize%10==0) {
+					pageSize = listSize/10;
+				} else {
+					pageSize = listSize/10 + 1;
+				}
 			}
 			
-			
+			model.addAttribute("pageSize", pageSize);
 			model.addAttribute("list",clist);
 			return "carList";
 		}
@@ -361,16 +384,12 @@ public class HomeController {
 		}
 		model.addAttribute("page", page);
 		model.addAttribute("nowBlock", nowBlock);
-		
-		
 		Integer p = Integer.parseInt(page);
 		List<listVO> list = new ArrayList<listVO>();
 		int paging = listSize-(10*(p-1));		//sql에 넘겨줄 변수 계산
 		list = lDao.paging(paging);
 		model.addAttribute("list",list);
 		return "carList";
-		
-		
 	}
 
 
@@ -464,19 +483,46 @@ public class HomeController {
 			else if(option.equals("search")) {  //검색
 				String keyWord = httpServletRequest.getParameter("keyWord");
 				String select = httpServletRequest.getParameter("select");
+				if(keyWord.equals("")) {
+					model.addAttribute("nowBlock", nowBlock);
+					model.addAttribute("page", page);
+					Integer p = Integer.parseInt(page);
+					int paging = 10*(p-1);
+					list = qDao.paging(paging);		
+					model.addAttribute("list",list);
+					return "QnA";
+				}
 				
 				if(select.equals("title")) {
 					list = qDao.searchTitle("%"+keyWord+"%");
+					listSize = qDao.ScountBoard1("%"+keyWord+"%");
+					if(listSize%10==0) {
+						pageSize = listSize/10;
+					} else {
+						pageSize = listSize/10 + 1;
+					}
 				}
 				
 				else if(select.equals("userId")) {
 					list = qDao.searchUser("%"+keyWord+"%");
+					listSize = qDao.ScountBoard2("%"+keyWord+"%");
+					if(listSize%10==0) {
+						pageSize = listSize/10;
+					} else {
+						pageSize = listSize/10 + 1;
+					}
 				}
 				
 				else if(select.equals("multi")) {
 					list = qDao.search("%"+keyWord+"%");
+					listSize = qDao.ScountBoard3("%"+keyWord+"%");
+					if(listSize%10==0) {
+						pageSize = listSize/10;
+					} else {
+						pageSize = listSize/10 + 1;
+					}
 				}				
-				
+				model.addAttribute("pageSize", pageSize);
 				model.addAttribute("list", list);
 				return "QnA";
 			}
@@ -692,15 +738,38 @@ public class HomeController {
 			System.out.println("검색 기능입니다");
 			String searchText = httpServletRequest.getParameter("name");
 			String sel =  httpServletRequest.getParameter("sel");
+			if(searchText=="") {
+				System.out.println("NULL");
+				model.addAttribute("page", page);
+				model.addAttribute("nowBlock", nowBlock);
+				Integer p = Integer.parseInt(page);
+				int paging = listSize-(6*(p-1));		//sql에 넘겨줄 변수 계산
+				list = cDao.paging(paging);
+				model.addAttribute("list",list);
+				return "CarModel";
+			}
+			
 			if(sel.equals("carkind")){//차 이름으로 검색
 				System.out.println("차 이름으로 검색");
 				list = cDao.Querrycar("%"+searchText+"%");
+				listSize = cDao.ScountBoard1("%"+searchText+"%");
+				if(listSize%6==0) {
+					pageSize = listSize/6;
+				} else {
+					pageSize = listSize/6 +1;
+				}
 			}
 			else if(sel.equals("carmaker")) {
 				System.out.println("제조사로 검색");
 				list = cDao.QuerryMaker("%"+searchText+"%");
+				listSize = cDao.ScountBoard2("%"+searchText+"%");
+				if(listSize%6==0) {
+					pageSize = listSize/6;
+				} else {
+					pageSize = listSize/6 +1;
+				}
 			}
-			
+			model.addAttribute("pageSize", pageSize);
 			model.addAttribute("list",list);
 			return "CarModel";
 			
@@ -804,20 +873,47 @@ public class HomeController {
 		else if(option.equals("search")) {  //freeboard 검색
 			String s = httpServletRequest.getParameter("text");
 			String select = httpServletRequest.getParameter("select");
+			if(s.equals("")) {
+				model.addAttribute("nowBlock", nowBlock);
+				model.addAttribute("page", page);
+				Integer p = Integer.parseInt(page);
+				int paging = 10*(p-1);
+				list = fDao.paging(paging);
+				model.addAttribute("list",list);
+				return "Free";
+			}
 			
 			if(select.equals("title")) {
 				System.out.println("?????");
 				list = fDao.SearchTitle("%"+s+"%");
+				listSize = fDao.ScountBoard1("%"+s+"%");
+				if(listSize%10==0) {
+					pageSize = listSize/10;
+				} else {
+					pageSize = listSize/10 + 1;
+				}
 			}
 			
 			else if(select.equals("userId")) {
 				list = fDao.SearchUser("%"+s+"%");
+				listSize = fDao.ScountBoard1("%"+s+"%");
+				if(listSize%10==0) {
+					pageSize = listSize/10;
+				} else {
+					pageSize = listSize/10 + 1;
+				}
 			}
 			
 			else if(select.equals("multi")) {
 				list = fDao.Search("%"+s+"%");
+				listSize = fDao.ScountBoard1("%"+s+"%");
+				if(listSize%10==0) {
+					pageSize = listSize/10;
+				} else {
+					pageSize = listSize/10 + 1;
+				}
 			}
-						
+			model.addAttribute("pageSize", pageSize);			
 			model.addAttribute("list",list);
 			return "Free";
 		}

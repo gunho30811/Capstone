@@ -37,5 +37,14 @@
 		SELECT COUNT(*) FROM list
 	</select>
 	
+	<select id="ScountBoard1" resultType="int">
+  		SELECT COUNT(*) FROM list where model like #{msg}
+  	</select>
+  	
+  	<select id="ScountBoard2" resultType="int">
+  		SELECT COUNT(*) FROM list where time like #{msg}
+  	</select>
+	
+	
 </mapper>
 
