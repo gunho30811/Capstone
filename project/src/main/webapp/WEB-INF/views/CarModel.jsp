@@ -78,7 +78,7 @@ console.log("${nowBlock}");
 		<c:forEach items="${list}" var="dataVO">
 		<div class="imgC">
 		<c:set var="img" value="${dataVO.carImage}"/>
-		<img src="<c:out value='${img}'/>"/>
+		<img class="cropped" src="<c:out value='${img}'/>"/>
 		<p class="kind"><c:out value="${dataVO.carKind}"/></p>
 		<p class="detail" style="color:transparent">가격 : <c:out value="${dataVO.carPrice}"/> | 제조사 : <c:out value="${dataVO.carMaker}"/> | 연비 : <c:out value="${dataVO.carFuel}"/> </p>
 		<p class="detail2" style="color:transparent">차 엔진 : <c:out value="${dataVO.carEngine}"/> | 적재용량 : <c:out value="${dataVO.carRoad}"/></p>
