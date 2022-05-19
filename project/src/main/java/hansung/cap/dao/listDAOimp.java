@@ -28,6 +28,16 @@ public class listDAOimp implements listDAO {
     	return sqlSession.selectList(namespace+".queryAll");
     }
     
+    @Override
+    public List<listVO> QueryModel(String model){
+    	return sqlSession.selectList(namespace+".queryModel",model);
+    }
+    
+    @Override
+    public List<listVO> QueryTime(String time){
+    	return sqlSession.selectList(namespace+".queryTime",time);
+    }
+    
     public List<listVO> paging(int paging) {
 		
     	return sqlSession.selectList(namespace+".paging", paging);

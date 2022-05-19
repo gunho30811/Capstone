@@ -340,6 +340,22 @@ public class HomeController {
 				nowBlock = "1";
 			}
 		}
+		
+		else if(option.equals("search")) {
+			String text = httpServletRequest.getParameter("name");
+			String sel = httpServletRequest.getParameter("sel");
+			List<listVO> clist =  new ArrayList<listVO>();
+			if(sel.equals("model")) {
+				clist = lDao.QueryModel("%"+text+"%");
+			}
+			else if(sel.equals("time")) {
+				clist = lDao.QueryTime("%"+text+"%");
+			}
+			
+			
+			model.addAttribute("list",clist);
+			return "carList";
+		}
 		else {
 			
 		}

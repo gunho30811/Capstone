@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+<title>carList</title>
 <script
      src="https://kit.fontawesome.com/af4e1eff79.js"
      crossorigin="anonymous"></script>
@@ -29,7 +30,7 @@ function search(){
 	var sel = document.getElementById("sel").value;
 	console.log(sel);
 	
-	location.href = "/CarModel"+"?option=search&name="+car+"&sel="+sel;
+	location.href = "/carList"+"?option=search&name="+car+"&sel="+sel;
 }
 </script>
 <body>
@@ -60,13 +61,12 @@ function search(){
         <h1>CCTV_analysis</h1>
     </div>
     <div class="search-wrap">
-    <select>
-        <option>차종</option>
-        <option>색</option>
-        <option>시간</option>
-        <option>차종+색</option>
+    <select id=sel>
+        <option value="model">차종</option>
+        <option value="time">시간</option>
+        
     </select>  
-    <input type="text" class="search-input" placeholder="Please Enter Text">
+    <input type="text" class="search-input" id="search" value="" placeholder="Please Enter Text" autocomplete="off">
 
      <button onclick="search()" class="search-btn">검색</button>
     </div>
@@ -117,7 +117,7 @@ function search(){
             </c:if>
         </div>
 
-        <button class="d-btn"onclick="location.href='Free_Write.html'">등록</button >
+        
 
     </div>
     
