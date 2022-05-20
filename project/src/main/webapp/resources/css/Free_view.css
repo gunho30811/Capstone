@@ -38,8 +38,8 @@ a{
             }
          
     .bar_menu li{
-            padding: 50px 19px;
-            font-size: 19px;
+            padding: 50px 17px;
+            font-size: 17px;
         
          
             
@@ -222,6 +222,14 @@ left: -390px;
 display: inline-block;
 margin-right:10px;
 }
+
+.inline_CCTV{
+position: absolute;
+display: inline-block;
+right:14%;
+top:13%;
+}
+
 
 .pull-right{
     /****댓글 수정 삭제묶음 ,댓글 수정 삭제 버튼은 위에있음*****/

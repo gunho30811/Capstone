@@ -52,9 +52,9 @@
                 <ul class="bar_menu">
                     <li><a href="/carList">CCTV_analysis</a></li>
                     <li><a href="/CarModel">Car_model </a></li>
-                    <li><a href="index_practice.html">practice</a></li>
                     <li><a href="/free">Free_Board</a></li>
                     <li><a href="/QnA">QnA</a></li>
+                    <li><a href="/developer">Developer</a></li>
                 </ul>
         
                 <div class="Login_menu"> 

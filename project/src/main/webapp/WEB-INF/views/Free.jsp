@@ -60,10 +60,9 @@
             </li>
             <li><a href="/carList">CCTV_analysis</a></li>
             <li><a href="/CarModel">Car_model </a></li>
-            <li><a href="">Streaming</a></li>
-            <li><a href="/QnA">QnA</a></li>
             <li><a href="/free">Free_Board</a></li>
-    
+            <li><a href="/QnA">QnA</a></li>
+    		<li><a href="/developer">Developer</a></li>
         </ul>    
      
 <br>
@@ -95,7 +94,7 @@
                 </tr>
          </thead>
          	<tbody>
-            	<c:forEach items="${list}" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
+            	<c:forEach items="${list}" begin="0" end="9" var="dataVO"><!--  begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status"> -->
                       <tr>
                       
 	                      <td onclick="view(${dataVO.seq})"><c:out value="${dataVO.title}"/></td>

@@ -51,9 +51,9 @@ console.log("${nowBlock}");
             </li>
             <li><a href="/carList">CCTV_analysis</a></li>
             <li><a href="/CarModel">Car_model </a></li>
-            <li><a href="/">Streaming</a></li>
-            <li><a href="/QnA">QnA</a></li>
             <li><a href="/free">Free_Board</a></li>
+            <li><a href="/QnA">QnA</a></li>
+            <li><a href="/developer">Developer</a></li>
     
         </ul>    
      
@@ -75,7 +75,7 @@ console.log("${nowBlock}");
     </div>
 <!--  -->
     <div class="imgList1">
-		<c:forEach items="${list}" var="dataVO">
+		<c:forEach items="${list}" begin="0" end="5" var="dataVO">
 		<div class="imgC">
 		<c:set var="img" value="${dataVO.carImage}"/>
 		<img class="cropped" src="<c:out value='${img}'/>"/>

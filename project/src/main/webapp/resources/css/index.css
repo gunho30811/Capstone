@@ -1,4 +1,29 @@
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'WooridaumB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SBAggroL';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fa-phone,.fa-envelope,.fa-location-dot {
+    font-size: medium;
+    margin-left:25px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
 
 body{
     margin: 0;
@@ -26,7 +51,43 @@ a{
 
 .wrap {
     min-height: 100%;
+    background-color:#537dcf;
 }
+
+.bugi{
+    z-index: 999;
+    position: absolute;
+    color:#FFFF;
+    font-size:40px;
+    position: absolute;
+    left:27%;
+    top:9%;
+    font-family: 'SBAggroL';
+
+}
+.bugiimg{
+    position: absolute;
+    left:37%;
+    top:40%;
+    height: 400px;
+    transition: all .5s ease-in-out;
+}
+
+.bugiimg:hover 
+{
+    transform: scale(1.2);
+    transition: 0.5s;
+
+}
+#down{
+    position: absolute;
+    height: 50px;
+    left:48%;
+    top:92%;
+    z-index: 999;
+}
+
+
 .main{ width:100%; height:100%; position: fixed;
 
 }
@@ -92,6 +153,7 @@ footer.index_footer{
     margin-right:5%;
     margin-top:37.5%;
     background: #2e3a64;
+  
 }
 
 .name_box{
@@ -172,7 +234,9 @@ footer.index_footer{
     position: absolute;
     top:-20px;
     color: rgba(255,255,255,.2);
-    transition:all 1s ease-in-out
+    transition:all 1s ease-in-out;
+    font-family: 'WooridaumB';
+
 
 }
 .section:hover .banner-title p.summary{
@@ -180,12 +244,16 @@ footer.index_footer{
     top:-180px;
     font-size:25px;
     transition:1.5s;
+    font-family: 'WooridaumB';
+
 }
 
 .banner-title a.arr{
     position: relative;
     top:20px;
     color: rgba(255,255,255,.2);
+    font-family: 'WooridaumB';
+
 }
 
 .banner-title_two{
@@ -222,14 +290,18 @@ footer.index_footer{
     left:85px;
     top:80px;
     font-size:40px;
+    font-weight:lighter;
     color: #fff;
     transition:all .5s ease-in-out;
+    font-family: 'WooridaumB';
 }
 .section:hover .banner-title_two p.title {
     position:absolute;
     top:-50px;
     transition:1s;
     font-size:50px;
+    font-family: 'WooridaumB';
+
 }
 .banner-title_two p.summary{
     position:absolute;
@@ -239,12 +311,16 @@ footer.index_footer{
     margin-top:30px;
     color:#e9ecef;
     transition:all .5s ease-in-out;
+    font-family: 'WooridaumB';
+
 }
 .section:hover .banner-title_two p.summary {
     position:absolute;
     top:50px;
     transition:1s;
     font-size:20px;
+    font-family: 'WooridaumB';
+
 }
 
 .banner-title_two a.arr{
@@ -253,6 +329,8 @@ footer.index_footer{
     left:100px;
     margin-top: 100px;
     color:#e9ecef;
+    font-family: 'WooridaumB';
+
  
 }
 
@@ -280,6 +358,9 @@ footer.index_footer{
 }
 
 /* section-1*/
+.fullpage_developer{
+    background: #ccc;
+}
 
 .swiper-slide{
 flex-shrink:0;
@@ -292,6 +373,12 @@ position: relative;
     height:100%;
     width:100%;
     position: relative;
+} 
+.section_fullpage_dev{
+    height:100%;
+    width:100%;
+    position: relative;
+    background-color:#F3F3F3;
 } 
 
 .blank{height: 2000px;}
@@ -494,8 +581,93 @@ img{
         width: 190px;
         background: #1e4779;
         border-radius:20px; }
-    
 
+    .developerBigBox{
+        display: flex;
+        margin-left:10%;
+        margin-right:10%;
+        width:80%;
+        height:99%;
+    }
+
+    .whitebox{
+        float:left;
+        box-sizing: border-box;
+        margin-top:5%;
+        width:35%;
+        height:80%;
+        background-color: #FFFF;
+        
+    }
+    #developer_name{
+        position: absolute;
+        top:-1.5px;
+        left:10%;
+        width: 80%;
+        height: 10%;
+        text-align: center;
+        font-size: 50px;
+        font-family:'Electrolize';
+        background-color:#F3F3F3;
+        font-family: 'Koulen';
+
+    }
+    #dev_face{
+        position: relative;
+        margin-left:25%;
+        margin-top:2%;
+    }
+
+    #white_name{
+        height:fit-content;
+        margin-left:35%;
+        font-size:30px;
+        font-family: 'Koulen';
+    }
+    #white_name span{
+        position: absolute;
+        font-size: 40px;
+        color: #537dcf;
+        margin-left:1.8%;
+        font-family: 'Koulen';
+    }
+    #middle_name{
+        padding-top:8px;
+        margin:20px;
+    }
+    /*.detail_box{
+        box-sizing: border-box;       
+        width:35%;
+        height:80%;
+        margin-left:36%;
+        margin-top:-48.19%;
+        float:left;
+        background-color: #FFFF;
+    }*/
+
+    .detail_box{
+        margin-top:5%;
+        box-sizing: border-box;
+        width: 35%;
+        height: 100%;
+        background-color:#F3F3F3;
+    }
+
+    .education{
+        text-align:center;
+        font-size:40px;
+        margin-left:10%;
+        margin-right:10%;
+        margin-top:5%;
+        color: #082C5D;
+        font-weight:900;
+        padding-top:30px;
+    }
+    .education ul li{
+        text-align:left;
+        padding-top:10px;
+        font-size:20px;
+    }
 @media screen and (max-width: 768px){
     .prontbar {
         flex-direction: column;

@@ -1039,7 +1039,18 @@ public class HomeController {
 		list = fDao.paging(paging);
 		model.addAttribute("list",list);
 		return "Free";
-	}	
+	}
+	@RequestMapping(value = "/developer", method = RequestMethod.GET)
+	public String freeBoard(HttpServletRequest httpServletRequest, Model model) {
+		System.out.println("developer page return");
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		if(user_id==null) {
+			return "login";
+		}
+		return "developer";
+	}
 }
 		
 		
