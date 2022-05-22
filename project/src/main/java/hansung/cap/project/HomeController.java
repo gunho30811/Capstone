@@ -4,9 +4,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -181,6 +185,11 @@ public class HomeController {
 			mVo.userQuestion=userQuestion;
 			int result = mDao.idCheck(mVo);
 			
+			if(mVo.userId.equals("manage1234")){
+				model.addAttribute("fail","manage");
+				return "create";
+			}
+			
 				
 			if(result == 0) {					//중복이 아니라면 쿼리에서 0 반환
 				mDao.InsertId(mVo);
@@ -279,7 +288,10 @@ public class HomeController {
 		if(user_id==null) {
 			return "login";
 		}
+		
+		
 		else {
+			model.addAttribute("id",user_id);
 			model.addAttribute("listSize", listSize);
 			model.addAttribute("pageSize", pageSize);
 			System.out.println("listSize : " + listSize);
@@ -379,6 +391,40 @@ public class HomeController {
 			model.addAttribute("list",clist);
 			return "carList";
 		}
+		
+		else if(option.equals("image")) {
+			int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
+			
+			System.out.println(a);
+			List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
+			System.out.println("여기서?");
+			resultList = lDao.selectImg(a);
+			System.out.println(resultList);
+			
+			System.out.println(resultList.size());
+			Map<String,Object> resultMap = resultList.get(0);
+			System.out.println(resultMap.size()+" size는 몇일까");
+			for (Entry<String, Object> entry : resultMap.entrySet()) {
+				System.out.println("[key]:" + entry.getKey() + ", [value]:" + entry.getValue());
+			}
+			
+			System.out.println("여기가 문제일까");
+			
+			
+		    byte[] arr = (byte[]) resultMap.get("base64");
+		    
+		    System.out.println(arr+" ????????????");
+		    String base64ToString = new String(arr);
+		    
+		    
+		    model.addAttribute("imgSrc",base64ToString);
+		    
+		    
+		    
+		    return "test";
+		}
+		
+		
 		else {
 			
 		}
@@ -391,7 +437,7 @@ public class HomeController {
 		model.addAttribute("list",list);
 		return "carList";
 	}
-
+	
 
 	//---------------------------------QnA 페이지-------------------------------------//
 		@RequestMapping(value = "/QnA", method = RequestMethod.GET)

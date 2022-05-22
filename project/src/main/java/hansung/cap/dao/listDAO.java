@@ -3,9 +3,10 @@ package hansung.cap.dao;
 import hansung.cap.project.MemberVO;
 import hansung.cap.project.listVO;
 import java.util.List;
+import java.util.Map;
 
 public interface listDAO {
-	
+	public List<Map<String,Object>> selectImg(int a);
 	public List<listVO> QueryAll();
 	public List<listVO> QueryModel(String model);
 	public List<listVO> QueryTime(String time);

@@ -26,4 +26,13 @@
   	<select id="countBoard" resultType="int">
   		SELECT COUNT(*) FROM carKind
   	</select>
+  	
+  	<select id="ScountBoard1" resultType="int">
+  		SELECT COUNT(*) FROM carKind where carKind like #{msg}
+  	</select>
+  	
+  	<select id="ScountBoard2" resultType="int">
+  		SELECT COUNT(*) FROM carKind where carMaker like #{msg}
+  	</select>
+  	
   </mapper>

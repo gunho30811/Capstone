@@ -1,5 +1,6 @@
 package hansung.cap.dao;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
@@ -63,5 +64,11 @@ public class listDAOimp implements listDAO {
     	int result = sqlSession.selectOne(namespace+".ScountBoard2", msg);
 		return result;
     }
+    
+    @Override
+    public List<Map<String, Object>> selectImg(int a){
+    	return sqlSession.selectList(namespace+".selectImg",a);
+    }
+
 
 }

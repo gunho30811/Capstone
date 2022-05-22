@@ -17,21 +17,37 @@
 
 </head>
 <script>
-function logOut(){
-	console.log("logOut!!");
+	function logOut(){
+		console.log("logOut!!");
+		
+		alert("로그아웃 되었습니다!");
+		location.href = "/"+"?option=logOut";
+	}
+	function search(){
+		var car = document.getElementById("search").value;
+		console.log(car);
+		
+		var sel = document.getElementById("sel").value;
+		console.log(sel);
+		
+		location.href = "/carList"+"?option=search&name="+car+"&sel="+sel;
+	}
 	
-	alert("로그아웃 되었습니다!");
-	location.href = "/"+"?option=logOut";
-}
-function search(){
-	var car = document.getElementById("search").value;
-	console.log(car);
+	function image(seq){
+		var seq = seq;
+		
+		location.href = "/carList"+"?option=image&seq="+seq;
+	} 
 	
-	var sel = document.getElementById("sel").value;
-	console.log(sel);
-	
-	location.href = "/carList"+"?option=search&name="+car+"&sel="+sel;
-}
+	function CCTV(){
+		if("${id}" == "manage1234"){
+			alert("CCTV 저장 스토리지로 이동합니다 \n 인덱스를 통해 조회할 수 있습니다");
+			
+			location.href="https://drive.google.com/drive/folders/1-VtPonDD8UEOrdKokqe4Oj2mx930Hgke?usp=sharing";
+		}
+		else
+			alert("관리자 아이디가 필요합니다");
+	}
 </script>
 <body>
       
@@ -85,7 +101,7 @@ function search(){
             <c:forEach items="${list}" begin="0" end="9" var="dataVO"><!--   begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status">-->
                 <tr>
                   <td><c:out value="${dataVO.seq}"/></td>
-                  <td><c:out value="${dataVO.model}"/></td>
+                  <td onclick = "image(${dataVO.seq})"><c:out value="${dataVO.model}"/></td>
                   <td><c:out value="${dataVO.time}"/></td>
                         
                  </tr>
@@ -117,7 +133,7 @@ function search(){
             </c:if>
         </div>
 
-        
+        <button class="d-btn"onclick="CCTV()">CCTV 확인</button >
 
     </div>
     

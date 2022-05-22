@@ -10,6 +10,12 @@
     <title>Create Account</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+
+<script>
+	if("${fail}" == "manage"){
+		alert("사용 불가능한 아이디 입니다 \n다른 아이디로 가입해주세요");
+	}
+</script>
 <body>    
     <section class="forgot-form">
         <h1></h1>
