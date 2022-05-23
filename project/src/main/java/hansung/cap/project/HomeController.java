@@ -1095,6 +1095,8 @@ public class HomeController {
 		if(user_id==null) {
 			return "login";
 		}
+		
+		model.addAttribute("login",user_id);
 		return "developer";
 	}
 }

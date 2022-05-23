@@ -128,9 +128,9 @@ section{  /*****부모 ****/
 }
 
 td textarea.content{ /*작성내용 작성 하는 공간*/
-
     width:950px;
     height:300px;
+    white-space:pre-line;
 }
 /************content_table***************/
 

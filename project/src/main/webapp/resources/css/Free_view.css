@@ -139,7 +139,7 @@ left: -390px;
     width:950px;
     height: 300px;
     border: 1px solid black;
-
+	overflow-y:auto;
 }
 
 .wab{ /*글 수정 삭제를 묶고 있는 부모 */

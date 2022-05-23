@@ -19,6 +19,7 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src ="resources/js/jquery.fullPage.js"></script>
     <script src="resources/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/af4e1eff79.js" crossorigin="anonymous"></script>
 
 </head>  
 <script>
@@ -50,11 +51,11 @@
                     </div>
         
                 <ul class="bar_menu">
-                    <li><a href="/carList">CCTV_analysis</a></li>
-                    <li><a href="/CarModel">Car_model </a></li>
-                    <li><a href="/free">Free_Board</a></li>
-                    <li><a href="/QnA">QnA</a></li>
-                    <li><a href="/developer">Developer</a></li>
+                    <li title="딥러닝을 통한 CCTV 분석 페이지"><a href="/carList">CCTV_analysis</a></li>
+                    <li title="차에 대한 다양한 정보 페이지"><a href="/CarModel">Car_model </a></li>
+                    <li title="자유롭게 나누는 자유게시판"><a href="/free">Free_Board</a></li>
+                    <li title="질문이 있다면 QnA 게시판"><a href="/QnA">QnA</a></li>
+                    <li title="만든 이들"><a href="/developer">Developer</a></li>
                 </ul>
         
                 <div class="Login_menu"> 
@@ -126,12 +127,13 @@
 
     <section class ="section">
     <div class="section section_fullpage">
-    <img class="pr4" src="http://www.netchus.com/resources/img/layout/main/banner-4-bg.jpg">
+    <img class="pr4" src="https://images.pexels.com/photos/10981242/pexels-photo-10981242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
     <div class="banner-title_two">
     	<hr>
-        <p class ="title"> Streaming</p>
-        <p class ="summary">실시간영상, 실시간 녹화</p>
-        <a class="arr" href="index.html">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+    	<p class ="title"> QnA</p>
+        <p class ="summary">문의 사항이 있다면</p>
+        
+        <a class="arr" href="/QnA">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
     </div>
     </div>
     </section>
@@ -150,12 +152,12 @@
 
     <section class ="section">
     <div class="section section_fullpage">
-    <img class="pr5" src="https://images.pexels.com/photos/10981242/pexels-photo-10981242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <img class="pr5" src="http://www.netchus.com/resources/img/layout/main/banner-4-bg.jpg">
     <div class="banner-title_two">
     	<hr>
-        <p class ="title"> QnA</p>
-        <p class ="summary">문의 사항이 있다면</p>
-        <a class="arr" href="/QnA">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
+		<p class ="title"> Developer</p>
+        <p class ="summary">만든 이들</p>
+        <a class="arr" href="/developer">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
         </div>
         <footer class="index_footer">
         <div class="name_box">

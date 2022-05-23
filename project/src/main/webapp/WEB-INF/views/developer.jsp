@@ -61,7 +61,10 @@ function logOut(){
                         </ul>
 
 
-                        <div class="Login_menu" onclick="logOut()"> <a href="/">Logout</a></div>
+                        <div class="Login_menu" onclick="logOut()"> 
+                        	<p>${login}</p>&nbsp;&nbsp;
+                        	<p onclick = "logOut">logOut</p>
+                        </div>
 
 
                         <ul class="bar_icons">
@@ -136,7 +139,7 @@ function logOut(){
                         </div>
                         <div class="education"> Work
                             <ul>
-                                <li>HTML,CSS,JS</li>
+                                <li>FrontEnd</li>
                                 <li>Photoshop</li>
                                 <li>Communication</li>
                             </ul>
@@ -155,33 +158,33 @@ function logOut(){
         <section class="section">
             <div class="section section_fullpage_dev">
                 <div class="developerBigBox">
-                    <div id="developer_name">J O</div>
+                    <div id="developer_name">CHO</div>
                     <div class="whitebox">
 
                         <img id="dev_face" src="https://ifh.cc/g/9SzrSo.png">
 
-                        <div id="white_name"><span>J O</span><br>B&nbsp;Y&nbsp;U&nbsp;N&nbsp;G&nbsp;&nbsp;K&nbsp;Y&nbsp;U</div>
+                        <div id="white_name"><span>CHO</span><br>B&nbsp;Y&nbsp;U&nbsp;N&nbsp;G&nbsp;&nbsp;K&nbsp;Y&nbsp;U</div>
                         <div id="middle_name">
                             <hr>
                             <i class="fa-solid fa-phone">&emsp;&emsp;010-9230-9536</i>
                             <hr>
                             <i class="fa-solid fa-envelope">&emsp;&emsp;qudqud97@naver.com</i>
                             <hr>
-                            <i class="fa-solid fa-location-dot">&emsp;&emsp;한성대학교 상상관 404</i>
+                            <i class="fa-solid fa-location-dot">&emsp;&emsp;은평구 응암동</i>
                         </div>
                     </div>
                     <div class="detail_box">
                         <div class="education">Education
                             <ul>
-                                <li>마이크로프로세스 A+</li>
+                                <li>통신공학 A+</li>
                                 <li>데이터베이스응용 A+</li>
-                                <li>데이터베이스 A+</li>
+                                <li>전자기학 A+</li>
                             </ul>
                         </div>
                         <div class="education"> Activities
                             <ul>
                                 <li>IPP</li>
-                                <li>Korea Project</li>
+                                <li>Capstone Project</li>
                                 <li>Hansung_Success Program</li>
                             </ul>
                         </div>
@@ -191,7 +194,7 @@ function logOut(){
                     <div class="detail_box">
                         <div class="education"> Skills
                             <ul>
-                                <li>JAVA</li>
+                                <li>JAVA </li>
                                 <li>HTML</li>
                                 <li>PHP</li>
                                 <li>DB</li>
@@ -216,12 +219,12 @@ function logOut(){
         <section class="section">
             <div class="section section_fullpage_dev">
                 <div class="developerBigBox">
-                    <div id="developer_name">J O</div>
+                    <div id="developer_name">CHO</div>
                     <div class="whitebox">
 
                         <img id="dev_face" src="https://ifh.cc/g/mOkT2Z.png">
 
-                        <div id="white_name"><span>J O</span><br>Y&nbsp;O&nbsp;O&nbsp;N&nbsp;&nbsp;T&nbsp;A&nbsp;E</div>
+                        <div id="white_name"><span>CHO</span><br>Y&nbsp;O&nbsp;O&nbsp;N&nbsp;&nbsp;T&nbsp;A&nbsp;E</div>
                         <div id="middle_name">
                             <hr>
                             <i class="fa-solid fa-phone">&emsp;&emsp;010-4538-9853</i>
@@ -241,8 +244,7 @@ function logOut(){
                         </div>
                         <div class="education"> Activities
                             <ul>
-                                <li>IPP</li>
-                                <li>Korea Project</li>
+                                <li>Capstone Project</li>
                                 <li>Hansung_Success Program</li>
                             </ul>
                         </div>
@@ -277,7 +279,7 @@ function logOut(){
         <section class="section">
             <div class="section section_fullpage_dev">
                 <div class="developerBigBox">
-                    <div id="developer_name">C U T E</div>
+                    <div id="developer_name">K I M</div>
                     <div class="whitebox">
 
                         <img id="dev_face" src="https://ifh.cc/g/jZwpk0.png">
@@ -295,17 +297,16 @@ function logOut(){
                     <div class="detail_box">
                         <div class="education">Education
                             <ul>
-                                <li>Megastudy</li>
-                                <li>Eduwill</li>
-                                <li>SexyBody_Study</li>
-                                <li>벤치120 교육학</li>
-
+                                <li>데이터베이스 A+</li>
+                                <li>그래픽정보처리 A+</li>
+                                <li>통신공학 A+</li>
+                                
                             </ul>
                         </div>
                         <div class="education"> Activities
                             <ul>
-                                <li>Taking a dog walk</li>
-                                <li>Studying English</li>
+                                <li>Overseas Volunteer</li>
+                                <li>Capstone project</li>
                                 <li>Hansung_Success Program</li>
                             </ul>
                         </div>
@@ -315,10 +316,9 @@ function logOut(){
                     <div class="detail_box">
                         <div class="education"> Skills
                             <ul>
-                                <li>Darksight</li>
-                                <li>Lucky Seven</li>
-                                <li>남자 꼬시기</li>
-                                <li>여자 꼬시기</li>
+                                <li>Python</li>
+                                <li>Deep Learning</li>
+                                
                             </ul>
                         </div>
                         <div class="education"> Work
@@ -361,7 +361,6 @@ function logOut(){
                             <ul>
                                 <li>Hansung_Univ</li>
                                 <li>Eduwill</li>
-                                <li>종합설계프로젝트 A+</li>
                                 <li>제어공학 A+</li>
 
                             </ul>
@@ -369,7 +368,7 @@ function logOut(){
                         <div class="education"> Activities
                             <ul>
                                 <li>IPP</li>
-                                <li>Korea project</li>
+                                <li>Capstone project</li>
                                 <li>Hansung_Success Program</li>
                             </ul>
                         </div>
@@ -380,7 +379,7 @@ function logOut(){
                         <div class="education"> Skills
                             <ul>
                                 <li>JAVA</li>
-                                <li>HTML</li>
+                                <li>Python</li>
                                 <li>PHP</li>
                                 <li>Yolov4</li>
                             </ul>
