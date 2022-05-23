@@ -81,10 +81,9 @@
             </li>
             <li><a href="/carList">CCTV_analysis</a></li>
             <li><a href="/CarModel">Car_model </a></li>
-            <li><a href="">Streaming</a></li>
             <li><a href="/QnA">QnA</a></li>
             <li><a href="/free">Free_Board</a></li>
-    
+    		<li><a href="/developer">Developer</a></li>
         </ul>    
      
 

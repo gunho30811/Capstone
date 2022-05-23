@@ -51,10 +51,9 @@
             </li>
             <li><a href="/carList">CCTV_analysis</a></li>
             <li><a href="/CarModel">Car_model </a></li>
-            <li><a href="">Streaming</a></li>
             <li><a href="/QnA">QnA</a></li>
             <li><a href="/free">Free_Board</a></li>
-    
+    		<li><a href="/developer">Developer</a></li>
         </ul>    
      
 <br>
@@ -78,9 +77,9 @@
 </textarea></td>
         </tr>
         </table>
-        <form class="data" action="서버" method="post" enctype="multipart/form-data">
+        <!-- <form class="data" action="서버" method="post" enctype="multipart/form-data">
             <input type='file' name='' multiple/>
-        </form>
+        </form> -->
 
         <div class="hr">${id}</div>
         <button class="d-btn"onclick="enroll()">등록</button >   
