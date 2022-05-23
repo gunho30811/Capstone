@@ -289,7 +289,6 @@ public class HomeController {
 			return "login";
 		}
 		
-		
 		else {
 			model.addAttribute("id",user_id);
 			model.addAttribute("listSize", listSize);
@@ -304,6 +303,9 @@ public class HomeController {
 		
 		if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
 			page = "1";
+			nowBlock="1";
+		}
+		if(nowBlock==null) {
 			nowBlock="1";
 		}
 		
@@ -570,7 +572,7 @@ public class HomeController {
 				}				
 				model.addAttribute("pageSize", pageSize);
 				model.addAttribute("list", list);
-				return "QnA";
+				return "SQnA";
 			}
 			
 			else if(option.equals("read")) {  //글 열람
@@ -732,6 +734,9 @@ public class HomeController {
 		String option = httpServletRequest.getParameter("option");
 		if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
 			page = "1";
+			nowBlock="1";
+		}
+		if(nowBlock==null) {
 			nowBlock="1";
 		}
 		
@@ -961,7 +966,7 @@ public class HomeController {
 			}
 			model.addAttribute("pageSize", pageSize);			
 			model.addAttribute("list",list);
-			return "Free";
+			return "SFree";
 		}
 		else if(option.equals("view")) {   //freeboard 보기
 			int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
@@ -1098,6 +1103,47 @@ public class HomeController {
 		
 		model.addAttribute("login",user_id);
 		return "developer";
+	}
+	@RequestMapping(value = "/SQnA", method = RequestMethod.GET)
+	public String SQnA(HttpServletRequest httpServletRequest, Model model) {
+		System.out.println("developer page return");
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		if(user_id==null) {
+			return "login";
+		}
+		
+		model.addAttribute("login",user_id);
+		return "SQnA";
+	}
+	
+	@RequestMapping(value = "/SFree", method = RequestMethod.GET)
+	public String SFree(HttpServletRequest httpServletRequest, Model model) {
+		System.out.println("developer page return");
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		if(user_id==null) {
+			return "login";
+		}
+		
+		model.addAttribute("login",user_id);
+		return "SFree";
+	}
+	
+	@RequestMapping(value = "/ScarList", method = RequestMethod.GET)
+	public String ScarList(HttpServletRequest httpServletRequest, Model model) {
+		System.out.println("developer page return");
+		HttpSession session=httpServletRequest.getSession();
+		
+		String user_id=(String)session.getAttribute("userId");;
+		if(user_id==null) {
+			return "login";
+		}
+		
+		model.addAttribute("login",user_id);
+		return "ScarList";
 	}
 }
 		
