@@ -24,7 +24,7 @@
 		var writer = "${id}";
 		var time= new Date();
 		var timeString = time.toLocaleString();
-		
+		content = content.replaceAll(/(\n|\r\n)/g, "<br>");
 		if(title==""){
 			alert("제목을 입력하세요");
 			return false;

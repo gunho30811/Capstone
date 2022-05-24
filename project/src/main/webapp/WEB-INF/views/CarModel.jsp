@@ -184,7 +184,7 @@ console.log("${nowBlock}");
             <button class="f-btn">등록</button ><!--여기가 업로드 부분-->
         </div>
 
-        <button class="d-btn">등록</button > <!--이 버튼은 밖에서 보이기 위함 장식 및 페이드 인 하기 위함-->
+       <!-- <button class="d-btn">등록</button > 이 버튼은 밖에서 보이기 위함 장식 및 페이드 인 하기 위함-->
 
     </div>
     

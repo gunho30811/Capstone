@@ -607,7 +607,7 @@ public class HomeController {
 				return "QnAView";
 			}
 			
-			else if(option.equals("enroll")) {
+			else if(option.equals("enroll")) {  //QnA 댓글 등록
 				qCommentVO vo = new qCommentVO();
 				vo.QnANum = Integer.parseInt(httpServletRequest.getParameter("seq"));
 				vo.text = httpServletRequest.getParameter("text");
@@ -655,6 +655,7 @@ public class HomeController {
 				int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
 				
 				qVo = qDao.read(seq);
+				qVo.setContent(qVo.getContent().replace("<br>", "\r\n"));
 				model.addAttribute("list",qVo);
 				model.addAttribute("id",user_id);
 				return "QnAModify";
@@ -934,7 +935,7 @@ public class HomeController {
 				return "Free";
 			}
 			
-			if(select.equals("title")) {
+			if(select.equals("title")) { //제목으로 검색
 				System.out.println("?????");
 				list = fDao.SearchTitle("%"+s+"%");
 				listSize = fDao.ScountBoard1("%"+s+"%");
@@ -945,7 +946,7 @@ public class HomeController {
 				}
 			}
 			
-			else if(select.equals("userId")) {
+			else if(select.equals("userId")) {  //작성자로 검색
 				list = fDao.SearchUser("%"+s+"%");
 				listSize = fDao.ScountBoard1("%"+s+"%");
 				if(listSize%10==0) {
@@ -955,7 +956,7 @@ public class HomeController {
 				}
 			}
 			
-			else if(select.equals("multi")) {
+			else if(select.equals("multi")) {  // 둘 다 검색
 				list = fDao.Search("%"+s+"%");
 				listSize = fDao.ScountBoard1("%"+s+"%");
 				if(listSize%10==0) {
@@ -1044,6 +1045,7 @@ public class HomeController {
 			fVO.userId=httpServletRequest.getParameter("writer");
 			fVO.time=httpServletRequest.getParameter("time");
 			
+			
 			System.out.println(fVO.time);
 			fDao.insert(fVO);
 			
@@ -1057,6 +1059,7 @@ public class HomeController {
 			FreeBoardVO fVO = new FreeBoardVO();
 			fVO=fDao.Read(a);
 			
+			fVO.setContent(fVO.getContent().replaceAll("<br>", "\r\n"));
 			model.addAttribute("list",fVO);
 			model.addAttribute("seq",a);
 			return "FreeModify";

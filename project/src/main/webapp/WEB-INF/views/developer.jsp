@@ -79,11 +79,11 @@ function logOut(){
                 </header>
 
                 <pre class="bugi">
-                        안녕하세요!
+                            안녕하세요!
 
-                 저희들을 소개해볼게요.
+                   저희들을 소개해볼게요.
 
-       돈 많이 버는 개발자가 되고 싶어요.
+       세상을 바꾸는 개발자가 되고 싶어요.
         </pre>
                 <img class="bugiimg" src="https://ifh.cc/g/mKpm2J.png">
                 <img id="down" src="https://ifh.cc/g/XDRRCL.png"></img>
@@ -204,7 +204,7 @@ function logOut(){
                             <ul>
                                 <li>JAVA</li>
                                 <li>DB</li>
-                                <li>Leader</li>
+                                <li>team Leader</li>
                             </ul>
                         </div>
 

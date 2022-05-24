@@ -23,7 +23,8 @@
 		var writer = "${id}";
 		var time= new Date();
 		var timeString = time.toLocaleString();
-		
+		content = content.replaceAll(/(\n|\r\n)/g, "<br>");
+		console.log(content);
 		if(title==""){
 			alert("제목을 입력하세요");
 			return false;
@@ -73,8 +74,10 @@
     <div class="bar3"> <h1 class="write_title2">작성 내용*</h1></div>
     <table class="content_table">
         <tr>
-        <td><textarea class="content" id="content">
-</textarea></td>
+        <td>
+        	<textarea class="content" id="content">
+			</textarea>
+		</td>
         </tr>
         </table>
         <!-- <form class="data" action="서버" method="post" enctype="multipart/form-data">

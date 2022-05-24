@@ -24,7 +24,7 @@
 		var writer = "${id}";
 		var time= new Date();
 		var timeString = time.toLocaleString();
-		
+		content = content.replaceAll(/(\n|\r\n)/g, "<br>");
 		if(title==""){
 			alert("제목을 입력하세요");
 			return false;
@@ -50,10 +50,10 @@
                 <i class="fa-solid fa-car-crash"></i>
                 <a href="index.html"><b>HansungProject</b></a>
             </li>
-            <li><a href="CCTV.html">CCTV_analysis</a></li>
-            <li><a href="Car_model.html">Car_model </a></li>
-            <li><a href="QnA.html">QnA</a></li>
-            <li><a href="Free.html">Free_Board</a></li>
+            <li><a href="/carList">CCTV_analysis</a></li>
+            <li><a href="CarModel">Car_model </a></li>
+            <li><a href="/QnA">QnA</a></li>
+            <li><a href="/free">Free_Board</a></li>
     		<li><a href="/developer">Developer</a></li>
         </ul>    
      
