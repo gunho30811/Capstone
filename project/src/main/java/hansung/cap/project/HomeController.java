@@ -61,7 +61,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	
-	//---------------------------------메뉴화면-------------------------------------//
+	//---------------------------------인덱스 화면-------------------------------------//
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest httpServletRequest, Model model) {
 		System.out.println("first page return");
@@ -105,7 +105,7 @@ public class HomeController {
 		return "index";
 	}
 	
-	//---------------------------------로그인-------------------------------------//
+	//---------------------------------로그인 페이지-------------------------------------//
 	@RequestMapping(value = "/login", method = {RequestMethod.POST,RequestMethod.GET})
 	public String login(HttpServletRequest httpServletRequest, Model model, String id, String pw) {
 		
@@ -114,7 +114,7 @@ public class HomeController {
 		System.out.println(id);
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
-		if(user_id!=null) {
+		if(user_id!=null) {  //로그인이 될 상황일시
 			model.addAttribute("login",user_id);
 			return "index";
 		}
@@ -167,7 +167,7 @@ public class HomeController {
 		
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
-		if(user_id!=null) {
+		if(user_id!=null) {   //로그인이 되어 있을 시 
 			return "index";
 		}
 		
@@ -212,7 +212,7 @@ public class HomeController {
 		return "create";
 	}
 	
-	//---------------------------------비밀번호 까먹은거-------------------------------------//
+	//---------------------------------비밀번호 찾는 페이지-------------------------------------//
 	@RequestMapping(value = "/forgot", method = {RequestMethod.POST,RequestMethod.GET})
 	public String forgot(HttpServletRequest httpServletRequest, Model model, String forgot_id, String forgot_email, String forgot_answer){
 		HttpSession session=httpServletRequest.getSession();
@@ -238,13 +238,13 @@ public class HomeController {
 			String userPw=mDao.forgot(mVo);
 			//System.out.println(userPw);
 			
-			if(userPw == null) {
+			if(userPw == null) {  //해당 답변에 해당하는 비밀번호가 없을 때
 				System.out.println("fail");
 				String signal="no";
 				model.addAttribute("failFlag",signal);
 				
 			}
-			else {
+			else {  //비밀번호 알려주는 페이지로 return
 				model.addAttribute("userPw", userPw);
 				return "forgotRecord";
 			}
@@ -257,7 +257,7 @@ public class HomeController {
 	}
 
 
-	//---------------------------------리스트 띄우기-------------------------------------//
+	//---------------------------------CCTV 분석 페이지-------------------------------------//
 	@RequestMapping(value = "/carList", method = RequestMethod.GET)
 	public String carList(HttpServletRequest httpServletRequest, Model model) {
 		System.out.println("carList return");
@@ -355,7 +355,7 @@ public class HomeController {
 			}
 		}
 		
-		else if(option.equals("search")) {
+		else if(option.equals("search")) {  //검색 기능
 			String text = httpServletRequest.getParameter("name");
 			String sel = httpServletRequest.getParameter("sel");
 			List<listVO> clist =  new ArrayList<listVO>();
@@ -370,7 +370,7 @@ public class HomeController {
 				model.addAttribute("list",list);
 				return "carList";
 			}
-			if(sel.equals("model")) {
+			if(sel.equals("model")) {  //모델 명으로 검색
 				clist = lDao.QueryModel("%"+text+"%");
 				listSize = lDao.ScountBoard1("%"+text+"%");
 				if(listSize%10==0) {
@@ -379,7 +379,7 @@ public class HomeController {
 					pageSize = listSize/10 + 1;
 				}
 			}
-			else if(sel.equals("time")) {
+			else if(sel.equals("time")) {  //차량이 지나간 시간으로 검색
 				clist = lDao.QueryTime("%"+text+"%");
 				listSize = lDao.ScountBoard2("%"+text+"%");
 				if(listSize%10==0) {
@@ -541,7 +541,7 @@ public class HomeController {
 					return "QnA";
 				}
 				
-				if(select.equals("title")) {
+				if(select.equals("title")) {  //제목으로 검색
 					list = qDao.searchTitle("%"+keyWord+"%");
 					listSize = qDao.ScountBoard1("%"+keyWord+"%");
 					if(listSize%10==0) {
@@ -551,7 +551,7 @@ public class HomeController {
 					}
 				}
 				
-				else if(select.equals("userId")) {
+				else if(select.equals("userId")) {  //작성자 아이디로 검색
 					list = qDao.searchUser("%"+keyWord+"%");
 					listSize = qDao.ScountBoard2("%"+keyWord+"%");
 					if(listSize%10==0) {
@@ -561,7 +561,7 @@ public class HomeController {
 					}
 				}
 				
-				else if(select.equals("multi")) {
+				else if(select.equals("multi")) { //제목 + 작성자로 검색
 					list = qDao.search("%"+keyWord+"%");
 					listSize = qDao.ScountBoard3("%"+keyWord+"%");
 					if(listSize%10==0) {
@@ -581,16 +581,16 @@ public class HomeController {
 				QnAVO qVO = new QnAVO();
 				qVO = qDao.read(a);
 									
-				if((user_id).equals("manage1234")) {
+				if((user_id).equals("manage1234")) {  //관리자 아이디일시 QnA 답변란 제공
 					model.addAttribute("manage",user_id);
 				}
 				
-				String key = httpServletRequest.getParameter("del"); //답글 삭제
+				String key = httpServletRequest.getParameter("del"); 
 				
 				if(key==null) {
 					
 				}
-				else if(key.equals("delete")) {
+				else if(key.equals("delete")) { //답글 삭제
 					int num = Integer.parseInt(httpServletRequest.getParameter("num"));
 					
 					qrDao.delete(num);
@@ -695,10 +695,11 @@ public class HomeController {
 	
 	
 	
-	//--------------------04.02 carmodel 완-------------------------//
+	//--------------------carModel페이지-------------------------//
 		
 	@RequestMapping(value = "/CarModel", method = RequestMethod.GET)
 	public String carModel(HttpServletRequest httpServletRequest, Model model) {
+		//많은 차들의 다양한 정보를 제공하는 페이지
 		HttpSession session=httpServletRequest.getSession();
 		String user_id=(String)session.getAttribute("userId"); ;
 		model.addAttribute("id",user_id);
@@ -786,7 +787,7 @@ public class HomeController {
 				nowBlock = "1";
 			}
 		}
-		else if(option.equals("search")) {
+		else if(option.equals("search")) {  //검색 기능
 			System.out.println("검색 기능입니다");
 			String searchText = httpServletRequest.getParameter("name");
 			String sel =  httpServletRequest.getParameter("sel");
@@ -801,7 +802,7 @@ public class HomeController {
 				return "CarModel";
 			}
 			
-			if(sel.equals("carkind")){//차 이름으로 검색
+			if(sel.equals("carkind")){ //차 이름으로 검색
 				System.out.println("차 이름으로 검색");
 				list = cDao.Querrycar("%"+searchText+"%");
 				listSize = cDao.ScountBoard1("%"+searchText+"%");
@@ -811,7 +812,7 @@ public class HomeController {
 					pageSize = listSize/6 +1;
 				}
 			}
-			else if(sel.equals("carmaker")) {
+			else if(sel.equals("carmaker")) {  //제조사로 검색
 				System.out.println("제조사로 검색");
 				list = cDao.QuerryMaker("%"+searchText+"%");
 				listSize = cDao.ScountBoard2("%"+searchText+"%");
@@ -836,18 +837,18 @@ public class HomeController {
 	}	
 	
 	
-	
+	//----------------------------자유게시판------------------------------//
 	@RequestMapping(value = "/free", method = RequestMethod.GET)
 	public String free(HttpServletRequest httpServletRequest, Model model) {
 		HttpSession session=httpServletRequest.getSession();
 		String user_id=(String)session.getAttribute("userId"); ;
 		model.addAttribute("id",user_id);
 		
-		if(user_id==null) {
+		if(user_id==null) {  //로그인 안되어있을시 로그인 페이지로 이동
 			return "login";
 		}
 		List<fCommentVO> rlist = new ArrayList<fCommentVO>(); //리플 관련 리스트
-		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
+		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>(); //게시판 관련 리스트
 		list = fDao.QueryAll();
 		FreeBoardVO fVo = new FreeBoardVO();
 		int listSize = fDao.countBoard(fVo);
@@ -1094,19 +1095,23 @@ public class HomeController {
 		model.addAttribute("list",list);
 		return "Free";
 	}
+	
+	//-------------------------만든 이들 소개 페이지----------------------//
 	@RequestMapping(value = "/developer", method = RequestMethod.GET)
 	public String freeBoard(HttpServletRequest httpServletRequest, Model model) {
 		System.out.println("developer page return");
 		HttpSession session=httpServletRequest.getSession();
 		
 		String user_id=(String)session.getAttribute("userId");;
-		if(user_id==null) {
+		if(user_id==null) {  //로그인이 안되어 있을시 로그인 페이지로 이동
 			return "login";
 		}
 		
 		model.addAttribute("login",user_id);
 		return "developer";
 	}
+	
+	//-------------------------QnA 검색결과 반환 ----------------------//
 	@RequestMapping(value = "/SQnA", method = RequestMethod.GET)
 	public String SQnA(HttpServletRequest httpServletRequest, Model model) {
 		System.out.println("developer page return");
@@ -1121,6 +1126,8 @@ public class HomeController {
 		return "SQnA";
 	}
 	
+	
+	//--------------------------자유게시판 검색결과 반환--------------------//
 	@RequestMapping(value = "/SFree", method = RequestMethod.GET)
 	public String SFree(HttpServletRequest httpServletRequest, Model model) {
 		System.out.println("developer page return");
@@ -1135,6 +1142,7 @@ public class HomeController {
 		return "SFree";
 	}
 	
+	//-------------------------CCTV 분석결과 검색결과 반환------------------//
 	@RequestMapping(value = "/ScarList", method = RequestMethod.GET)
 	public String ScarList(HttpServletRequest httpServletRequest, Model model) {
 		System.out.println("developer page return");
