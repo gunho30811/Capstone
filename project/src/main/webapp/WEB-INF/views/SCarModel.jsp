@@ -75,8 +75,9 @@ console.log("${nowBlock}");
     </div>
 <!--  -->
     <div class="imgList1">
+    	<div class="imgC">
 		<c:forEach items="${list}" var="dataVO">
-		<div class="imgC">
+		<div class="imgPlusp">
 		<c:set var="img" value="${dataVO.carImage}"/>
 		<img class="cropped" src="<c:out value='${img}'/>"/>
 		<p class="kind"><c:out value="${dataVO.carKind}"/></p>
@@ -84,6 +85,7 @@ console.log("${nowBlock}");
 		<p class="detail2" style="color:transparent">차 엔진 : <c:out value="${dataVO.carEngine}"/> | 적재용량 : <c:out value="${dataVO.carRoad}"/></p>
 		</div>
 		</c:forEach>
+		</div>
 	</div>
 
 
@@ -175,7 +177,7 @@ console.log("${nowBlock}");
 <script>
 $(function(){
     // 	이미지 클릭시 해당 이미지 모달
-        $(".imgC").click(function(){
+        $(".imgPlusp").click(function(){
             $(".modal").show();
             // 해당 이미지 가져오기
             var imgSrc = $(this).children("img").attr("src");
