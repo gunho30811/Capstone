@@ -36,5 +36,10 @@ public class fCommentDAOImp implements fCommentDAO{
 	public void DelComment(int a) {
 		sqlSession.delete(namespace+".deleteComment",a);
 	}
+	
+	@Override
+	public void DelCommentAll(int a) {
+		sqlSession.delete(namespace+".deleteAll",a);
+	}
 
 }

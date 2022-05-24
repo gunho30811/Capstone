@@ -9,4 +9,5 @@ public interface fCommentDAO {
 	public List<fCommentVO> querryAll();
 	public void DelComment(int a);
 	public List<fCommentVO> querry(int a);
+	public void DelCommentAll(int a);
 }

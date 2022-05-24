@@ -31,4 +31,9 @@ public class qCommentDAOImp implements qCommentDAO {
 	public void delete(int s) {
 		sqlSession.delete(namespace+".delete",s);
 	}
+	
+	@Override
+	public void deleteAll(int a) {
+		sqlSession.delete(namespace+".deleteAll",a);
+	}
 }

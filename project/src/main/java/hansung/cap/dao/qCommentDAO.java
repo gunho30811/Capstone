@@ -10,4 +10,5 @@ public interface qCommentDAO {
 	public void InsertComment(qCommentVO vo);
 	public List<qCommentVO> CommentAll(int a);
 	public void delete(int s);
+	public void deleteAll(int a);
 }

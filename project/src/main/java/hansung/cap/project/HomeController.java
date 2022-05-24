@@ -608,6 +608,7 @@ public class HomeController {
 			else if(option.equals("delQnA")) {  //QnA 글 삭제
 				int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
 				qDao.delete(seq);
+				qrDao.deleteAll(seq);
 			}
 			list = qDao.QueryAll();
 			model.addAttribute("nowBlock", nowBlock);
@@ -919,6 +920,7 @@ public class HomeController {
 		else if(option.equals("delFree")) {  //freeboard 글 삭제
 			int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
 			fDao.deleteFree(seq);
+			frDao.DelCommentAll(seq);
 			list = fDao.QueryAll();
 		}
 		else if(option.equals("gotoEnroll")) {  //글 등록 페이지 이동

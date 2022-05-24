@@ -17,4 +17,8 @@
 	<delete id="delete">
   		delete from qnacomment where commentNum like #{s}
   	</delete>
+  	
+  	<delete id="deleteAll">
+  		delete from qnacomment where QnANum like #{a}
+  	</delete>
 </mapper>

@@ -20,4 +20,8 @@
   	<select id="deleteComment">
   		delete from freecomment where commentNum like #{a}
   	</select>
+  	
+  	<select id = "deleteAll">
+  		delete from freecomment where freeNum like #{a}
+  	</select>
   </mapper>
