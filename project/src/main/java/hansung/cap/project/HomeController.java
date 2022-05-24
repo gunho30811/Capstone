@@ -85,22 +85,18 @@ public class HomeController {
 			System.out.println(user_id+"????");
 			model.addAttribute("login",user_id);
 			model.addAttribute("logOut","logOut");
-			
 		}
 		
-		if(option==null) {
-			
-		}
+		if(option==null) {}
 		else if(option.equals("logOut")){
 			System.out.println("log Out!!!");
 			session.invalidate();
 			System.out.println("session delete");
-			
+
 			model.addAttribute("login","login");
 			model.addAttribute("logOut","");
 			return "index";
 		}
-		
 		
 		return "index";
 	}
@@ -126,8 +122,6 @@ public class HomeController {
 		//System.out.println(option);
 		System.out.println();
 		
-		
-		
 		if(id==null) {
 			System.out.println("option null : loginpage loading");
 		}
@@ -151,14 +145,11 @@ public class HomeController {
 				
 				model.addAttribute("logOut","logOut");
 				return "index";
-				
 			}
-			
 		}
 		System.out.println(httpServletRequest.getParameter("id"));
 		return "login";
 	}
-	
 	
 	//---------------------------------회원가입-------------------------------------//
 	@RequestMapping(value = "/create", method = {RequestMethod.POST,RequestMethod.GET})
@@ -171,12 +162,9 @@ public class HomeController {
 			return "index";
 		}
 		
-			
 		MemberVO mVo=new MemberVO();
 		
-		if(userId==null) {
-			
-		}
+		if(userId==null) {}
 		else{
 			mVo.userId=userId;
 			mVo.userPw=userPw;
@@ -190,7 +178,6 @@ public class HomeController {
 				return "create";
 			}
 			
-				
 			if(result == 0) {					//중복이 아니라면 쿼리에서 0 반환
 				mDao.InsertId(mVo);
 				String s = "login";
@@ -199,14 +186,11 @@ public class HomeController {
 				return "login";
 			}
 			else if(result == 1) {				//중복이라면 쿼리에서 1 반환
-				
 				String r = "redundancy";
 				model.addAttribute("redundancy", r);
 				System.out.println("create account fail : rename id");
 				return "create";
 			}
-			
-			
 		}
 		
 		return "create";
@@ -248,14 +232,10 @@ public class HomeController {
 				model.addAttribute("userPw", userPw);
 				return "forgotRecord";
 			}
-			
 		}
 		
-		
 		return "forgot";
-		
 	}
-
 
 	//---------------------------------CCTV 분석 페이지-------------------------------------//
 	@RequestMapping(value = "/carList", method = RequestMethod.GET)
@@ -267,13 +247,13 @@ public class HomeController {
 		int listSize = lDao.countBoard(lVo);	//리스트 글 개수
 		int pageSize;							//필요한 페이지 수 및 마지막 페이지 번호
 		
-		if(listSize%10==0) {
+		if(listSize%10==0) {					//페이지 사이즈 계산
 			pageSize = listSize/10;
 		} else {
 			pageSize = listSize/10 + 1;
 		}
-		int blockSize;
-		if(pageSize<3) {
+		int blockSize;							//블록(1 : 1~3, 2 : 2~4..)
+		if(pageSize<3) {						//블록 사이즈 계산
 			blockSize = 1;
 		}
 		else {
@@ -284,22 +264,17 @@ public class HomeController {
 		String user_id=(String)session.getAttribute("userId");;
 		System.out.println("----------------------------------"+user_id);
 		
-		
 		if(user_id==null) {
 			return "login";
 		}
-		
 		else {
 			model.addAttribute("id",user_id);
 			model.addAttribute("listSize", listSize);
 			model.addAttribute("pageSize", pageSize);
-			System.out.println("listSize : " + listSize);
-			System.out.println("pageSize : " + pageSize);
 		}
 		
 		String option = httpServletRequest.getParameter("option");
 		String page = httpServletRequest.getParameter("page");
-		
 		
 		if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
 			page = "1";
@@ -309,25 +284,19 @@ public class HomeController {
 			nowBlock="1";
 		}
 		
-		System.out.println("page : " + page);
-		System.out.println("option : " + option);
-		
-		if(page!=null && option==null) {					//웹 페이지에서 넘겨준 값이 있으면 해당 페이지 값으로
+		if(page!=null && option==null) {	//웹 페이지에서 넘겨준 값이 있으면 해당 페이지 값으로
 			
 		}
-		else if(option.equals("first")) {
-			System.out.println("////////////////////////first");
+		else if(option.equals("first")) {	//페이징 첫번째로
 			page = "1";
 			nowBlock = "1";
 		}
-		else if(option.equals("last")) {
-			System.out.println("////////////////////////last");
+		else if(option.equals("last")) {	//페이징 마지막으로
 			page = String.valueOf(pageSize);
 			String snowBlock = Integer.toString(blockSize);
 			nowBlock = snowBlock;
 		}
-		else if(option.equals("next")) {
-			System.out.println("////////////////////////next");
+		else if(option.equals("next")) {	//페이징 다음 블럭으로
 			System.out.println("page : " + page);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage>=pageSize) {
@@ -340,10 +309,8 @@ public class HomeController {
 				String snowBlock = Integer.toString(blockSize);
 				nowBlock = snowBlock;
 			}
-			
 		}
-		else if(option.equals("back")) {
-			System.out.println("////////////////////////back");
+		else if(option.equals("back")) {	//페이징 이전 블럭으로
 			System.out.println("page : " + page);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage<=1) {
@@ -359,8 +326,7 @@ public class HomeController {
 			String text = httpServletRequest.getParameter("name");
 			String sel = httpServletRequest.getParameter("sel");
 			List<listVO> clist =  new ArrayList<listVO>();
-			if(text.equals("")) {
-				System.out.println("NULL");
+			if(text.equals("")) {			//검색 값이 없으면
 				model.addAttribute("page", page);
 				model.addAttribute("nowBlock", nowBlock);
 				Integer p = Integer.parseInt(page);
@@ -388,12 +354,10 @@ public class HomeController {
 					pageSize = listSize/10 + 1;
 				}
 			}
-			
 			model.addAttribute("pageSize", pageSize);
 			model.addAttribute("list",clist);
 			return "carList";
 		}
-		
 		else if(option.equals("image")) {
 			int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
 			
@@ -417,16 +381,11 @@ public class HomeController {
 		    
 		    System.out.println(arr+" ????????????");
 		    String base64ToString = new String(arr);
-		    
-		    
+
 		    model.addAttribute("imgSrc",base64ToString);
-		    
-		    
 		    
 		    return "test";
 		}
-		
-		
 		else {
 			
 		}
@@ -440,7 +399,6 @@ public class HomeController {
 		return "carList";
 	}
 	
-
 	//---------------------------------QnA 페이지-------------------------------------//
 		@RequestMapping(value = "/QnA", method = RequestMethod.GET)
 		public String QnA(HttpServletRequest httpServletRequest, Model model) {
@@ -458,7 +416,7 @@ public class HomeController {
 			
 			List<QnAVO> list = new ArrayList<QnAVO>();
 			QnAVO qVo = new QnAVO();
-			int listSize = qDao.countBoard(qVo);
+			int listSize = qDao.countBoard(qVo);		//페이징
 			int pageSize;
 			if(listSize%10==0) {
 				pageSize = listSize/10;
@@ -479,29 +437,23 @@ public class HomeController {
 			String page = httpServletRequest.getParameter("page");
 			model.addAttribute("listSize", listSize);
 			model.addAttribute("pageSize", pageSize);
-			System.out.println("listSize : " + listSize);
-			System.out.println("pageSize : " + pageSize);
 			if(page==null) {		//웹 페이지에서 넘겨준 값이 없으면 초기 페이지 값 1
 				page = "1";
 				nowBlock="1";
 			}
-			
 			if(option==null) {
 				
 			}
 			else if(option.equals("first")) {
-				System.out.println("////////////////////////first");
 				page = "1";
 				nowBlock = "1";
 			}
 			else if(option.equals("last")) {
-				System.out.println("////////////////////////last");
 				page = String.valueOf(pageSize);
 				String snowBlock = Integer.toString(blockSize);
 				nowBlock = snowBlock;
 			}
 			else if(option.equals("next")) {
-				System.out.println("////////////////////////next");
 				System.out.println("page : " + page);
 				Integer ipage = Integer.parseInt(page);
 				if(ipage>=pageSize) {
@@ -514,11 +466,8 @@ public class HomeController {
 					String snowBlock = Integer.toString(blockSize);
 					nowBlock = snowBlock;
 				}
-				
 			}
 			else if(option.equals("back")) {
-				System.out.println("////////////////////////back");
-				System.out.println("page : " + page);
 				Integer ipage = Integer.parseInt(page);
 				if(ipage<=1) {
 					page="1";
@@ -550,7 +499,6 @@ public class HomeController {
 						pageSize = listSize/10 + 1;
 					}
 				}
-				
 				else if(select.equals("userId")) {  //작성자 아이디로 검색
 					list = qDao.searchUser("%"+keyWord+"%");
 					listSize = qDao.ScountBoard2("%"+keyWord+"%");
@@ -560,7 +508,6 @@ public class HomeController {
 						pageSize = listSize/10 + 1;
 					}
 				}
-				
 				else if(select.equals("multi")) { //제목 + 작성자로 검색
 					list = qDao.search("%"+keyWord+"%");
 					listSize = qDao.ScountBoard3("%"+keyWord+"%");
@@ -574,7 +521,6 @@ public class HomeController {
 				model.addAttribute("list", list);
 				return "SQnA";
 			}
-			
 			else if(option.equals("read")) {  //글 열람
 				System.out.println("QnA read");
 				int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
@@ -592,7 +538,6 @@ public class HomeController {
 				}
 				else if(key.equals("delete")) { //답글 삭제
 					int num = Integer.parseInt(httpServletRequest.getParameter("num"));
-					
 					qrDao.delete(num);
 				}
 				
@@ -606,7 +551,6 @@ public class HomeController {
 				model.addAttribute("list",qVO);
 				return "QnAView";
 			}
-			
 			else if(option.equals("enroll")) {  //QnA 댓글 등록
 				qCommentVO vo = new qCommentVO();
 				vo.QnANum = Integer.parseInt(httpServletRequest.getParameter("seq"));
@@ -629,17 +573,12 @@ public class HomeController {
 				model.addAttribute("rlist",qlist);
 				model.addAttribute("list",qVO);
 				
-				
-				
-				
 				return "QnAView";
 			}
-			
 			else if(option.equals("goToenroll")) { //QnA 작성 칸으로 이동
 				model.addAttribute("id",user_id);
 				return "QnAWrite";
 			}
-			
 			else if(option.equals("enrollQnA")) {  //QnA 글 등록
 				qVo.title = httpServletRequest.getParameter("title");
 				qVo.content = httpServletRequest.getParameter("content");
@@ -648,19 +587,15 @@ public class HomeController {
 				
 				qDao.enrollQnA(qVo);
 				System.out.println("insert");
-
 			}
-			
 			else if(option.equals("modify")) {  //QnA 글 수정페이지로 이동
 				int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
-				
 				qVo = qDao.read(seq);
 				qVo.setContent(qVo.getContent().replace("<br>", "\r\n"));
 				model.addAttribute("list",qVo);
 				model.addAttribute("id",user_id);
 				return "QnAModify";
 			}
-			
 			else if(option.equals("modifyQnA")) {  //QnA 글 수정 완료
 				
 				qVo.seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
@@ -668,17 +603,12 @@ public class HomeController {
 				qVo.content = httpServletRequest.getParameter("content");
 				qVo.userId = httpServletRequest.getParameter("writer");
 				qVo.time = httpServletRequest.getParameter("time");
-				
 				qDao.modify(qVo);
-				
-				
 			}
-			
 			else if(option.equals("delQnA")) {  //QnA 글 삭제
 				int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
 				qDao.delete(seq);
 			}
-			
 			list = qDao.QueryAll();
 			model.addAttribute("nowBlock", nowBlock);
 			model.addAttribute("page", page);
@@ -688,15 +618,8 @@ public class HomeController {
 			model.addAttribute("list",list);
 			return "QnA";
 		}
-		
-		
-		
-		
-	
-	
-	
+
 	//--------------------carModel페이지-------------------------//
-		
 	@RequestMapping(value = "/CarModel", method = RequestMethod.GET)
 	public String carModel(HttpServletRequest httpServletRequest, Model model) {
 		//많은 차들의 다양한 정보를 제공하는 페이지
@@ -707,11 +630,10 @@ public class HomeController {
 		if(user_id==null) {
 			return "login";
 		}
-		
 		List<CarKindVO> list = new ArrayList<CarKindVO>();
 		list = cDao.QuerryAll();
 		CarKindVO cVO = new CarKindVO();
-		int listSize = cDao.countBoard(cVO);
+		int listSize = cDao.countBoard(cVO);		//페이징
 		int pageSize;
 		if(listSize%6==0) {
 			pageSize = listSize/6;
@@ -741,47 +663,35 @@ public class HomeController {
 		if(nowBlock==null) {
 			nowBlock="1";
 		}
-		
 		if(option==null) {
 		}
 		else if(option.equals("first")) {
-			System.out.println("////////////////////////first");
 			page = "1";
 			nowBlock = "1";
 		}
 		else if(option.equals("last")) {
-			System.out.println("////////////////////////last");
 			page = String.valueOf(pageSize);
 			String snowBlock = Integer.toString(blockSize);
 			nowBlock = snowBlock;
 		}
 		else if(option.equals("next")) {
-			System.out.println("////////////////////////next");
-			System.out.println("page : " + page);
-			System.out.println("nowBlock : " + nowBlock);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage>=pageSize) {
 				String spage = Integer.toString(pageSize);
 				page=spage;
 			}
-			
 			Integer inowBlock = Integer.parseInt(nowBlock);
 			System.out.println("blockSize : " + blockSize);
 			if(inowBlock>=blockSize) {
 				String snowBlock = Integer.toString(blockSize);
 				nowBlock = snowBlock;
 			}
-			
 		}
 		else if(option.equals("back")) {
-			System.out.println("////////////////////////back");
-			System.out.println("page : " + page);
-			System.out.println("nowBlock : " + nowBlock);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage<=1) {
 				page="1";
 			}
-			
 			Integer inowBlock = Integer.parseInt(nowBlock);
 			if(inowBlock<=1) {
 				nowBlock = "1";
@@ -792,7 +702,6 @@ public class HomeController {
 			String searchText = httpServletRequest.getParameter("name");
 			String sel =  httpServletRequest.getParameter("sel");
 			if(searchText=="") {
-				System.out.println("NULL");
 				model.addAttribute("page", page);
 				model.addAttribute("nowBlock", nowBlock);
 				Integer p = Integer.parseInt(page);
@@ -801,7 +710,6 @@ public class HomeController {
 				model.addAttribute("list",list);
 				return "CarModel";
 			}
-			
 			if(sel.equals("carkind")){ //차 이름으로 검색
 				System.out.println("차 이름으로 검색");
 				list = cDao.Querrycar("%"+searchText+"%");
@@ -825,7 +733,6 @@ public class HomeController {
 			model.addAttribute("pageSize", pageSize);
 			model.addAttribute("list",list);
 			return "CarModel";
-			
 		}
 		model.addAttribute("page", page);
 		model.addAttribute("nowBlock", nowBlock);
@@ -835,7 +742,6 @@ public class HomeController {
 		model.addAttribute("list",list);
 		return "CarModel";
 	}	
-	
 	
 	//----------------------------자유게시판------------------------------//
 	@RequestMapping(value = "/free", method = RequestMethod.GET)
@@ -851,7 +757,7 @@ public class HomeController {
 		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>(); //게시판 관련 리스트
 		list = fDao.QueryAll();
 		FreeBoardVO fVo = new FreeBoardVO();
-		int listSize = fDao.countBoard(fVo);
+		int listSize = fDao.countBoard(fVo);		//페이징
 		int pageSize;
 		if(listSize%10==0) {
 			pageSize = listSize/10;
@@ -868,9 +774,6 @@ public class HomeController {
 		model.addAttribute("blockSize", blockSize);
 		model.addAttribute("listSize", listSize);
 		model.addAttribute("pageSize", pageSize);
-		System.out.println("listSize : " + listSize);
-		System.out.println("pageSize : " + pageSize);
-		System.out.println("blockSize : " + blockSize);
 		
 		String nowBlock = httpServletRequest.getParameter("nowBlock");
 		String page = httpServletRequest.getParameter("page");
@@ -879,25 +782,19 @@ public class HomeController {
 			page = "1";
 			nowBlock="1";
 		}
-		
-		
 		if(option==null) {
 			
 		}
 		else if(option.equals("first")) {
-			System.out.println("////////////////////////first");
 			page = "1";
 			nowBlock="1";
 		}
 		else if(option.equals("last")) {
-			System.out.println("////////////////////////last");
 			page = String.valueOf(pageSize);
 			String snowBlock = Integer.toString(blockSize);
 			nowBlock = snowBlock;
 		}
 		else if(option.equals("next")) {
-			System.out.println("////////////////////////next");
-			System.out.println("page : " + page);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage>=pageSize) {
 				String spage = Integer.toString(pageSize);
@@ -909,10 +806,8 @@ public class HomeController {
 				String snowBlock = Integer.toString(blockSize);
 				nowBlock = snowBlock;
 			}
-			
 		}
 		else if(option.equals("back")) {
-			System.out.println("////////////////////////back");
 			System.out.println("page : " + page);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage<=1) {
@@ -946,7 +841,6 @@ public class HomeController {
 					pageSize = listSize/10 + 1;
 				}
 			}
-			
 			else if(select.equals("userId")) {  //작성자로 검색
 				list = fDao.SearchUser("%"+s+"%");
 				listSize = fDao.ScountBoard1("%"+s+"%");
@@ -956,7 +850,6 @@ public class HomeController {
 					pageSize = listSize/10 + 1;
 				}
 			}
-			
 			else if(select.equals("multi")) {  // 둘 다 검색
 				list = fDao.Search("%"+s+"%");
 				listSize = fDao.ScountBoard1("%"+s+"%");
@@ -992,7 +885,6 @@ public class HomeController {
 			fCVO.freeNum = Integer.parseInt(httpServletRequest.getParameter("seq"));
 			fCVO.time = httpServletRequest.getParameter("time");
 			
-		
 			frDao.InsertComment(fCVO);
 			FreeBoardVO fVO = new FreeBoardVO();
 			fVO = fDao.Read(fCVO.freeNum);
@@ -1006,7 +898,6 @@ public class HomeController {
 			model.addAttribute("list",fVO);
 			return "freeView";
 		}
-		
 		else if(option.equals("commentDel")) {  //freeboard 댓글 삭제
 			System.out.println("댓 삭");
 			int num = Integer.parseInt(httpServletRequest.getParameter("commentNum"));
@@ -1024,20 +915,16 @@ public class HomeController {
 			model.addAttribute("rlist",rlist);
 			model.addAttribute("list",fVO);
 			return "freeView";
-			
 		}
-		
 		else if(option.equals("delFree")) {  //freeboard 글 삭제
 			int seq = Integer.parseInt(httpServletRequest.getParameter("seq"));
 			fDao.deleteFree(seq);
 			list = fDao.QueryAll();
 		}
-		
 		else if(option.equals("gotoEnroll")) {  //글 등록 페이지 이동
 			model.addAttribute("id",user_id);
 			return "FreeWrite";
 		}
-		
 		else if(option.equals("enroll")) {  //글을 등록
 			System.out.println("글을 등록");
 			FreeBoardVO fVO = new FreeBoardVO();
@@ -1046,15 +933,9 @@ public class HomeController {
 			fVO.userId=httpServletRequest.getParameter("writer");
 			fVO.time=httpServletRequest.getParameter("time");
 			
-			
 			System.out.println(fVO.time);
 			fDao.insert(fVO);
-			
-	
 		}
-		
-		
-		
 		else if(option.equals("modify")) {//수정 페이지로 이동
 			int a = Integer.parseInt(httpServletRequest.getParameter("seq"));
 			FreeBoardVO fVO = new FreeBoardVO();
@@ -1065,7 +946,6 @@ public class HomeController {
 			model.addAttribute("seq",a);
 			return "FreeModify";
 		}
-		
 		else if(option.equals("modifySuccess")) { //수정 완료
 			FreeBoardVO fVO = new FreeBoardVO();
 			
@@ -1126,7 +1006,6 @@ public class HomeController {
 		return "SQnA";
 	}
 	
-	
 	//--------------------------자유게시판 검색결과 반환--------------------//
 	@RequestMapping(value = "/SFree", method = RequestMethod.GET)
 	public String SFree(HttpServletRequest httpServletRequest, Model model) {
@@ -1157,12 +1036,6 @@ public class HomeController {
 		return "ScarList";
 	}
 }
-		
-		
-		
-		
-	
-	
 	/*
 	
 	//---------------------------------자유게시판화면-------------------------------------//
