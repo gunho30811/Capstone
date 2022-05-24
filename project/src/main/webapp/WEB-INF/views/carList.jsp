@@ -95,8 +95,8 @@
          <tbody>
             <c:forEach items="${list}" begin="0" end="9" var="dataVO"><!--   begin="${firstIndex}" end="${lastIndex}" step="1" varStatus="status">-->
                 <tr>
-                  <td><c:out value="${dataVO.seq}"/></td>
-                  <td ><c:out value="${dataVO.model}"/></td>
+                  <td title="결과 사진을 보고 싶다면 관리자 권한으로 CCTV 확인 버튼을 누르세요"><c:out value="${dataVO.seq}"/></td>
+                  <td title="결과 사진을 보고 싶다면 관리자 권한으로 CCTV 확인 버튼을 누르세요" ><c:out value="${dataVO.model}"/></td>
                   <td><c:out value="${dataVO.time}"/></td>
                         
                  </tr>
