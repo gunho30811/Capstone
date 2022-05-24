@@ -37,7 +37,7 @@ body::before{
  }
 
 
-.forgot-area{
+.forgot-area,.int-area{
     width: 400px; position: relative;
     margin-top: 20px;}
 
@@ -57,20 +57,12 @@ body::before{
     font-size: 18px; color:#999;
     transition: top .5s ease;
 }
-.forgot-area label.warning{
-    color: red !important;
-    animation: warning .3s ease;
-    animation-iteration-count: 3;
-}
-
 
 .forgot-area input:focus + label,
 .forgot-area input:valid + label {
     top: 0;
     font-size: 13px; color: #166cea;
 }
-
-
 
 .btn-area {margin-top:30px;}
 .btn-area button{

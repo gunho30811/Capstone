@@ -75,8 +75,7 @@
     <table class="content_table">
         <tr>
         <td>
-        	<textarea class="content" id="content">
-			</textarea>
+        	<textarea class="content" id="content"></textarea>
 		</td>
         </tr>
         </table>

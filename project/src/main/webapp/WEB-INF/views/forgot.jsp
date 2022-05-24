@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="resources/css/forgot.css">
+    <link rel="stylesheet" href="resources/css/create.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>

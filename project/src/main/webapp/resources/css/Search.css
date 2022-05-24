@@ -151,13 +151,13 @@ span.info{
 	width: 100%;
 }
 
-.modalBox p {
+.modalBox pre {
 	color: #ffffff;
 	background-color: transparent;
-	font-size: 2rem;
+	font-size: 1.5rem;
     font-family: 'IBMPlexSansKR-ExtraLight';
 	padding: .2rem;
-    padding-left:40px;
+    padding-left:20px;
     padding-bottom:20px;
     text-align: center;
     
@@ -231,9 +231,7 @@ a{
     text-decoration: none;
     color: black;
 }
-.all{
-	background-color: #C0D0E6;
-}
+
 .all{ 
     margin-top:-10px;
    
@@ -243,7 +241,7 @@ a{
     position: absolute;
     width: 1018px;
     height: 200px;
-    background-color: #C0D0E6;
+    background-color: #7193C1;
 }
 
 .back_color2{ /***곡선 주기 위한 박스***/
@@ -251,7 +249,7 @@ a{
     top:-0.42px;
     width: 1018px;
     height: 100%;
-    background-color: #C0D0E6;
+    background-color: #7193C1;
 }
 
 /***********타이틀부터 테이블까지 묶음***********/
@@ -260,10 +258,10 @@ a{
    background-attachment: local;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    background-color: #C0D0E6;
-    width:80%;
-    
-    position:absolute;
+    background: #C0D0E6;
+    width:76.7%;
+    height:100%;
+    position:fixed;
     right:1px;
     top:-1px;
     padding-left:82.5px; 
@@ -346,11 +344,11 @@ input::-webkit-input-placeholder {
 .board_list_wrap{   
     width:1000px;
     margin-left: 35px;
-    height: 15%;
+    height: 65%;
     padding-left: 55px;
     padding-top: 40px;
     font-family: 'WooridaumB';
-
+	overflow-y:auto;
 }
 .board_list_wrap_Free{   
     width:1000px;
@@ -359,18 +357,19 @@ input::-webkit-input-placeholder {
     padding-left: 55px;
     padding-top: 40px;
     font-family: 'WooridaumB';
-
 }
 
 table{border-collapse:collapse;}
 
-.board_list{
+.board_list{ /*나는 테이블이야*/
+	position:relative;
     width: 100%;
     border-top: 2px solid #B7D5E2;
     border-bottom: 2px solid #B7D5E2;
     background: #fffafa;
     border-radius: 20px;
-    height: 65%;
+    height: auto;
+    
    
 }
 .board_list tr{
@@ -386,9 +385,7 @@ table{border-collapse:collapse;}
     text-align:left;
     
 }
-.board_list tbody tr td:nth-child(2) a{
-   
-}
+
 .board_list tbody tr td:nth-child(1):hover{
     text-decoration:underline;
     
@@ -489,7 +486,7 @@ button.f-btn{
     list-style: none;
     padding:5px;
     background:#7193C1;
-    width: 200px;
+    width: 180px;
     height: 100%;
 
     }
@@ -499,7 +496,7 @@ button.f-btn{
 }
 .bar_menu li.bar_logo:hover{
     background-color: #7193C1;
-    width:50px;
+    width:260px;
    
 }
 
@@ -518,10 +515,11 @@ button.f-btn{
         font-size:15px;
         text-align: left;
     }
+
     .bar_menu li a{
         padding:45px;
-        font-size:17px;
     }
+
 
     .bar_logo a{
         margin-left:-15px;

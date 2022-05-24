@@ -7,24 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="/resources/css/login.css">
+    <link rel="stylesheet" href="/resources/css/create.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
    
-    <section class="login-form">
+    <section class="forgot-form">
     <h1></h1>
     <div class="bar_logo">
         <a href="/">HansungProject</a>
     </div>
     <form action="/login" method="POST"> 
-        <div class="int-area">
+        <div class="forgot-area">
             <input type="text" name="id" id="userId" value=""
             autocomplete="off" required>
             <label for="id">USER NAME</label>
         </div>
 
-        <div class="int-area">
+        <div class="forgot-area">
             <input type="password" name="pw" id="userPw" value=""
             autocomplete="off" required>
             <label for="pw">PASSWORD</label>

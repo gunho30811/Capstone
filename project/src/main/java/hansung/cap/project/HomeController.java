@@ -733,7 +733,7 @@ public class HomeController {
 			}
 			model.addAttribute("pageSize", pageSize);
 			model.addAttribute("list",list);
-			return "CarModel";
+			return "SCarModel";
 		}
 		model.addAttribute("page", page);
 		model.addAttribute("nowBlock", nowBlock);
@@ -1037,6 +1037,21 @@ public class HomeController {
 		model.addAttribute("login",user_id);
 		return "ScarList";
 	}
+	
+	//-------------------------CarModel 검색결과 반환------------------//
+		@RequestMapping(value = "/SCarModel", method = RequestMethod.GET)
+		public String SCarModel(HttpServletRequest httpServletRequest, Model model) {
+			System.out.println("developer page return");
+			HttpSession session=httpServletRequest.getSession();
+			
+			String user_id=(String)session.getAttribute("userId");;
+			if(user_id==null) {
+				return "login";
+			}
+			
+			model.addAttribute("login",user_id);
+			return "SCarModel";
+		}
 }
 	/*
 	
