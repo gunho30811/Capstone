@@ -297,21 +297,18 @@ public class HomeController {
 			nowBlock = snowBlock;
 		}
 		else if(option.equals("next")) {	//페이징 다음 블럭으로
-			System.out.println("page : " + page);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage>=pageSize) {
 				String spage = Integer.toString(pageSize);
 				page=spage;
 			}
 			Integer inowBlock = Integer.parseInt(nowBlock);
-			System.out.println("blockSize : " + blockSize);
 			if(inowBlock>=blockSize) {
 				String snowBlock = Integer.toString(blockSize);
 				nowBlock = snowBlock;
 			}
 		}
 		else if(option.equals("back")) {	//페이징 이전 블럭으로
-			System.out.println("page : " + page);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage<=1) {
 				page="1";
@@ -651,8 +648,6 @@ public class HomeController {
 		model.addAttribute("blockSize", blockSize);
 		model.addAttribute("listSize", listSize);
 		model.addAttribute("pageSize", pageSize);
-		System.out.println("listSize : " + listSize);
-		System.out.println("pageSize : " + pageSize);
 		
 		String nowBlock = httpServletRequest.getParameter("nowBlock");
 		String page = httpServletRequest.getParameter("page");
@@ -802,14 +797,12 @@ public class HomeController {
 				page=spage;
 			}
 			Integer inowBlock = Integer.parseInt(nowBlock);
-			System.out.println("blockSize : " + blockSize);
 			if(inowBlock>=blockSize) {
 				String snowBlock = Integer.toString(blockSize);
 				nowBlock = snowBlock;
 			}
 		}
 		else if(option.equals("back")) {
-			System.out.println("page : " + page);
 			Integer ipage = Integer.parseInt(page);
 			if(ipage<=1) {
 				page="1";
@@ -833,7 +826,6 @@ public class HomeController {
 			}
 			
 			if(select.equals("title")) { //제목으로 검색
-				System.out.println("?????");
 				list = fDao.SearchTitle("%"+s+"%");
 				listSize = fDao.ScountBoard1("%"+s+"%");
 				if(listSize%10==0) {
