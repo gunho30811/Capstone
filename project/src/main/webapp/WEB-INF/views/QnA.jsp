@@ -18,6 +18,13 @@
 </head>
 
 <script>
+	history.replaceState({}, null, location.pathname);
+	window.onkeydown = function() {
+		var kcode = event.keyCode;
+		if(kcode == 116) {
+			history.replaceState({}, null, location.pathname);
+		}
+	}
 	function QnAView(seq){
 		var seq = seq;
 		console.log(seq);
