@@ -53,7 +53,7 @@
             <div class="forgot-area">
                 <input type="text" name="userQuestion" id="userQuestion" value=""
                 autocomplete="off" required>
-                <label id="creat_answer" type="text" onclick='change()'>ANSWER</label>
+                <label id="creat_answer" type="text" onclick='change()'>비밀번호 분실 시 찾는 질문 (클릭 해보세요)</label>
             </div>
 
             

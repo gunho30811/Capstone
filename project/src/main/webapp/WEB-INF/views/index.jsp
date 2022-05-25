@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Pront bar</title>
+    <title>Hansung Project</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" /> 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="resources/css/index.css"/>
@@ -119,7 +119,7 @@
     <div class="banner-title_two">
     	<hr>
         <p class ="title"> Car_Model</p>
-        <p class ="summary">다양한 차량에 대한 정보를 알고 싶다면</p>
+        <p class ="summary">다양한 차량에 대한 정보는 ?</p>
         <a class="arr" href="/CarModel">내용보기<img src="http://www.netchus.com/resources/img/layout/main/arr.png"></a>
     </div>
     </div>

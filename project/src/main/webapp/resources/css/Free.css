@@ -469,7 +469,6 @@ button.f-btn{
     background:#7193C1;
     width: 180px;
     height: 100%;
-
     }
 
 .bar_menu li.bar_logo{
@@ -495,6 +494,7 @@ button.f-btn{
         padding-right: 40px;
         font-size:15px;
         text-align: left;
+        font-weight: 900;
     }
 
     .bar_menu li a{
